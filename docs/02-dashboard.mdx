@@ -1,0 +1,77 @@
+---
+title: Panel de Control (Dashboard)
+description: Vista general del estado de tu propiedad con widgets personalizables y acciones rápidas.
+---
+
+El Dashboard es la pantalla principal al iniciar sesión. Ofrece una vista general del estado actual de tu propiedad con widgets personalizables.
+
+<Card
+  title="Ir al Dashboard"
+  icon="layout-dashboard"
+  href="https://app.hotelgest.com/dashboard"
+  ctaText="Abrir Dashboard"
+/>
+
+---
+
+## Widgets disponibles
+
+<Tabs>
+  <TabItem value="ingresos" label="Gráfico de Ingresos Anuales">
+    Gráfico de área con evolución mensual comparando el año actual con el anterior. Tres pestañas:
+    - **Noches**: Total de noches vendidas en lo que va de año vs. año anterior  
+    - **Producción**: Ingresos acumulados y previstos vs. año anterior  
+    - **Ocupación**: Porcentaje de ocupación acumulado vs. año anterior  
+  </TabItem>
+  <TabItem value="ocupacion" label="Ocupación Actual">
+    Porcentajes de ocupación en dos niveles: **Mes** (mes en curso) y **Año** (acumulado del año).
+  </TabItem>
+  <TabItem value="reservas" label="Reservas Recibidas">
+    Número de reservas en tres períodos: **Hoy**, **Mes** y **Año**.
+  </TabItem>
+  <TabItem value="lista" label="Lista de Reservas">
+    Lista filtrable con pestañas **Llegadas**, **In-House** y **Salidas**. Cada reserva muestra avatar, nombre, OTA, localizador, ocupación, noches, hora y estado de check-in/check-out.
+  </TabItem>
+  <TabItem value="tareas" label="Tareas (To-Dos)">
+    Tres pestañas: **Por fecha**, **Fijas**, **Reservas** (vinculadas a reservas con habitación y localizador). Incluye selector de fecha y marcadores visuales.
+  </TabItem>
+  <TabItem value="housekeeping" label="Housekeeping">
+    Resumen por estado: <Badge color="green">Inspeccionadas</Badge> (listas), <Badge color="blue">Limpias</Badge>, <Badge color="red">Sucias</Badge>, con código de color distintivo.
+  </TabItem>
+</Tabs>
+
+---
+
+## Personalización
+
+<Columns size="2">
+  <Column>
+    <Card title="En escritorio" icon="monitor" horizontal>
+      Los widgets se pueden **arrastrar y reorganizar** según tu preferencia. El orden y la disposición se guardan automáticamente.
+    </Card>
+  </Column>
+  <Column>
+    <Card title="En móvil" icon="smartphone" horizontal>
+      Los widgets se muestran en un carrusel deslizable. La lista de reservas tiene tres vistas: hoy, mañana y pasado mañana.
+    </Card>
+  </Column>
+</Columns>
+
+---
+
+## Acciones rápidas
+
+Desde el Dashboard puedes acceder directamente a:
+
+<Tiles>
+  <Tile title="Crear reserva" href="https://app.hotelgest.com/dashboard" description="Abre el formulario de nueva reserva" />
+  <Tile title="Escanear documento" href="https://app.hotelgest.com/dashboard" description="Escanea el documento de identidad de un huésped" />
+  <Tile title="Rack de limpieza" href="https://app.hotelgest.com/housekeeping" description="Accede a la vista de housekeeping" />
+  <Tile title="Disponibilidad" href="https://app.hotelgest.com/planning/availability" description="Consulta la disponibilidad de habitaciones" />
+  <Tile title="Última actividad" href="https://app.hotelgest.com/activity" description="Revisa las acciones recientes" />
+  <Tile title="Puertas/Llaves" href="https://app.hotelgest.com/dashboard" description="Gestión de cerraduras electrónicas (si está integrado)" />
+</Tiles>
+
+<Callout type="tip" title="Atajo">
+  Usa el menú lateral o las acciones rápidas del Dashboard para saltar a cualquier módulo sin buscar en el menú.
+</Callout>

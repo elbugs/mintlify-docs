@@ -1,0 +1,1003 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/booking-engine/auth": {
+      "post": {
+        "description": "Authenticate property for booking engine access. \n      \n The username \n      \n - is the first part of the property's UUID.\n      \n The password \n      \n - expires in 5 minutes. \n      \n - should be a base64 encoded timestamp (btoa(Date.now())).",
+        "operationId": "BookingEngineController_authProperty",
+        "parameters": [
+          {
+            "name": "x-booking-engine-key",
+            "in": "header",
+            "description": "Booking Engine Key for accessing this endpoint\n      \n How to build it:\n      \n - take the property's UUID and split it into two parts using the hyphen (-) as a separator.\n      \n - the first part will be the username.\n      \n - the second part will be the password.\n      \n - concatenate the username and password with a colon (:) in between (e.g., username:password).\n      \n - encode the resulting string using base64 encoding.\n      \n - use the base64 encoded string as the value for the 'x-booking-engine-key' header.\n      \n Example:\n      \n - Property UUID: 123e4567-e89b-12d3-a456-426614174000\n      \n - Username: 123e4567\n      \n - Password: e89b-12d3-a456-426614174000\n      \n - Concatenated String: 123e4567:e89b-12d3-a456-426614174000\n      \n - Base64 Encoded: MTIzZTQ1Njc6ZTg5Yi0xMmQzLWE0NTYtNDI2NjE0MTc0MDAw\n    ",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginBookingEngineDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthPropertyResponse"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "BookingEngineKey-auth": []
+          }
+        ],
+        "summary": "Authentication",
+        "tags": [
+          "BookingEngine"
+        ]
+      }
+    },
+    "/api/booking-engine/property": {
+      "get": {
+        "description": "Check property details for booking engine",
+        "operationId": "BookingEngineController_getProperty",
+        "parameters": [
+          {
+            "name": "x-booking-engine-key",
+            "in": "header",
+            "description": "Booking Engine Key for accessing this endpoint\n      \n How to build it:\n      \n - take the property's UUID and split it into two parts using the hyphen (-) as a separator.\n      \n - the first part will be the username.\n      \n - the second part will be the password.\n      \n - concatenate the username and password with a colon (:) in between (e.g., username:password).\n      \n - encode the resulting string using base64 encoding.\n      \n - use the base64 encoded string as the value for the 'x-booking-engine-key' header.\n      \n Example:\n      \n - Property UUID: 123e4567-e89b-12d3-a456-426614174000\n      \n - Username: 123e4567\n      \n - Password: e89b-12d3-a456-426614174000\n      \n - Concatenated String: 123e4567:e89b-12d3-a456-426614174000\n      \n - Base64 Encoded: MTIzZTQ1Njc6ZTg5Yi0xMmQzLWE0NTYtNDI2NjE0MTc0MDAw\n    ",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok."
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "BookingEngineKey-auth": []
+          },
+          {
+            "JWT-BookingEngine-auth": []
+          }
+        ],
+        "summary": "Get Property",
+        "tags": [
+          "BookingEngine"
+        ]
+      }
+    },
+    "/api/booking-engine/policies": {
+      "get": {
+        "description": "Check property policies for booking engine",
+        "operationId": "BookingEngineController_getPolicies",
+        "parameters": [
+          {
+            "name": "x-booking-engine-key",
+            "in": "header",
+            "description": "Booking Engine Key for accessing this endpoint\n      \n How to build it:\n      \n - take the property's UUID and split it into two parts using the hyphen (-) as a separator.\n      \n - the first part will be the username.\n      \n - the second part will be the password.\n      \n - concatenate the username and password with a colon (:) in between (e.g., username:password).\n      \n - encode the resulting string using base64 encoding.\n      \n - use the base64 encoded string as the value for the 'x-booking-engine-key' header.\n      \n Example:\n      \n - Property UUID: 123e4567-e89b-12d3-a456-426614174000\n      \n - Username: 123e4567\n      \n - Password: e89b-12d3-a456-426614174000\n      \n - Concatenated String: 123e4567:e89b-12d3-a456-426614174000\n      \n - Base64 Encoded: MTIzZTQ1Njc6ZTg5Yi0xMmQzLWE0NTYtNDI2NjE0MTc0MDAw\n    ",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok."
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "BookingEngineKey-auth": []
+          },
+          {
+            "JWT-BookingEngine-auth": []
+          }
+        ],
+        "summary": "Get Policies",
+        "tags": [
+          "BookingEngine"
+        ]
+      }
+    },
+    "/api/booking-engine/room-type/{roomTypeId}": {
+      "get": {
+        "description": "Check room type details for booking engine",
+        "operationId": "BookingEngineController_getRoomType",
+        "parameters": [
+          {
+            "name": "roomTypeId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "x-booking-engine-key",
+            "in": "header",
+            "description": "Booking Engine Key for accessing this endpoint\n      \n How to build it:\n      \n - take the property's UUID and split it into two parts using the hyphen (-) as a separator.\n      \n - the first part will be the username.\n      \n - the second part will be the password.\n      \n - concatenate the username and password with a colon (:) in between (e.g., username:password).\n      \n - encode the resulting string using base64 encoding.\n      \n - use the base64 encoded string as the value for the 'x-booking-engine-key' header.\n      \n Example:\n      \n - Property UUID: 123e4567-e89b-12d3-a456-426614174000\n      \n - Username: 123e4567\n      \n - Password: e89b-12d3-a456-426614174000\n      \n - Concatenated String: 123e4567:e89b-12d3-a456-426614174000\n      \n - Base64 Encoded: MTIzZTQ1Njc6ZTg5Yi0xMmQzLWE0NTYtNDI2NjE0MTc0MDAw\n    ",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok."
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "BookingEngineKey-auth": []
+          },
+          {
+            "JWT-BookingEngine-auth": []
+          }
+        ],
+        "summary": "Get Room Type",
+        "tags": [
+          "BookingEngine"
+        ]
+      }
+    },
+    "/api/booking-engine/prices": {
+      "get": {
+        "description": "Get property prices for booking engine",
+        "operationId": "BookingEngineController_getPrices",
+        "parameters": [
+          {
+            "name": "start",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "example": "YYYY-MM-DD",
+              "type": "string"
+            }
+          },
+          {
+            "name": "end",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "example": "YYYY-MM-DD",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-booking-engine-key",
+            "in": "header",
+            "description": "Booking Engine Key for accessing this endpoint\n      \n How to build it:\n      \n - take the property's UUID and split it into two parts using the hyphen (-) as a separator.\n      \n - the first part will be the username.\n      \n - the second part will be the password.\n      \n - concatenate the username and password with a colon (:) in between (e.g., username:password).\n      \n - encode the resulting string using base64 encoding.\n      \n - use the base64 encoded string as the value for the 'x-booking-engine-key' header.\n      \n Example:\n      \n - Property UUID: 123e4567-e89b-12d3-a456-426614174000\n      \n - Username: 123e4567\n      \n - Password: e89b-12d3-a456-426614174000\n      \n - Concatenated String: 123e4567:e89b-12d3-a456-426614174000\n      \n - Base64 Encoded: MTIzZTQ1Njc6ZTg5Yi0xMmQzLWE0NTYtNDI2NjE0MTc0MDAw\n    ",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok."
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "BookingEngineKey-auth": []
+          },
+          {
+            "JWT-BookingEngine-auth": []
+          }
+        ],
+        "summary": "Get Prices",
+        "tags": [
+          "BookingEngine"
+        ]
+      }
+    },
+    "/api/booking-engine/packs": {
+      "get": {
+        "description": "Get property packs for booking engine",
+        "operationId": "BookingEngineController_getPacks",
+        "parameters": [
+          {
+            "name": "start",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "example": "YYYY-MM-DD",
+              "type": "string"
+            }
+          },
+          {
+            "name": "end",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "example": "YYYY-MM-DD",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-booking-engine-key",
+            "in": "header",
+            "description": "Booking Engine Key for accessing this endpoint\n      \n How to build it:\n      \n - take the property's UUID and split it into two parts using the hyphen (-) as a separator.\n      \n - the first part will be the username.\n      \n - the second part will be the password.\n      \n - concatenate the username and password with a colon (:) in between (e.g., username:password).\n      \n - encode the resulting string using base64 encoding.\n      \n - use the base64 encoded string as the value for the 'x-booking-engine-key' header.\n      \n Example:\n      \n - Property UUID: 123e4567-e89b-12d3-a456-426614174000\n      \n - Username: 123e4567\n      \n - Password: e89b-12d3-a456-426614174000\n      \n - Concatenated String: 123e4567:e89b-12d3-a456-426614174000\n      \n - Base64 Encoded: MTIzZTQ1Njc6ZTg5Yi0xMmQzLWE0NTYtNDI2NjE0MTc0MDAw\n    ",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok."
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "BookingEngineKey-auth": []
+          },
+          {
+            "JWT-BookingEngine-auth": []
+          }
+        ],
+        "summary": "Get Packs",
+        "tags": [
+          "BookingEngine"
+        ]
+      }
+    },
+    "/api/booking-engine/availability": {
+      "get": {
+        "description": "Check property availability for booking engine",
+        "operationId": "BookingEngineController_getAvailability",
+        "parameters": [
+          {
+            "name": "start",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "example": "YYYY-MM-DD",
+              "type": "string"
+            }
+          },
+          {
+            "name": "end",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "example": "YYYY-MM-DD",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-booking-engine-key",
+            "in": "header",
+            "description": "Booking Engine Key for accessing this endpoint\n      \n How to build it:\n      \n - take the property's UUID and split it into two parts using the hyphen (-) as a separator.\n      \n - the first part will be the username.\n      \n - the second part will be the password.\n      \n - concatenate the username and password with a colon (:) in between (e.g., username:password).\n      \n - encode the resulting string using base64 encoding.\n      \n - use the base64 encoded string as the value for the 'x-booking-engine-key' header.\n      \n Example:\n      \n - Property UUID: 123e4567-e89b-12d3-a456-426614174000\n      \n - Username: 123e4567\n      \n - Password: e89b-12d3-a456-426614174000\n      \n - Concatenated String: 123e4567:e89b-12d3-a456-426614174000\n      \n - Base64 Encoded: MTIzZTQ1Njc6ZTg5Yi0xMmQzLWE0NTYtNDI2NjE0MTc0MDAw\n    ",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok."
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "BookingEngineKey-auth": []
+          },
+          {
+            "JWT-BookingEngine-auth": []
+          }
+        ],
+        "summary": "Get Availability",
+        "tags": [
+          "BookingEngine"
+        ]
+      }
+    },
+    "/api/booking-engine/promo-codes": {
+      "get": {
+        "description": "Get promo codes for booking engine",
+        "operationId": "BookingEngineController_getPromoCodes",
+        "parameters": [
+          {
+            "name": "x-booking-engine-key",
+            "in": "header",
+            "description": "Booking Engine Key for accessing this endpoint\n      \n How to build it:\n      \n - take the property's UUID and split it into two parts using the hyphen (-) as a separator.\n      \n - the first part will be the username.\n      \n - the second part will be the password.\n      \n - concatenate the username and password with a colon (:) in between (e.g., username:password).\n      \n - encode the resulting string using base64 encoding.\n      \n - use the base64 encoded string as the value for the 'x-booking-engine-key' header.\n      \n Example:\n      \n - Property UUID: 123e4567-e89b-12d3-a456-426614174000\n      \n - Username: 123e4567\n      \n - Password: e89b-12d3-a456-426614174000\n      \n - Concatenated String: 123e4567:e89b-12d3-a456-426614174000\n      \n - Base64 Encoded: MTIzZTQ1Njc6ZTg5Yi0xMmQzLWE0NTYtNDI2NjE0MTc0MDAw\n    ",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok."
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "BookingEngineKey-auth": []
+          },
+          {
+            "JWT-BookingEngine-auth": []
+          }
+        ],
+        "summary": "Get Promo Codes",
+        "tags": [
+          "BookingEngine"
+        ]
+      }
+    },
+    "/api/booking-engine/products": {
+      "get": {
+        "description": "Get products for booking engine",
+        "operationId": "BookingEngineController_getProducts",
+        "parameters": [
+          {
+            "name": "x-booking-engine-key",
+            "in": "header",
+            "description": "Booking Engine Key for accessing this endpoint\n      \n How to build it:\n      \n - take the property's UUID and split it into two parts using the hyphen (-) as a separator.\n      \n - the first part will be the username.\n      \n - the second part will be the password.\n      \n - concatenate the username and password with a colon (:) in between (e.g., username:password).\n      \n - encode the resulting string using base64 encoding.\n      \n - use the base64 encoded string as the value for the 'x-booking-engine-key' header.\n      \n Example:\n      \n - Property UUID: 123e4567-e89b-12d3-a456-426614174000\n      \n - Username: 123e4567\n      \n - Password: e89b-12d3-a456-426614174000\n      \n - Concatenated String: 123e4567:e89b-12d3-a456-426614174000\n      \n - Base64 Encoded: MTIzZTQ1Njc6ZTg5Yi0xMmQzLWE0NTYtNDI2NjE0MTc0MDAw\n    ",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok."
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "BookingEngineKey-auth": []
+          },
+          {
+            "JWT-BookingEngine-auth": []
+          }
+        ],
+        "summary": "Get Products",
+        "tags": [
+          "BookingEngine"
+        ]
+      }
+    },
+    "/api/booking-engine/booking": {
+      "post": {
+        "description": "Add a booking for a property through the booking engine",
+        "operationId": "BookingEngineController_addBooking",
+        "parameters": [
+          {
+            "name": "x-booking-engine-key",
+            "in": "header",
+            "description": "Booking Engine Key for accessing this endpoint\n      \n How to build it:\n      \n - take the property's UUID and split it into two parts using the hyphen (-) as a separator.\n      \n - the first part will be the username.\n      \n - the second part will be the password.\n      \n - concatenate the username and password with a colon (:) in between (e.g., username:password).\n      \n - encode the resulting string using base64 encoding.\n      \n - use the base64 encoded string as the value for the 'x-booking-engine-key' header.\n      \n Example:\n      \n - Property UUID: 123e4567-e89b-12d3-a456-426614174000\n      \n - Username: 123e4567\n      \n - Password: e89b-12d3-a456-426614174000\n      \n - Concatenated String: 123e4567:e89b-12d3-a456-426614174000\n      \n - Base64 Encoded: MTIzZTQ1Njc6ZTg5Yi0xMmQzLWE0NTYtNDI2NjE0MTc0MDAw\n    ",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddBookingFromBookingEngineDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok."
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "BookingEngineKey-auth": []
+          },
+          {
+            "JWT-BookingEngine-auth": []
+          }
+        ],
+        "summary": "Add Booking",
+        "tags": [
+          "BookingEngine"
+        ]
+      }
+    },
+    "/api/booking-engine/init-payment": {
+      "post": {
+        "description": "Initialize payment for booking engine",
+        "operationId": "BookingEngineController_initPayment",
+        "parameters": [
+          {
+            "name": "x-booking-engine-key",
+            "in": "header",
+            "description": "Booking Engine Key for accessing this endpoint\n      \n How to build it:\n      \n - take the property's UUID and split it into two parts using the hyphen (-) as a separator.\n      \n - the first part will be the username.\n      \n - the second part will be the password.\n      \n - concatenate the username and password with a colon (:) in between (e.g., username:password).\n      \n - encode the resulting string using base64 encoding.\n      \n - use the base64 encoded string as the value for the 'x-booking-engine-key' header.\n      \n Example:\n      \n - Property UUID: 123e4567-e89b-12d3-a456-426614174000\n      \n - Username: 123e4567\n      \n - Password: e89b-12d3-a456-426614174000\n      \n - Concatenated String: 123e4567:e89b-12d3-a456-426614174000\n      \n - Base64 Encoded: MTIzZTQ1Njc6ZTg5Yi0xMmQzLWE0NTYtNDI2NjE0MTc0MDAw\n    ",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InitPaymentForBookingEngineDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok."
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "BookingEngineKey-auth": []
+          },
+          {
+            "JWT-BookingEngine-auth": []
+          }
+        ],
+        "summary": "Init Payment",
+        "tags": [
+          "BookingEngine"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "UNIFIED API",
+    "description": "The UNIFIED API documentation",
+    "version": "1.0",
+    "contact": {
+      "name": "Agustín Ramos Peruzzo",
+      "url": "https://hotelgest.com",
+      "email": "agustin@hotelgest.com"
+    },
+    "license": {
+      "name": "Proprietary",
+      "url": "https://hotelgest.com/disclaimer"
+    }
+  },
+  "tags": [],
+  "servers": [
+    {
+      "url": "https://uni-api.hotelgest.com",
+      "description": "Production Server"
+    },
+    {
+      "url": "https://uni-api-test.hotelgest.com",
+      "description": "Test Server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BookingEngineKey-auth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-booking-engine-key",
+        "description": "Your Booking Engine Key"
+      },
+      "JWT-BookingEngine-auth": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http",
+        "description": "Enter JWT booking engine token"
+      }
+    },
+    "schemas": {
+      "LoginBookingEngineDto": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "Username (first part of the uuid)",
+            "example": "7fb8441b"
+          },
+          "password": {
+            "type": "string",
+            "description": "Password (timestamp utc base64 encoded) btoa(Date.now())",
+            "example": "xxxxx"
+          }
+        },
+        "required": [
+          "username",
+          "password"
+        ]
+      },
+      "AuthPropertyResponse": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+            "description": "JWT token for booking engine access"
+          }
+        }
+      },
+      "ReservationCustomerDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "John"
+          },
+          "surname": {
+            "type": "string",
+            "example": "Doe"
+          },
+          "email": {
+            "type": "string",
+            "example": "john.doe@email.com"
+          },
+          "phone": {
+            "type": "string",
+            "example": "+34600111222"
+          },
+          "city": {
+            "type": "string",
+            "example": "Barcelona"
+          },
+          "address": {
+            "type": "string",
+            "example": "Main Street 123"
+          },
+          "country": {
+            "type": "string",
+            "example": "ESP",
+            "description": "ISO 3166-1 alpha-3 country code"
+          },
+          "zip": {
+            "type": "string",
+            "example": "08001"
+          },
+          "language_iso": {
+            "type": "string",
+            "enum": [
+              "es",
+              "en",
+              "it",
+              "ca",
+              "fr",
+              "de",
+              "eu",
+              "ru",
+              "gl"
+            ]
+          },
+          "province": {
+            "type": "string",
+            "example": "Barcelona"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "vat": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "surname",
+          "email",
+          "phone",
+          "city",
+          "address",
+          "country",
+          "zip",
+          "language_iso",
+          "province"
+        ]
+      },
+      "ReservationRoomDto": {
+        "type": "object",
+        "properties": {
+          "rtcode": {
+            "type": "string",
+            "example": "11111"
+          },
+          "occupancy": {
+            "type": "number",
+            "example": 2
+          },
+          "men": {
+            "type": "number",
+            "example": 2
+          },
+          "children": {
+            "type": "number",
+            "example": 0
+          },
+          "board": {
+            "type": "string",
+            "example": "bb"
+          },
+          "policy": {
+            "type": "string",
+            "example": "4"
+          },
+          "dayprices": {
+            "type": "string"
+          },
+          "pack": {
+            "type": "number",
+            "example": 0
+          },
+          "amount": {
+            "type": "number",
+            "example": 300
+          },
+          "orig_amount": {
+            "type": "number",
+            "example": 300
+          }
+        },
+        "required": [
+          "rtcode",
+          "occupancy",
+          "men",
+          "children",
+          "board",
+          "policy",
+          "dayprices",
+          "pack",
+          "amount",
+          "orig_amount"
+        ]
+      },
+      "ReservationProductDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "11111"
+          },
+          "quantity": {
+            "type": "number",
+            "example": 2
+          },
+          "priceTpv": {
+            "type": "number",
+            "example": 25
+          }
+        },
+        "required": [
+          "id",
+          "quantity",
+          "priceTpv"
+        ]
+      },
+      "AddBookingFromBookingEngineDto": {
+        "type": "object",
+        "properties": {
+          "captcha": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number",
+            "example": 350
+          },
+          "customer": {
+            "$ref": "#/components/schemas/ReservationCustomerDto"
+          },
+          "customer_notes": {
+            "type": "string"
+          },
+          "fromDate": {
+            "type": "string",
+            "example": "2026-07-01"
+          },
+          "toDate": {
+            "type": "string",
+            "example": "2026-07-05"
+          },
+          "rooms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReservationRoomDto"
+            }
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReservationProductDto"
+            }
+          },
+          "status": {
+            "type": "number",
+            "enum": [
+              1,
+              5
+            ]
+          }
+        },
+        "required": [
+          "captcha",
+          "amount",
+          "customer",
+          "fromDate",
+          "toDate",
+          "rooms",
+          "status"
+        ]
+      },
+      "InitPaymentForBookingEngineDto": {
+        "type": "object",
+        "properties": {
+          "bookingId": {
+            "type": "number"
+          },
+          "paymentType": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "bookingId",
+          "paymentType",
+          "amount"
+        ]
+      }
+    }
+  }
+}

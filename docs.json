@@ -1,0 +1,77 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Hotelgest Unified",
+  "logo": {
+    "dark": "/logo/logo-dark.svg",
+    "light": "/logo/logo-light.svg"
+  },
+  "favicon": "/favicon.ico",
+  "colors": {
+    "primary": "#0D9373",
+    "light": "#0D9373",
+    "dark": "#0a7560"
+  },
+  "banner": {
+    "content": "Bienvenido a la documentación de Hotelgest Unified. [Ir a la aplicación](https://app.hotelgest.com) · [Soporte](https://help.hotelgest.com)",
+    "dismissible": true
+  },
+  "topbarLinks": [
+    { "name": "Ir a la aplicación", "url": "https://app.hotelgest.com" }
+  ],
+  "topbarCtaButton": {
+    "name": "Iniciar sesión",
+    "url": "https://app.hotelgest.com/login"
+  },
+  "anchors": [
+    { "name": "Aplicación", "icon": "house", "url": "https://app.hotelgest.com" },
+    { "name": "Soporte", "icon": "headset", "url": "https://help.hotelgest.com" }
+  ],
+  "tabs": [
+    { "name": "Guía de usuario", "url": "guia" },
+    { "name": "API Reference", "url": "api" }
+  ],
+  "navigation": {
+    "groups": [
+      {
+        "group": "Guía de usuario",
+        "pages": [
+          "README",
+          "01-inicio-y-autenticacion",
+          "02-dashboard",
+          "03-planificacion",
+          "04-reservas",
+          "05-facturacion-y-pagos",
+          "06-housekeeping",
+          "07-informes",
+          "08-motor-de-reservas",
+          "09-comunicaciones",
+          "10-recepcion-automatica",
+          "11-configuracion",
+          "12-integraciones",
+          "13-multipropiedad",
+          "14-actividad-e-historial",
+          "15-academia-y-ayuda",
+          "16-aplicacion-movil",
+          "17-administracion-super-admin"
+        ]
+      },
+      {
+        "group": "API Reference",
+        "pages": [
+          { "group": "Public API", "openapi": "public-api.swagger.json" },
+          { "group": "Booking Engine API", "openapi": "booking-engine-api.swagger.json" }
+        ]
+      }
+    ]
+  },
+  "footerSocials": {
+    "twitter": "https://twitter.com/hotelgest",
+    "linkedin": "https://www.linkedin.com/company/hotelgest"
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs"
+  },
+  "icons": {
+    "library": "lucide"
+  }
+}

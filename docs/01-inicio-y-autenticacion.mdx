@@ -1,0 +1,232 @@
+---
+title: Inicio y Autenticación
+description: Cómo iniciar sesión en Hotelgest Unified, recuperar contraseña, 2FA, Face ID y gestión de sesiones.
+---
+
+Para entrar en Hotelgest Unified necesitas tu **nombre de usuario** y **contraseña**. El login se hace en dos pasos: primero el usuario, luego la contraseña. Desde la app móvil puedes usar además Face ID o huella.
+
+<Card
+  title="Ir a la pantalla de login"
+  icon="log-in"
+  href="https://app.hotelgest.com/login"
+  ctaText="Abrir login"
+/>
+
+<AccordionGroup>
+  <Accordion title="En este artículo" icon="list" defaultOpen={true}>
+    - Inicio de sesión paso a paso  
+    - Acceso biométrico en móvil  
+    - Recuperar contraseña  
+    - Autenticación en dos pasos (2FA)  
+    - Verificación de email  
+    - Gestión de sesiones  
+    - Requisitos de usuario y contraseña  
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Cómo es el proceso de inicio de sesión
+
+El login está dividido en dos pantallas: primero identificas tu cuenta con el usuario y después introduces la contraseña. Así se evita escribir la contraseña a la vista en la primera pantalla.
+
+<Callout type="info" title="Qué necesitas">
+  El nombre de usuario y la contraseña que te haya dado tu administrador (o que hayas elegido al crear la cuenta).
+</Callout>
+
+---
+
+## Paso 1: Introducir el nombre de usuario
+
+<Steps>
+  <Step title="Abrir la pantalla de login">
+    Abre [app.hotelgest.com/login](https://app.hotelgest.com/login) en el navegador o la app en el móvil.
+  </Step>
+  <Step title="Escribir el usuario">
+    En el primer campo escribe tu **nombre de usuario** (suele ser un identificador corto, no tu email).
+  </Step>
+  <Step title="Continuar">
+    Pulsa el botón **Continuar**. Verás entonces la pantalla de la contraseña. Si te equivocaste de usuario, usa **Cambiar usuario** para volver atrás.
+  </Step>
+</Steps>
+
+---
+
+## Paso 2: Introducir la contraseña y completar el acceso
+
+<Steps>
+  <Step title="Escribir la contraseña">
+    En el campo **Contraseña** escribe tu contraseña.
+  </Step>
+  <Step title="reCAPTCHA (solo web)">
+    En la **versión web**, marca la casilla **No soy un robot** (reCAPTCHA).
+  </Step>
+  <Step title="Iniciar sesión">
+    Pulsa el botón **Iniciar sesión**.
+  </Step>
+</Steps>
+
+<Tabs>
+  <TabItem value="web" label="Versión web">
+    Debes marcar el reCAPTCHA antes de poder iniciar sesión. Si el usuario o la contraseña no son correctos, verás un mensaje de error.
+  </TabItem>
+  <TabItem value="movil" label="App móvil">
+    No se muestra el reCAPTCHA; solo el campo de contraseña y el botón. Comprueba que no tengas las mayúsculas activadas y que el usuario sea el correcto.
+  </TabItem>
+</Tabs>
+
+---
+
+## Usar Face ID o huella en el móvil
+
+Puedes configurar el acceso con <Tooltip content="Face ID (iPhone) o huella dactilar (Android/iOS) para no escribir la contraseña cada vez">acceso biométrico</Tooltip> para no escribir la contraseña cada vez.
+
+<Steps>
+  <Step title="Activar acceso biométrico">
+    En la pantalla de la contraseña, marca la casilla **Acceso biométrico**.
+  </Step>
+  <Step title="Siguientes accesos">
+    La próxima vez que abras la app podrás entrar con tu cara o huella.
+  </Step>
+</Steps>
+
+<Callout type="tip" title="Disponibilidad">
+  La opción solo aparece si tu dispositivo lo permite. Si no la ves, revisa la configuración del sistema.
+</Callout>
+
+---
+
+## He olvidado mi contraseña
+
+<Callout type="warning" title="Solo desde la versión web">
+  El restablecimiento de contraseña solo está disponible en la **versión web**. Si estás en la app, abre el navegador y ve a la misma dirección de login.
+</Callout>
+
+### Solicitar el enlace
+
+<Steps>
+  <Step title="Enlace de recuperación">
+    En la pantalla de login (web), haz clic en **¿Olvidaste tu contraseña?**
+  </Step>
+  <Step title="Email">
+    Introduce el **correo electrónico** de tu cuenta.
+  </Step>
+  <Step title="Enviar">
+    Marca el reCAPTCHA y pulsa **Enviar**. Recibirás un email con un enlace y un **código** de verificación. Revisa la carpeta de spam si no llega.
+  </Step>
+</Steps>
+
+### Crear la nueva contraseña
+
+<Steps>
+  <Step title="Abrir el enlace">
+    Abre el **enlace** del email en el navegador.
+  </Step>
+  <Step title="Nueva contraseña">
+    Escribe la **nueva contraseña** y **repítela** en el segundo campo.
+  </Step>
+  <Step title="Código y verificar">
+    Introduce el **código** del email, marca el reCAPTCHA y pulsa **Restablecer**. Podrás iniciar sesión con la nueva contraseña.
+  </Step>
+</Steps>
+
+---
+
+## Me pide un código de 6 dígitos (2FA)
+
+Si tienes activada la <Tooltip content="Autenticación en dos factores: un código generado por una app (Google Authenticator, Authy, etc.) que cambia cada 30 segundos">autenticación en dos pasos (2FA)</Tooltip>, después de usuario y contraseña te pedirá un código de 6 dígitos.
+
+<Steps>
+  <Step title="Abrir la app de códigos">
+    Abre la app de códigos en tu móvil (Google Authenticator, Authy, etc.).
+  </Step>
+  <Step title="Buscar Hotelgest">
+    Busca **Hotelgest** (o el nombre que le hayas puesto) y copia el código de 6 dígitos.
+  </Step>
+  <Step title="Introducir el código">
+    Pégalo o escríbelo en la pantalla de login y pulsa continuar.
+  </Step>
+</Steps>
+
+<Callout type="warning" title="Si no acepta el código">
+  Comprueba que la **hora del móvil** sea correcta; las apps de códigos dependen de ella.
+</Callout>
+
+**Activar o desactivar 2FA:** Configuración → Perfil → **Autenticación de dos factores**.
+
+---
+
+## Verificar mi correo electrónico
+
+Cuando se crea tu cuenta o se cambia el email, te enviamos un correo de verificación.
+
+<Steps>
+  <Step title="Abrir el correo">
+    Abre el **correo** y haz clic en el **enlace** de verificación.
+  </Step>
+  <Step title="Código y verificar">
+    Introduce el **código** que aparece en el mismo email, marca el reCAPTCHA si te lo pide y pulsa **Verificar**.
+  </Step>
+</Steps>
+
+---
+
+## Ver y cerrar sesiones en otros dispositivos
+
+Puedes ver en qué dispositivos tienes sesión abierta y cerrarla en los que ya no uses.
+
+<Steps>
+  <Step title="Ir a Sesiones">
+    Entra en Hotelgest y ve a **Configuración** → **Perfil** → **Sesiones**.
+  </Step>
+  <Step title="Lista de dispositivos">
+    Verás la lista de dispositivos con sesión activa.
+  </Step>
+  <Step title="Cerrar sesión">
+    Usa **Cerrar sesión** en el dispositivo que quieras desconectar. No afecta a los demás.
+  </Step>
+</Steps>
+
+---
+
+## Requisitos de usuario y contraseña
+
+<AccordionGroup>
+  <Accordion title="Contraseña" icon="lock">
+    - Mínimo **6 caracteres**  
+    - Al menos **una mayúscula**  
+    - Al menos **un carácter especial** (símbolo o número)  
+    Si no cumples estas reglas, el sistema te lo indicará al guardar o al iniciar sesión.
+  </Accordion>
+  <Accordion title="Nombre de usuario" icon="user">
+    - Mínimo **6 caracteres**  
+    - Solo **letras minúsculas**, **números** y **puntos**  
+    - No se permiten **puntos seguidos** (..)  
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Resumen y qué hacer si algo falla
+
+<Callout type="check" title="Resumen">
+  Para entrar: (1) abre la pantalla de login, (2) escribe tu usuario y pulsa Continuar, (3) escribe tu contraseña, completa el reCAPTCHA si estás en web y pulsa Iniciar sesión. Si tienes 2FA, introduce el código de 6 dígitos. Desde el móvil puedes usar Face ID o huella si activas Acceso biométrico.
+</Callout>
+
+<Callout type="danger" title="Si no consigues entrar">
+  Comprueba usuario, contraseña y (si usas 2FA) la hora del dispositivo. Si el problema continúa, contacta con el administrador de tu propiedad o con soporte de Hotelgest.
+</Callout>
+
+<Card
+  title="Ver también"
+  icon="book-open"
+  href="/11-configuracion"
+  ctaText="Configuración y perfil"
+/>
+
+<Card
+  title="Ir a la pantalla de login"
+  icon="log-in"
+  href="https://app.hotelgest.com/login"
+  ctaText="Abrir login"
+/>

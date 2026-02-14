@@ -1,0 +1,4087 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/v2/rooms/{pcode}/availability": {
+      "get": {
+        "operationId": "RoomsController_getAvailabilityByPcodeV2_v2",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "bookingId",
+            "required": false,
+            "in": "query",
+            "description": "if you want to exclude the room of the specified booking ID, include this parameter",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "end",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "example": "YYYY-MM-DD",
+              "type": "string"
+            }
+          },
+          {
+            "name": "start",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "example": "YYYY-MM-DD",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAvailabilityByPcodeResponseV2Dto"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Get rooms availability V2",
+        "tags": [
+          "Rooms"
+        ]
+      }
+    },
+    "/api/rooms/{pcode}/types": {
+      "get": {
+        "operationId": "RoomsController_getRoomTypesByPcode",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "RoomTypes indexed by roomTypeId",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/RoomTypeDto"
+                  },
+                  "example": {
+                    "101": {
+                      "id": 101,
+                      "name": {
+                        "en": "Single Room",
+                        "fr": "Chambre Simple"
+                      },
+                      "description": {
+                        "en": "A room for one person",
+                        "fr": "Une chambre pour une personne"
+                      },
+                      "position": 1,
+                      "occupancy": 1,
+                      "color": "#FF5733",
+                      "splits": {
+                        "1": {
+                          "name": "Standard",
+                          "color": "#33FF57"
+                        },
+                        "2": {
+                          "name": "Deluxe",
+                          "color": "#3357FF"
+                        }
+                      },
+                      "rooms": {
+                        "1": {
+                          "id": 1,
+                          "name": "101",
+                          "doorNum": "101",
+                          "roomTypeId": 101,
+                          "status": "dirty",
+                          "floor": 1,
+                          "position": 1
+                        },
+                        "2": {
+                          "id": 2,
+                          "name": "102",
+                          "doorNum": "102",
+                          "roomTypeId": 101,
+                          "status": "ready",
+                          "floor": 1,
+                          "position": 2,
+                          "locked": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Get rooms types by pcode",
+        "tags": [
+          "Rooms"
+        ]
+      }
+    },
+    "/api/v2/bookings/{pcode}/search": {
+      "get": {
+        "description": "Retrieve bookings based on a specific pcode",
+        "operationId": "ImagesController_getBookingsSearchV2_v2",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "value",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "roomTypeId",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "status",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "enum": [
+                "ready",
+                "tentative",
+                "cancelled",
+                "no-show"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "end",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "example": "YYYY-MM-DD",
+              "type": "string"
+            }
+          },
+          {
+            "name": "start",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "example": "YYYY-MM-DD",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetBookingSearchResponseDto"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Get bookings V2 search by pcode",
+        "tags": [
+          "Bookings"
+        ]
+      }
+    },
+    "/api/v2/bookings/{pcode}/search/only-single": {
+      "get": {
+        "description": "Retrieve bookings based on a specific pcode and not groups",
+        "operationId": "ImagesController_getBookingsOnlySingleSearchV2_v2",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "value",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "roomTypeId",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "status",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "enum": [
+                "ready",
+                "tentative",
+                "cancelled",
+                "no-show"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "end",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "example": "YYYY-MM-DD",
+              "type": "string"
+            }
+          },
+          {
+            "name": "start",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "example": "YYYY-MM-DD",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetBookingSearchResponseDto"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Get bookings V2 only single search by pcode",
+        "tags": [
+          "Bookings"
+        ]
+      }
+    },
+    "/api/v2/bookings/{pcode}/search/only-groups": {
+      "get": {
+        "description": "Retrieve bookings based on a specific pcode and only groups",
+        "operationId": "ImagesController_getBookingsOnlyGroupsSearchV2_v2",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "value",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "roomTypeId",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "status",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "enum": [
+                "ready",
+                "tentative",
+                "cancelled",
+                "no-show"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "end",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "example": "YYYY-MM-DD",
+              "type": "string"
+            }
+          },
+          {
+            "name": "start",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "example": "YYYY-MM-DD",
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetBookingSearchResponseDto"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Get bookings V2 only groups search by pcode",
+        "tags": [
+          "Bookings"
+        ]
+      }
+    },
+    "/api/bookings/{pcode}/detail/{bookingId}": {
+      "get": {
+        "description": "Retrieve detailed information about a specific booking",
+        "operationId": "ImagesController_getBooking",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "bookingId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetBookingResponseDto"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Get booking details",
+        "tags": [
+          "Bookings"
+        ]
+      }
+    },
+    "/api/bookings/{pcode}/app-url/{bookingId}": {
+      "get": {
+        "description": "Retrieve the webapp for a specific booking",
+        "operationId": "ImagesController_getBookingAppUrl",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "bookingId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetBookingAppUrlResponseDto"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Get booking appUrl",
+        "tags": [
+          "Bookings"
+        ]
+      }
+    },
+    "/api/v5/bookings/{pcode}": {
+      "post": {
+        "operationId": "ImagesController_addBookingV5_v5",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddBookingDtoV4"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok."
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Add booking V5",
+        "tags": [
+          "Bookings"
+        ]
+      }
+    },
+    "/api/v2/bookings/{pcode}/payments/{bookingId}": {
+      "get": {
+        "description": "Retrieve payments for a specific booking",
+        "operationId": "PaymentsController_getBookingPaymentsV2_v2",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "bookingId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetBookingPaymentResponseDto"
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Get booking payments",
+        "tags": [
+          "Bookings"
+        ]
+      }
+    },
+    "/api/v2/bookings/{pcode}/invoices/{bookingId}": {
+      "get": {
+        "description": "Retrieve invoices for a specific booking",
+        "operationId": "InvoicesController_getBookingInvoicesV2_v2",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "bookingId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetBookingInvoicesResponseDto"
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Get booking invoices",
+        "tags": [
+          "Bookings"
+        ]
+      }
+    },
+    "/api/v2/bookings/{pcode}/proformas/{bookingId}": {
+      "get": {
+        "description": "Retrieve proformas for a specific booking",
+        "operationId": "ProformasController_getBookingProformasV2_v2",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "bookingId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetBookingProformasResponseDto"
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Get booking proformas",
+        "tags": [
+          "Bookings"
+        ]
+      }
+    },
+    "/api/bookings/{pcode}/deposits/{bookingId}": {
+      "get": {
+        "description": "Retrieve deposits for a specific booking",
+        "operationId": "DepositsController_getBookingDeposits",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "bookingId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetBookingDepositsResponseDto"
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Get booking deposits",
+        "tags": [
+          "Bookings"
+        ]
+      }
+    },
+    "/api/bookings/{pcode}/customer-image/{hash}": {
+      "get": {
+        "operationId": "ImagesController_getImageFromCustomer",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "hash",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok.",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Get image from customer",
+        "tags": [
+          "Bookings"
+        ]
+      }
+    },
+    "/api/otas": {
+      "get": {
+        "operationId": "MiscsController_getOtas",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetOtasResponseDto"
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Get otas",
+        "tags": [
+          "Miscs"
+        ]
+      }
+    },
+    "/api/webhooks/{pcode}": {
+      "get": {
+        "operationId": "OutgoingController_getWebhooksByPcode",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetWebhooksResponseDto"
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Get all webhooks",
+        "tags": [
+          "Webhooks"
+        ]
+      },
+      "post": {
+        "operationId": "OutgoingController_addWebhook",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddWebhookDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok."
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Add webhook",
+        "tags": [
+          "Webhooks"
+        ]
+      },
+      "put": {
+        "operationId": "OutgoingController_updateWebhook",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateWebhookDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok."
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Update webhook",
+        "tags": [
+          "Webhooks"
+        ]
+      }
+    },
+    "/api/webhooks/{pcode}/{id}": {
+      "delete": {
+        "operationId": "OutgoingController_deleteWebhook",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok."
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Delete webhook",
+        "tags": [
+          "Webhooks"
+        ]
+      }
+    },
+    "/api/webhooks/{pcode}/{id}/enable": {
+      "patch": {
+        "operationId": "OutgoingController_setWebhookEnabled",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok."
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Set webhook available",
+        "tags": [
+          "Webhooks"
+        ]
+      }
+    },
+    "/api/webhooks/{pcode}/{id}/disable": {
+      "patch": {
+        "operationId": "OutgoingController_setWebhookDisable",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok."
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Set webhook unavailable",
+        "tags": [
+          "Webhooks"
+        ]
+      }
+    },
+    "/api/webhooks/{pcode}/test": {
+      "post": {
+        "operationId": "OutgoingController_testWebhook",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TestWebhookDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestWebhookResponseDto"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Test webhook",
+        "tags": [
+          "Webhooks"
+        ]
+      }
+    },
+    "/api/webhooks/{pcode}/{id}/logs": {
+      "get": {
+        "operationId": "OutgoingController_getWebhookLogsByWebhookId",
+        "parameters": [
+          {
+            "name": "pcode",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API Key for accessing this endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetWebhookLogsResponseDto"
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created."
+          },
+          "204": {
+            "description": "No Content."
+          },
+          "400": {
+            "description": "Bad Request. The request was invalid or cannot be served."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing API key."
+          },
+          "403": {
+            "description": "Forbidden. You do not have permission to access this resource."
+          },
+          "404": {
+            "description": "Not Found. The requested resource could not be found."
+          },
+          "500": {
+            "description": "Internal Server Error. An unexpected error occurred on the server."
+          }
+        },
+        "security": [
+          {
+            "ApiKey-auth": []
+          }
+        ],
+        "summary": "Get webhook logs by id",
+        "tags": [
+          "Webhooks"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "UNIFIED API",
+    "description": "The UNIFIED API documentation",
+    "version": "1.0",
+    "contact": {
+      "name": "Agustín Ramos Peruzzo",
+      "url": "https://hotelgest.com",
+      "email": "agustin@hotelgest.com"
+    },
+    "license": {
+      "name": "Proprietary",
+      "url": "https://hotelgest.com/disclaimer"
+    }
+  },
+  "tags": [],
+  "servers": [
+    {
+      "url": "https://uni-api.hotelgest.com",
+      "description": "Production Server"
+    },
+    {
+      "url": "https://uni-api-test.hotelgest.com",
+      "description": "Test Server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "ApiKey-auth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key",
+        "description": "Your API Key"
+      }
+    },
+    "schemas": {
+      "AvailabilityRoomItemDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "locked": {
+            "type": "boolean",
+            "example": false
+          }
+        }
+      },
+      "AvailabilityRoomDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 101
+          },
+          "rooms": {
+            "description": "Rooms for this room type",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AvailabilityRoomItemDto"
+            }
+          }
+        }
+      },
+      "NotAvailableRoomDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 201
+          }
+        }
+      },
+      "GetAvailabilityByPcodeResponseV2Dto": {
+        "type": "object",
+        "properties": {
+          "availables": {
+            "type": "object",
+            "description": "Map of roomTypeId → availability",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AvailabilityRoomDto"
+            },
+            "example": {
+              "101": {
+                "id": 101,
+                "rooms": [
+                  {
+                    "id": 1,
+                    "locked": false
+                  },
+                  {
+                    "id": 2,
+                    "locked": true
+                  }
+                ]
+              },
+              "102": {
+                "id": 102,
+                "rooms": [
+                  {
+                    "id": 3,
+                    "locked": false
+                  }
+                ]
+              }
+            }
+          },
+          "notAvailables": {
+            "type": "object",
+            "description": "Map of roomTypeId → not available info",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/NotAvailableRoomDto"
+            },
+            "example": {
+              "201": {
+                "id": 201
+              },
+              "202": {
+                "id": 202
+              }
+            }
+          }
+        }
+      },
+      "RoomTypeDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "object",
+            "description": "Name by supported language",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "description": {
+            "type": "object",
+            "description": "Description by supported language",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "position": {
+            "type": "number"
+          },
+          "occupancy": {
+            "type": "number"
+          },
+          "color": {
+            "type": "string"
+          },
+          "splits": {
+            "type": "object",
+            "description": "Splits available for this room type",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/SplitDto"
+            }
+          },
+          "rooms": {
+            "type": "object",
+            "description": "Rooms of this room type",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/RoomDto"
+            }
+          }
+        }
+      },
+      "RoomDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "doorNum": {
+            "type": "string"
+          },
+          "roomTypeId": {
+            "type": "number"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ready",
+              "dirty",
+              "clean",
+              "revision"
+            ]
+          },
+          "floor": {
+            "type": "number"
+          },
+          "position": {
+            "type": "number"
+          },
+          "locked": {
+            "type": "boolean"
+          },
+          "dateToClean": {
+            "type": "string"
+          },
+          "splitId": {
+            "type": "number"
+          },
+          "color": {
+            "type": "string"
+          }
+        }
+      },
+      "SplitDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "color": {
+            "type": "string"
+          }
+        }
+      },
+      "gbrRoomDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "object",
+            "description": "ID of the room",
+            "nullable": true
+          },
+          "roomTypeId": {
+            "type": "number",
+            "description": "ID of the room type",
+            "example": 1
+          },
+          "originalRoomTypeId": {
+            "type": "number",
+            "description": "ID of the original room type",
+            "example": 1
+          }
+        }
+      },
+      "gbrCustomerDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "ID of the customer",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the customer",
+            "example": "John Doe"
+          },
+          "surname": {
+            "type": "string",
+            "description": "Surname of the customer",
+            "example": "Doe"
+          },
+          "documentType": {
+            "type": "string",
+            "description": "Document type of the customer",
+            "example": "D"
+          },
+          "documentNumber": {
+            "type": "string",
+            "description": "Document number of the customer",
+            "example": "A12345678"
+          },
+          "sex": {
+            "type": "string",
+            "description": "Sex of the customer",
+            "example": "M"
+          },
+          "address": {
+            "type": "string",
+            "description": "Address of the customer",
+            "example": "123 Main St"
+          },
+          "city": {
+            "type": "string",
+            "description": "City of the customer",
+            "example": "New York"
+          },
+          "postalCode": {
+            "type": "string",
+            "description": "Postal code of the customer",
+            "example": "10001"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country of the customer",
+            "example": "ESP"
+          },
+          "province": {
+            "type": "string",
+            "description": "Province of the customer",
+            "example": "madrid"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email of the customer",
+            "example": "john.doe@example.com"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Phone number of the customer",
+            "example": "+1 (555) 123-4567"
+          },
+          "language": {
+            "type": "string",
+            "description": "Preferred language of the customer",
+            "example": "es"
+          },
+          "documentPortrait": {
+            "type": "string",
+            "description": "Portrait image of the customer's document",
+            "example": "http://xxx"
+          },
+          "documentFront": {
+            "type": "string",
+            "description": "Front image of the customer's document",
+            "example": "http://xxx"
+          },
+          "documentBack": {
+            "type": "string",
+            "description": "Back image of the customer's document",
+            "example": "http://xxx"
+          },
+          "notes": {
+            "type": "string",
+            "description": "Notes about the customer",
+            "example": "VIP customer"
+          },
+          "relationship": {
+            "type": "string",
+            "description": "Relationship of the customer",
+            "example": "HJ"
+          }
+        }
+      },
+      "gbrNotesDto": {
+        "type": "object",
+        "properties": {
+          "request": {
+            "type": "string",
+            "description": "Request notes",
+            "example": "Please prepare the room for a VIP guest"
+          },
+          "internal": {
+            "type": "string",
+            "description": "Internal notes",
+            "example": "Guest prefers a quiet room"
+          },
+          "flat": {
+            "type": "string",
+            "description": "Flat notes",
+            "example": "No special requests"
+          }
+        }
+      },
+      "gbrOccupancyDto": {
+        "type": "object",
+        "properties": {
+          "adults": {
+            "type": "number",
+            "description": "Number of adults",
+            "example": 2
+          },
+          "children": {
+            "type": "number",
+            "description": "Number of children",
+            "example": 2
+          },
+          "babies": {
+            "type": "number",
+            "description": "Number of babies",
+            "example": 1
+          },
+          "total": {
+            "type": "number",
+            "description": "Total occupancy",
+            "example": 4
+          }
+        }
+      },
+      "gbrVirtualPaymentDto": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type of virtual payment",
+            "enum": [
+              "directPayment",
+              "prePayment",
+              "partPayment"
+            ]
+          },
+          "amount": {
+            "type": "number",
+            "description": "Amount of the virtual payment",
+            "example": 100
+          }
+        }
+      },
+      "gbrBookingTypeDto": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "Description of blocked"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of booking",
+            "enum": [
+              "bloqued-out-order",
+              "bloqued_out_service"
+            ],
+            "deprecated": true
+          },
+          "typeV2": {
+            "type": "string",
+            "description": "Type of booking",
+            "enum": [
+              "blocked-out-order",
+              "blocked-out-service"
+            ]
+          }
+        }
+      },
+      "gbrToDoDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "ID of the to-do item",
+            "example": 1
+          },
+          "pcode": {
+            "type": "number",
+            "description": "PCode of the to-do item",
+            "example": 123456
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the to-do item",
+            "example": "Sample ToDo"
+          },
+          "active": {
+            "type": "string",
+            "description": "Status of the to-do item",
+            "example": "2026-01-01"
+          },
+          "start": {
+            "type": "string",
+            "description": "Start date of the to-do item",
+            "example": "2026-01-01"
+          },
+          "end": {
+            "type": "string",
+            "description": "End date of the to-do item",
+            "example": "2026-01-02"
+          },
+          "bookingId": {
+            "type": "number",
+            "description": "ID of the booking associated with the to-do item",
+            "example": 1
+          },
+          "checked": {
+            "type": "boolean",
+            "description": "Whether the to-do item is checked",
+            "example": true
+          }
+        }
+      },
+      "gbrToDosDto": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "title": "To-Do",
+            "description": "List of to-do items",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/gbrToDoDto"
+            }
+          },
+          "pendings": {
+            "type": "number",
+            "description": "Number of completed to-do items",
+            "example": 5
+          },
+          "total": {
+            "type": "number",
+            "description": "Total number of to-do items",
+            "example": 10
+          }
+        }
+      },
+      "gbrWeekDaysCleanDto": {
+        "type": "object",
+        "properties": {
+          "mon": {
+            "type": "boolean",
+            "description": "Indicates if the room is cleaned on Monday",
+            "example": true
+          },
+          "tue": {
+            "type": "boolean",
+            "description": "Indicates if the room is cleaned on Tuesday",
+            "example": true
+          },
+          "wed": {
+            "type": "boolean",
+            "description": "Indicates if the room is cleaned on Wednesday",
+            "example": true
+          },
+          "thu": {
+            "type": "boolean",
+            "description": "Indicates if the room is cleaned on Thursday",
+            "example": true
+          },
+          "fri": {
+            "type": "boolean",
+            "description": "Indicates if the room is cleaned on Friday",
+            "example": true
+          },
+          "sat": {
+            "type": "boolean",
+            "description": "Indicates if the room is cleaned on Saturday",
+            "example": true
+          },
+          "sun": {
+            "type": "boolean",
+            "description": "Indicates if the room is cleaned on Sunday",
+            "example": true
+          }
+        }
+      },
+      "gbrHousekeepingDto": {
+        "type": "object",
+        "properties": {
+          "dateToClean": {
+            "type": "string",
+            "description": "Date to clean the room",
+            "example": "2026-10-01"
+          },
+          "quantityNightsClean": {
+            "type": "number",
+            "description": "Number of nights to clean",
+            "example": 2
+          },
+          "weekDaysClean": {
+            "description": "Indicates the days of the week the room is cleaned",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/gbrWeekDaysCleanDto"
+              }
+            ]
+          }
+        }
+      },
+      "GetBookingResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "ID of the booking",
+            "example": 1
+          },
+          "pcode": {
+            "type": "number",
+            "description": "PCode of the booking",
+            "example": 123456
+          },
+          "groupId": {
+            "type": "number",
+            "description": "ID of the booking group",
+            "example": 1
+          },
+          "groupPrice": {
+            "type": "number",
+            "description": "Price of the booking group",
+            "example": 200
+          },
+          "groupQuantity": {
+            "type": "number",
+            "description": "Quantity of rooms in the booking group",
+            "example": 2
+          },
+          "start": {
+            "type": "string",
+            "description": "Start date of the booking",
+            "example": "2026-10-01"
+          },
+          "end": {
+            "type": "string",
+            "description": "End date of the booking",
+            "example": "2026-10-05"
+          },
+          "arrivalHour": {
+            "type": "string",
+            "description": "Arrival hour of the booking",
+            "example": "14:00"
+          },
+          "departureHour": {
+            "type": "string",
+            "description": "Departure hour of the booking",
+            "example": "12:00"
+          },
+          "nights": {
+            "type": "number",
+            "description": "Number of nights for the booking",
+            "example": 4
+          },
+          "appUrl": {
+            "type": "string",
+            "description": "App URL for the booking",
+            "example": "https://example.com/booking/123"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Creation date of the booking",
+            "example": "2026-09-30"
+          },
+          "resource": {
+            "type": "string",
+            "description": "Resource associated with the booking",
+            "example": "Room 101"
+          },
+          "price": {
+            "type": "number",
+            "description": "Price of the booking",
+            "example": 100
+          },
+          "paid": {
+            "type": "number",
+            "description": "Amount paid for the booking",
+            "example": 100
+          },
+          "totalExtras": {
+            "type": "number",
+            "description": "Total extras for the booking",
+            "example": 20
+          },
+          "locked": {
+            "type": "boolean",
+            "description": "Indicates if the booking is locked",
+            "example": false
+          },
+          "color": {
+            "type": "string",
+            "description": "Color associated with the booking",
+            "example": "#FF5733"
+          },
+          "imported": {
+            "type": "boolean",
+            "description": "Indicates if the booking is imported",
+            "example": false
+          },
+          "board": {
+            "type": "string",
+            "description": "Board type of the booking",
+            "enum": [
+              "nb",
+              "bb",
+              "hb",
+              "fb",
+              "ai"
+            ]
+          },
+          "policy": {
+            "type": "string",
+            "description": "Cancellation policy of the booking",
+            "enum": [
+              "4",
+              "6"
+            ]
+          },
+          "room": {
+            "description": "Room details",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/gbrRoomDto"
+              }
+            ]
+          },
+          "locator": {
+            "type": "string",
+            "description": "Locator information"
+          },
+          "customer": {
+            "description": "Main customer details",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/gbrCustomerDto"
+              }
+            ]
+          },
+          "companyId": {
+            "type": "number",
+            "description": "ID of the company associated with the booking"
+          },
+          "notes": {
+            "description": "Notes associated with the booking",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/gbrNotesDto"
+              }
+            ]
+          },
+          "occupancy": {
+            "description": "Occupancy details",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/gbrOccupancyDto"
+              }
+            ]
+          },
+          "groupOccupancy": {
+            "description": "Group occupancy details",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/gbrOccupancyDto"
+              }
+            ]
+          },
+          "otaId": {
+            "type": "number",
+            "description": "OTA ID associated with the booking"
+          },
+          "checkInStatus": {
+            "type": "string",
+            "description": "Check-in status of the booking"
+          },
+          "bookingStatus": {
+            "type": "string",
+            "description": "Booking status"
+          },
+          "releaseDateTentative": {
+            "type": "string",
+            "description": "Tentative release date",
+            "example": "2026-10-01"
+          },
+          "virtualPayment": {
+            "description": "Virtual payment details",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/gbrVirtualPaymentDto"
+              }
+            ]
+          },
+          "paymentStatus": {
+            "type": "string",
+            "description": "Payment status of the booking",
+            "enum": [
+              "no-paid",
+              "parcial-paid",
+              "paid",
+              "over-paid"
+            ]
+          },
+          "bookingType": {
+            "description": "Booking type details",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/gbrBookingTypeDto"
+              }
+            ]
+          },
+          "toDos": {
+            "description": "To-dos associated with the booking",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/gbrToDosDto"
+              }
+            ]
+          },
+          "guests": {
+            "title": "Customer",
+            "description": "List of guests associated with the booking",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/gbrCustomerDto"
+            }
+          },
+          "isSaleDirect": {
+            "type": "boolean",
+            "description": "Indicates if the sale is direct"
+          },
+          "housekeeping": {
+            "description": "Housekeeping details",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/gbrHousekeepingDto"
+              }
+            ]
+          }
+        }
+      },
+      "GetBookingSearchResponseDto": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "title": "Booking",
+            "description": "List of bookings",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetBookingResponseDto"
+            }
+          },
+          "total": {
+            "type": "number",
+            "description": "Total number of bookings found",
+            "example": 10
+          }
+        }
+      },
+      "GetBookingAppUrlResponseDto": {
+        "type": "object",
+        "properties": {
+          "appUrl": {
+            "type": "string",
+            "description": "URL of the booking webapp"
+          }
+        }
+      },
+      "Dates": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "example": "2024-12-20",
+            "description": "Check-in date"
+          },
+          "to": {
+            "type": "string",
+            "example": "2024-12-25",
+            "description": "Check-out date"
+          }
+        },
+        "required": [
+          "from",
+          "to"
+        ]
+      },
+      "Company": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Company Ltd.",
+            "description": "Name of the company"
+          },
+          "documentNumber": {
+            "type": "string",
+            "example": "123456789",
+            "description": "Document number of the company"
+          },
+          "phone": {
+            "type": "string",
+            "example": "+1 234 567 8900",
+            "description": "Phone number of the company"
+          },
+          "address": {
+            "type": "string",
+            "example": "123 Main St.",
+            "description": "Address of the company"
+          },
+          "city": {
+            "type": "string",
+            "example": "Cityville",
+            "description": "City of the company"
+          },
+          "postalCode": {
+            "type": "string",
+            "example": "12345",
+            "description": "Postal code of the company"
+          },
+          "country": {
+            "type": "string",
+            "example": "Countryland",
+            "description": "Country of the company"
+          },
+          "province": {
+            "type": "string",
+            "example": "Provinceland",
+            "description": "Province of the company"
+          }
+        },
+        "required": [
+          "name",
+          "documentNumber"
+        ]
+      },
+      "Host": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "John",
+            "description": "First name of the host"
+          },
+          "surname": {
+            "type": "string",
+            "example": "Doe",
+            "description": "Last name of the host"
+          },
+          "phone": {
+            "type": "string",
+            "example": "+1 234 567 8900",
+            "description": "Phone number of the host"
+          },
+          "email": {
+            "type": "string",
+            "example": "john.doe@example.com",
+            "description": "Email address of the host"
+          },
+          "documentType": {
+            "type": "string",
+            "example": "D",
+            "enum": [
+              "P",
+              "D",
+              "C",
+              "MI",
+              "I",
+              "N",
+              "X"
+            ],
+            "description": "Document type of the host"
+          },
+          "documentNumber": {
+            "type": "string",
+            "example": "12345678A",
+            "description": "Document number of the host"
+          },
+          "city": {
+            "type": "string",
+            "example": "Cityville",
+            "description": "City of the host"
+          },
+          "address": {
+            "type": "string",
+            "example": "123 Main St.",
+            "description": "Address of the host"
+          },
+          "postalCode": {
+            "type": "string",
+            "example": "12345",
+            "description": "Postal code of the host"
+          },
+          "country": {
+            "type": "string",
+            "example": "Countryland",
+            "description": "Country of the host"
+          },
+          "province": {
+            "type": "string",
+            "example": "Provinceland",
+            "description": "Province of the host"
+          },
+          "notes": {
+            "type": "string",
+            "example": "Some notes about the booking",
+            "description": "Additional notes about the booking"
+          },
+          "customerType": {
+            "type": "string",
+            "example": "particular",
+            "enum": [
+              "particular",
+              "company",
+              "agency"
+            ],
+            "description": "Type of customer"
+          },
+          "companyId": {
+            "type": "number",
+            "example": 123,
+            "description": "Company ID, required if isNewCompany is false and customerType is Agency or Company"
+          },
+          "isNewCompany": {
+            "type": "boolean",
+            "example": true
+          },
+          "company": {
+            "description": "Required if isNewCompany is true",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Company"
+              }
+            ]
+          },
+          "language": {
+            "type": "string",
+            "example": "en",
+            "enum": [
+              "ca",
+              "de",
+              "en",
+              "es",
+              "eu",
+              "fr",
+              "gl",
+              "it",
+              "ru"
+            ],
+            "description": "Preferred language of the host"
+          }
+        },
+        "required": [
+          "name",
+          "surname",
+          "phone",
+          "customerType",
+          "isNewCompany",
+          "language"
+        ]
+      },
+      "PromoCodeManual": {
+        "type": "object",
+        "properties": {
+          "isActive": {
+            "type": "boolean",
+            "example": true,
+            "description": "Whether a manual promo code is applied"
+          },
+          "type": {
+            "type": "string",
+            "example": "fbn",
+            "enum": [
+              "fbn",
+              "pbn",
+              "ta"
+            ],
+            "description": "Required if isActive is true"
+          },
+          "value": {
+            "type": "number",
+            "example": 20.5,
+            "description": "Required if isActive is true"
+          }
+        },
+        "required": [
+          "isActive",
+          "type",
+          "value"
+        ]
+      },
+      "Room": {
+        "type": "object",
+        "properties": {
+          "boardId": {
+            "type": "string",
+            "example": "hb",
+            "description": "Board",
+            "enum": [
+              "nb",
+              "bb",
+              "hb",
+              "fb",
+              "ai"
+            ]
+          },
+          "politicId": {
+            "type": "string",
+            "example": "4",
+            "description": "Policy"
+          },
+          "pax": {
+            "type": "string",
+            "example": "2",
+            "description": "Pax"
+          },
+          "rtcode": {
+            "type": "string",
+            "example": "11111",
+            "description": "Room type ID"
+          },
+          "rcode": {
+            "type": "string",
+            "example": "A1B2C3",
+            "description": "Room ID"
+          },
+          "ancillary": {
+            "type": "object",
+            "example": {
+              "2025-01-01": 100
+            },
+            "description": "Prices by day"
+          },
+          "ancillaryWithDiscount": {
+            "type": "object",
+            "example": {
+              "2025-01-01": 80
+            },
+            "description": "Prices with discount by day"
+          },
+          "promoCode": {
+            "type": "string",
+            "example": "PROMO-123",
+            "description": "Promo code in the format type-value-id-code"
+          },
+          "promoCodeManual": {
+            "description": "Manual promo code application",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PromoCodeManual"
+              }
+            ]
+          }
+        },
+        "required": [
+          "boardId",
+          "politicId",
+          "pax",
+          "rtcode",
+          "rcode",
+          "ancillary",
+          "ancillaryWithDiscount",
+          "promoCodeManual"
+        ]
+      },
+      "Tentative": {
+        "type": "object",
+        "properties": {
+          "isActive": {
+            "type": "boolean",
+            "example": true,
+            "description": "Whether the release date is tentative"
+          },
+          "releaseDateTentative": {
+            "type": "string",
+            "example": "2025-01-01",
+            "description": "Required if isActive is true"
+          }
+        },
+        "required": [
+          "isActive",
+          "releaseDateTentative"
+        ]
+      },
+      "Settings": {
+        "type": "object",
+        "properties": {
+          "tentative": {
+            "description": "Settings related to tentative release date",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Tentative"
+              }
+            ]
+          },
+          "hidePrices": {
+            "type": "boolean",
+            "example": false,
+            "description": "Whether to hide prices"
+          },
+          "sendEmail": {
+            "type": "boolean",
+            "example": true,
+            "description": "Whether to send a confirmation email to the host"
+          },
+          "locator": {
+            "type": "string",
+            "example": "ABC123",
+            "description": "Locator code for the booking"
+          },
+          "otaId": {
+            "type": "number",
+            "example": 1,
+            "description": "OTA ID associated with the booking"
+          },
+          "arrivalHour": {
+            "type": "string",
+            "example": "15:00",
+            "description": "Arrival hour for the booking"
+          },
+          "requestNotes": {
+            "type": "string",
+            "example": "Please prepare a crib for the baby.",
+            "description": "Special requests or notes from the host"
+          },
+          "internalNotes": {
+            "type": "string",
+            "example": "Internal notes about the booking",
+            "description": "Internal notes for the booking"
+          }
+        },
+        "required": [
+          "tentative",
+          "hidePrices"
+        ]
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1,
+            "description": "Product ID"
+          },
+          "quantity": {
+            "type": "number",
+            "example": 1,
+            "description": "Quantity of the product"
+          },
+          "start": {
+            "type": "string",
+            "example": "2024-12-20",
+            "description": "Start date of the product"
+          },
+          "end": {
+            "type": "string",
+            "example": "2024-12-25",
+            "description": "End date of the product"
+          },
+          "startTime": {
+            "type": "string",
+            "example": "14:00",
+            "description": "Start time of the product"
+          },
+          "endTime": {
+            "type": "string",
+            "example": "16:00",
+            "description": "End time of the product"
+          },
+          "tax": {
+            "type": "number",
+            "example": 10.5,
+            "description": "Tax applied to the product"
+          },
+          "price": {
+            "type": "number",
+            "example": 100,
+            "description": "Price of the product"
+          },
+          "name": {
+            "type": "string",
+            "example": "Sample Product",
+            "description": "Name of the product"
+          },
+          "description": {
+            "type": "string",
+            "example": "This is a sample product description.",
+            "description": "Description of the product"
+          },
+          "discountType": {
+            "type": "string",
+            "example": "p",
+            "description": "Type of discount applied to the product",
+            "enum": [
+              "f",
+              "p"
+            ]
+          },
+          "discountValue": {
+            "type": "number",
+            "example": 15,
+            "description": "Value of the discount applied to the product"
+          },
+          "discountCalculated": {
+            "type": "number",
+            "example": 15,
+            "description": "Calculated discount amount for the product"
+          },
+          "productType": {
+            "type": "string",
+            "example": "pbd",
+            "description": "Type of the product",
+            "enum": [
+              "pbd",
+              "pbpd",
+              "pbb",
+              "pbp"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "quantity",
+          "start",
+          "end",
+          "tax",
+          "price",
+          "name",
+          "productType"
+        ]
+      },
+      "AddBookingDtoV4": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "description": "Booking dates",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Dates"
+              }
+            ]
+          },
+          "host": {
+            "description": "Host information",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Host"
+              }
+            ]
+          },
+          "rooms": {
+            "description": "Rooms information",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Room"
+            }
+          },
+          "settings": {
+            "description": "Settings information",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Settings"
+              }
+            ]
+          },
+          "products": {
+            "description": "Products information",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            }
+          },
+          "groupId": {
+            "type": "number",
+            "description": "Group ID",
+            "example": 123
+          }
+        },
+        "required": [
+          "date",
+          "host",
+          "rooms",
+          "settings",
+          "products"
+        ]
+      },
+      "GetBookingPaymentResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "ID of the payment",
+            "example": 101
+          },
+          "invoiceId": {
+            "type": "number",
+            "description": "ID of the associated invoice",
+            "example": 450,
+            "nullable": true
+          },
+          "reference": {
+            "type": "string",
+            "description": "Payment reference",
+            "example": "PAY-2025-0001"
+          },
+          "amountAuth": {
+            "type": "number",
+            "description": "Authorized amount",
+            "example": 120.5
+          },
+          "amount": {
+            "type": "number",
+            "description": "Captured amount",
+            "example": 120.5
+          },
+          "date": {
+            "type": "string",
+            "description": "Date of the payment",
+            "example": "2025-01-15"
+          },
+          "paymentType": {
+            "type": "string",
+            "description": "Legacy payment type (deprecated)",
+            "enum": [
+              "Credit",
+              "Credit Card",
+              "Credit Card2",
+              "Cash",
+              "Amex",
+              "Paycheck",
+              "PayPal",
+              "Virtual POS",
+              "Bank Transfer",
+              "Paycomet",
+              "bizum",
+              "others",
+              "CashDro",
+              "Monei",
+              "Stripe"
+            ],
+            "deprecated": true,
+            "example": "Cash"
+          },
+          "type": {
+            "type": "string",
+            "description": "Payment type",
+            "enum": [
+              "Credit",
+              "Credit Card",
+              "Credit Card2",
+              "Cash",
+              "Amex",
+              "Paycheck",
+              "PayPal",
+              "Virtual POS",
+              "Bank Transfer",
+              "Paycomet",
+              "bizum",
+              "others",
+              "CashDro",
+              "Monei",
+              "Stripe"
+            ],
+            "example": "Cash"
+          },
+          "providerType": {
+            "type": "string",
+            "description": "Provider type (Stripe, Redsys, etc.)",
+            "enum": [
+              "paycomet",
+              "monei",
+              "stripe"
+            ],
+            "nullable": true
+          },
+          "notes": {
+            "type": "string",
+            "description": "Additional notes",
+            "example": "Paid via virtual POS"
+          },
+          "userId": {
+            "type": "number",
+            "description": "ID of the user who registered the payment",
+            "example": 12
+          },
+          "bookingId": {
+            "type": "number",
+            "description": "ID of the associated booking",
+            "example": 999
+          },
+          "pcode": {
+            "type": "number",
+            "description": "PCode of the client",
+            "example": 123456
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Creation timestamp",
+            "example": "2025-01-15T10:22:00Z"
+          },
+          "prePay": {
+            "type": "boolean",
+            "description": "Indicates if this is a pre-payment",
+            "example": false
+          },
+          "prePayChannel": {
+            "type": "number",
+            "description": "Channel used for pre-payment",
+            "example": 1
+          },
+          "transactionType": {
+            "type": "string",
+            "description": "Type of transaction",
+            "example": "capture"
+          },
+          "isRefunded": {
+            "type": "boolean",
+            "description": "Indicates whether the payment is refunded",
+            "example": false
+          }
+        }
+      },
+      "GetBookingInvoicesResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "ID of the invoice",
+            "example": 1
+          },
+          "pcode": {
+            "type": "number",
+            "description": "PCode of the client",
+            "example": 123456
+          },
+          "coin": {
+            "type": "string",
+            "description": "Currency of the invoice",
+            "example": "EUR"
+          },
+          "date": {
+            "type": "string",
+            "description": "Invoice date",
+            "example": "2025-01-20"
+          },
+          "prefix": {
+            "type": "string",
+            "description": "Invoice prefix",
+            "example": "INV"
+          },
+          "prefixAdditional": {
+            "type": "number",
+            "description": "Additional numeric prefix",
+            "example": 2,
+            "nullable": true
+          },
+          "reference": {
+            "type": "string",
+            "description": "Invoice reference number",
+            "example": "INV-2025-00001"
+          },
+          "total": {
+            "type": "number",
+            "description": "Total amount of the invoice",
+            "example": 450.75
+          },
+          "refundId": {
+            "type": "number",
+            "description": "Refund ID associated with the invoice",
+            "example": 99,
+            "nullable": true
+          },
+          "paymentsIds": {
+            "description": "List of payment IDs associated with the invoice",
+            "example": [
+              10,
+              11
+            ],
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "totalPaid": {
+            "type": "number",
+            "description": "Total amount paid",
+            "example": 300.5
+          },
+          "isCredit": {
+            "type": "boolean",
+            "description": "Indicates whether the invoice is a credit note",
+            "example": false
+          },
+          "invoiceWasSent": {
+            "type": "string",
+            "description": "Indicates when the invoice email was sent",
+            "example": "2025-01-21T09:22:00Z",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "description": "Invoice type",
+            "enum": [
+              "invoice",
+              "refund",
+              "deposit",
+              "service"
+            ],
+            "example": "invoice"
+          },
+          "bookingsIds": {
+            "description": "List of booking IDs associated with the invoice",
+            "example": [
+              1001,
+              1002
+            ],
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "items": {
+            "type": "object",
+            "description": "Dictionary of invoice items",
+            "example": {
+              "1": {
+                "bookingId": 1001,
+                "tax": 10,
+                "total": 100
+              },
+              "2": {
+                "bookingId": 1002,
+                "tax": 10,
+                "total": 200
+              }
+            }
+          },
+          "customerType": {
+            "type": "string",
+            "description": "Customer type for the invoice",
+            "enum": [
+              "particular",
+              "company",
+              "agency"
+            ],
+            "example": "particular"
+          },
+          "name": {
+            "type": "string",
+            "description": "Customer name",
+            "example": "John"
+          },
+          "surname": {
+            "type": "string",
+            "description": "Customer surname",
+            "example": "Doe"
+          },
+          "documentType": {
+            "type": "string",
+            "description": "Customer document type",
+            "enum": [
+              "P",
+              "D",
+              "C",
+              "MI",
+              "I",
+              "N",
+              "X"
+            ],
+            "example": "D"
+          },
+          "documentNumber": {
+            "type": "string",
+            "description": "Customer document number",
+            "example": "X1234567"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Customer phone number",
+            "example": "+34 600 123 456",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "description": "Customer address",
+            "example": "Main Street 123",
+            "nullable": true
+          },
+          "postalCode": {
+            "type": "string",
+            "description": "Postal code",
+            "example": "08001",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "description": "City of the customer",
+            "example": "Barcelona",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "description": "Country code",
+            "example": "ESP",
+            "nullable": true
+          },
+          "province": {
+            "type": "string",
+            "description": "Province of the customer",
+            "example": "Barcelona",
+            "nullable": true
+          },
+          "observations": {
+            "type": "string",
+            "description": "Additional observations",
+            "example": "Customer requested digital invoice",
+            "nullable": true
+          },
+          "signed": {
+            "type": "boolean",
+            "description": "Indicates whether the invoice is signed",
+            "example": true
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message if something failed",
+            "example": "Invalid tax calculation",
+            "nullable": true
+          }
+        }
+      },
+      "GetBookingProformasResponseDto": {
+        "type": "object",
+        "properties": {
+          "coin": {
+            "type": "string",
+            "description": "Currency of the proforma invoice",
+            "example": "EUR"
+          },
+          "date": {
+            "type": "string",
+            "description": "Date of the proforma invoice",
+            "example": "2025-02-10"
+          },
+          "id": {
+            "type": "number",
+            "description": "ID of the proforma invoice",
+            "example": 50
+          },
+          "prefix": {
+            "type": "string",
+            "description": "Prefix of the proforma invoice",
+            "example": "PRO"
+          },
+          "reference": {
+            "type": "string",
+            "description": "Proforma reference number",
+            "example": "PRO-2025-00045"
+          },
+          "total": {
+            "type": "number",
+            "description": "Total amount of the proforma invoice",
+            "example": 325
+          },
+          "isCredit": {
+            "type": "boolean",
+            "description": "Indicates whether the proforma is a credit note",
+            "example": false
+          },
+          "proformaWasSent": {
+            "type": "string",
+            "description": "Timestamp of when the proforma was sent to the client",
+            "example": "2025-02-10T12:30:00Z",
+            "nullable": true
+          },
+          "bookingsIds": {
+            "description": "List of booking IDs included in the proforma invoice",
+            "example": [
+              1001,
+              1005
+            ],
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "items": {
+            "type": "object",
+            "description": "Details of invoiced items grouped by item ID",
+            "example": {
+              "1": {
+                "bookingId": 1001,
+                "tax": 10,
+                "total": 150
+              },
+              "2": {
+                "bookingId": 1005,
+                "tax": 10,
+                "total": 175
+              }
+            }
+          },
+          "customerType": {
+            "type": "string",
+            "description": "Customer type associated with the proforma invoice",
+            "enum": [
+              "particular",
+              "company",
+              "agency"
+            ],
+            "example": "particular"
+          },
+          "name": {
+            "type": "string",
+            "description": "Customer name",
+            "example": "John"
+          },
+          "surname": {
+            "type": "string",
+            "description": "Customer surname",
+            "example": "Doe"
+          },
+          "documentType": {
+            "type": "string",
+            "description": "Customer document type",
+            "enum": [
+              "P",
+              "D",
+              "C",
+              "MI",
+              "I",
+              "N",
+              "X"
+            ],
+            "example": "D"
+          },
+          "documentNumber": {
+            "type": "string",
+            "description": "Customer document number",
+            "example": "X9876543"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Customer phone number",
+            "example": "+34 600 123 456",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "description": "Customer address",
+            "example": "Main Street 123",
+            "nullable": true
+          },
+          "postalCode": {
+            "type": "string",
+            "description": "Postal code",
+            "example": "08001",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "description": "City",
+            "example": "Barcelona",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "description": "Country code",
+            "example": "ESP",
+            "nullable": true
+          },
+          "province": {
+            "type": "string",
+            "description": "Province of the customer",
+            "example": "Barcelona",
+            "nullable": true
+          },
+          "observations": {
+            "type": "string",
+            "description": "Additional observations for the proforma",
+            "example": "Client requested summary breakdown.",
+            "nullable": true
+          }
+        }
+      },
+      "GetBookingDepositsResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "ID of the deposit",
+            "example": 1
+          },
+          "pcode": {
+            "type": "number",
+            "description": "PCode of the client",
+            "example": 123456
+          },
+          "bookingId": {
+            "type": "number",
+            "description": "ID of the booking",
+            "example": 789
+          },
+          "amount": {
+            "type": "number",
+            "description": "Amount of the deposit",
+            "example": 150
+          },
+          "currency": {
+            "type": "string",
+            "description": "Currency",
+            "example": "EUR"
+          },
+          "date": {
+            "type": "string",
+            "description": "Date of the deposit",
+            "example": "2025-01-10"
+          },
+          "observations": {
+            "type": "string",
+            "description": "Observations",
+            "example": "Deposit made at check-in"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Creation datetime",
+            "example": "2025-01-10T12:00:00Z"
+          },
+          "paymentId": {
+            "type": "number",
+            "description": "Related payment ID",
+            "example": null,
+            "nullable": true
+          },
+          "refundId": {
+            "type": "number",
+            "description": "Related refund ID",
+            "example": null,
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "description": "Deposit type",
+            "enum": [
+              "deposit",
+              "refund"
+            ],
+            "example": "deposit"
+          }
+        }
+      },
+      "GetOtasResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "Booking.com"
+          },
+          "color": {
+            "type": "string",
+            "example": "#1E90FF"
+          }
+        }
+      },
+      "WebhookAuthenticationDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "boolean",
+            "example": true,
+            "description": "Whether basic authentication is enabled"
+          },
+          "username": {
+            "type": "string",
+            "example": "myUser",
+            "description": "Username for basic authentication"
+          },
+          "password": {
+            "type": "string",
+            "example": "secretPass123",
+            "description": "Password for basic authentication"
+          }
+        }
+      },
+      "GetWebhooksResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "wh_12345",
+            "description": "Unique identifier of the webhook"
+          },
+          "pcode": {
+            "type": "number",
+            "example": 123456,
+            "description": "Property code associated with the webhook"
+          },
+          "name": {
+            "type": "string",
+            "example": "Booking Created Webhook",
+            "description": "Name of the webhook"
+          },
+          "url": {
+            "type": "string",
+            "example": "https://myapp.com/webhooks",
+            "description": "URL of the webhook"
+          },
+          "eventTypes": {
+            "type": "array",
+            "example": [
+              "bookings-added"
+            ],
+            "description": "List of event types that trigger the webhook",
+            "items": {
+              "type": "string",
+              "enum": [
+                "bookings-added",
+                "open-door"
+              ]
+            }
+          },
+          "authentication": {
+            "description": "Authentication details for the webhook",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WebhookAuthenticationDto"
+              }
+            ]
+          },
+          "isAvailable": {
+            "type": "boolean",
+            "example": true,
+            "description": "Whether the webhook is currently available"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2025-01-10T14:35:00.000Z",
+            "description": "Timestamp when the webhook was created"
+          }
+        }
+      },
+      "Authentication": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "boolean",
+            "example": true,
+            "description": "status"
+          },
+          "username": {
+            "type": "string",
+            "example": "myUser",
+            "description": "username"
+          },
+          "password": {
+            "type": "string",
+            "example": "myPassword",
+            "description": "password"
+          }
+        },
+        "required": [
+          "status",
+          "username",
+          "password"
+        ]
+      },
+      "AddWebhookDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "My Webhook",
+            "description": "Name"
+          },
+          "url": {
+            "type": "string",
+            "example": "https://mywebhook.com",
+            "description": "Url"
+          },
+          "eventTypes": {
+            "type": "array",
+            "example": [
+              "bookings-added"
+            ],
+            "description": "List of event types",
+            "items": {
+              "type": "string",
+              "enum": [
+                "bookings-added",
+                "open-door"
+              ]
+            }
+          },
+          "authentication": {
+            "description": "Authentication details",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Authentication"
+              }
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "url",
+          "eventTypes",
+          "authentication"
+        ]
+      },
+      "UpdateWebhookDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "My Webhook",
+            "description": "Name"
+          },
+          "url": {
+            "type": "string",
+            "example": "https://mywebhook.com",
+            "description": "Url"
+          },
+          "eventTypes": {
+            "type": "array",
+            "example": [
+              "bookings-added"
+            ],
+            "description": "List of event types",
+            "items": {
+              "type": "string",
+              "enum": [
+                "bookings-added",
+                "open-door"
+              ]
+            }
+          },
+          "authentication": {
+            "description": "Authentication details",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Authentication"
+              }
+            ]
+          },
+          "id": {
+            "type": "string",
+            "example": "60d21b4667d0d8992e610c85",
+            "description": "Webhook ID"
+          }
+        },
+        "required": [
+          "name",
+          "url",
+          "eventTypes",
+          "authentication",
+          "id"
+        ]
+      },
+      "TestWebhookDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "60d21b4667d0d8992e610c85",
+            "description": "Webhook ID"
+          },
+          "eventType": {
+            "type": "string",
+            "example": "bookings-added",
+            "description": "Webhook Event Type",
+            "enum": [
+              "bookings-added",
+              "open-door"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "eventType"
+        ]
+      },
+      "TestWebhookResponseDto": {
+        "type": "object",
+        "properties": {
+          "pcode": {
+            "type": "number",
+            "description": "Hotel / property code",
+            "example": 123456
+          },
+          "webhookId": {
+            "type": "string",
+            "description": "ID of the webhook being tested",
+            "example": "wh_789"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL where the webhook test request was sent",
+            "example": "https://myapp.com/webhooks"
+          },
+          "eventType": {
+            "type": "string",
+            "description": "Event type used for the test",
+            "enum": [
+              "bookings-added",
+              "open-door"
+            ],
+            "example": "bookings-added"
+          },
+          "payload": {
+            "type": "object",
+            "description": "Payload sent to the webhook endpoint during the test",
+            "example": {
+              "bookingId": 1023,
+              "test": true
+            }
+          },
+          "statusCode": {
+            "type": "number",
+            "description": "HTTP status code returned by the webhook endpoint during the test",
+            "example": 200
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": "Error message returned during the test, if any",
+            "example": "Endpoint unreachable"
+          },
+          "durationMs": {
+            "type": "number",
+            "description": "Duration of the webhook test request in milliseconds",
+            "example": 87
+          }
+        }
+      },
+      "GetWebhookLogsResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the log entry",
+            "example": "log_00123"
+          },
+          "pcode": {
+            "type": "number",
+            "description": "Hotel / property code",
+            "example": 123456
+          },
+          "webhookId": {
+            "type": "string",
+            "description": "ID of the webhook that triggered this log entry",
+            "example": "wh_789"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL where the webhook request was sent",
+            "example": "https://myapp.com/webhooks"
+          },
+          "eventType": {
+            "type": "string",
+            "description": "Event type that triggered the webhook",
+            "enum": [
+              "bookings-added",
+              "open-door"
+            ],
+            "example": "bookings-added"
+          },
+          "payload": {
+            "type": "object",
+            "description": "JSON payload sent to the webhook endpoint",
+            "example": {
+              "bookingId": 1023,
+              "action": "created"
+            }
+          },
+          "statusCode": {
+            "type": "number",
+            "description": "HTTP status code returned by the webhook endpoint",
+            "example": 200
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": "Error message returned by the webhook endpoint, only present when the request failed",
+            "example": "Timeout after 5000ms"
+          },
+          "durationMs": {
+            "type": "number",
+            "description": "Duration of the webhook call in milliseconds",
+            "example": 154
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Timestamp when the log entry was created",
+            "example": "2025-01-10T14:35:00.000Z"
+          }
+        }
+      }
+    }
+  }
+}
