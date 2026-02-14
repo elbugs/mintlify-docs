@@ -1,6 +1,6 @@
 # Componentes de Mintlify usados en esta documentación
 
-Esta documentación utiliza los componentes MDX de [Mintlify](https://www.mintlify.com/docs/components) para mejorar la lectura y la navegación. Los archivos `.mdx` pueden usar estos componentes; los `.md` se mantienen para Intercom y otros usos.
+Esta documentación utiliza los componentes MDX de [Mintlify](https://www.mintlify.com/docs/components) para mejorar la lectura y la navegación. Los archivos `.mdx` pueden usar estos componentes; los `.md` son la base de cada artículo.
 
 ## Resumen por documento
 

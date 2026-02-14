@@ -86,48 +86,18 @@ Consulta la sección [Inicio y Autenticación](01-inicio-y-autenticacion.md) par
 
 ---
 
-## Sincronización con Intercom (help.hotelgest.com)
+## Formatos de archivo en /docs
 
-Esta documentación se puede subir a **Intercom** como artículos del Help Center (en borrador) para publicarla en help.hotelgest.com.
+| Formato | ¿Hace falta? | Uso |
+|--------|----------------|-----|
+| **.md** | **Sí** (uno por artículo) | Base de cada artículo. Mintlify lo usa como página si no hay .mdx. |
+| **.mdx** | Opcional | Mintlify: componentes (Card, Steps, Tabs, etc.). Si existe .mdx, Mintlify usa ese; si no, el .md. |
 
-### Requisitos
-- **INTERCOM_ACCESS_TOKEN** (script) o **INTERCOM_HELP_CENTER_ACCESS_TOKEN** (comando Nest): Token de API de Intercom (Developer Hub > Configure > Authentication). No es el App ID del chat.
-- **INTERCOM_AUTHOR_ID** (script) o **INTERCOM_HELP_CENTER_AUTHOR_ID** (comando Nest): ID del teammate que figurará como autor (obtener con `GET https://api.intercom.io/me` usando el mismo token).
-- Opcional: **INTERCOM_COLLECTION_ID** (script) o **INTERCOM_HELP_CENTER_COLLECTION_ID** (comando Nest) para agrupar los artículos en una colección.
+**Resumen:** Mantén el **.md** de cada artículo. Añade **.mdx** donde quieras componentes. La publicación es con Mintlify; ver [MINTLIFY-CONEXION.md](MINTLIFY-CONEXION.md).
 
-### Opción 1: Comando Nest (recomendado, usa .env del backend)
-Añade en tu `.env`:
-```
-INTERCOM_HELP_CENTER_ACCESS_TOKEN=xxx
-INTERCOM_HELP_CENTER_AUTHOR_ID=123
-```
-Luego:
-```bash
-# Simular (dry-run)
-npm run command:sync-docs-intercom:dry-run
+---
 
-# Subir como borradores
-npm run command:sync-docs-intercom
+## Publicación (Mintlify)
 
-# Subir como publicados
-npm run command:sync-docs-intercom -- --publish
-```
+La documentación se publica en **Mintlify**. Ver [MINTLIFY-CONEXION.md](MINTLIFY-CONEXION.md) para conectar el repo de GitHub y sincronizar desde Bitbucket.
 
-### Opción 2: Script Node independiente
-```bash
-# Ver qué se enviaría (sin llamar a la API)
-npm run docs:sync-intercom:dry-run
-
-# Subir todos los .md a Intercom como borradores
-INTERCOM_ACCESS_TOKEN=xxx INTERCOM_AUTHOR_ID=123 npm run docs:sync-intercom
-
-# Subir como publicados (sin borrador)
-INTERCOM_ACCESS_TOKEN=xxx INTERCOM_AUTHOR_ID=123 npm run docs:sync-intercom -- --publish
-```
-
-Con variables en `.env` (no commitear el token):
-```bash
-dotenv -e .env -- npm run docs:sync-intercom
-```
-
-El script y el comando leen todos los `.md` de `docs/` (excepto `PUBLICACION-Y-MEJORAS.md`), los convierten a HTML y crean o actualizan artículos en Intercom por título. Más detalles en [PUBLICACION-Y-MEJORAS.md](PUBLICACION-Y-MEJORAS.md).
