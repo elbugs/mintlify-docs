@@ -65,9 +65,10 @@
     ]
   },
   "redirects": [
-    { "source": "/", "destination": "/README" },
-    { "source": "/guia/readme", "destination": "/README" },
-    { "source": "/guia/README", "destination": "/README" }
+    { "source": "/", "destination": "/readme" },
+    { "source": "/README", "destination": "/readme" },
+    { "source": "/guia/readme", "destination": "/readme" },
+    { "source": "/guia/README", "destination": "/readme" }
   ],
   "footerSocials": {
     "twitter": "https://twitter.com/hotelgest",
