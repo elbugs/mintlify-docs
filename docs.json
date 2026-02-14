@@ -1,5 +1,5 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
+  "$schema": "https://mintlify.com/docs.json",
   "name": "Hotelgest Unified",
   "theme": "mint",
   "logo": {
@@ -16,68 +16,68 @@
     "content": "Bienvenido a la documentación de Hotelgest Unified. [Ir a la aplicación](https://app.hotelgest.com) · [Soporte](https://help.hotelgest.com)",
     "dismissible": true
   },
-  "topbarLinks": [
-    { "name": "Ir a la aplicación", "url": "https://app.hotelgest.com" }
-  ],
-  "topbarCtaButton": {
-    "name": "Iniciar sesión",
-    "url": "https://app.hotelgest.com/login"
+  "navbar": {
+    "links": [{ "label": "Ir a la aplicación", "href": "https://app.hotelgest.com" }],
+    "primary": { "type": "button", "label": "Iniciar sesión", "href": "https://app.hotelgest.com/login" }
   },
-  "anchors": [
-    { "name": "Aplicación", "icon": "house", "url": "https://app.hotelgest.com" },
-    { "name": "Soporte", "icon": "headset", "url": "https://help.hotelgest.com" }
-  ],
-  "tabs": [
-    { "name": "API Reference", "url": "api" }
-  ],
   "navigation": {
-    "groups": [
+    "tabs": [
       {
-        "group": "Guía de usuario",
-        "pages": [
-          "README",
-          "01-inicio-y-autenticacion",
-          "02-dashboard",
-          "03-planificacion",
-          "04-reservas",
-          "05-facturacion-y-pagos",
-          "06-housekeeping",
-          "07-informes",
-          "08-motor-de-reservas",
-          "09-comunicaciones",
-          "10-recepcion-automatica",
-          "11-configuracion",
-          "12-integraciones",
-          "13-multipropiedad",
-          "14-actividad-e-historial",
-          "15-academia-y-ayuda",
-          "16-aplicacion-movil",
-          "17-administracion-super-admin"
+        "tab": "Guía de usuario",
+        "groups": [
+          {
+            "group": "Guía de usuario",
+            "pages": [
+              "docs/README",
+              "docs/01-inicio-y-autenticacion",
+              "docs/02-dashboard",
+              "docs/03-planificacion",
+              "docs/04-reservas",
+              "docs/05-facturacion-y-pagos",
+              "docs/06-housekeeping",
+              "docs/07-informes",
+              "docs/08-motor-de-reservas",
+              "docs/09-comunicaciones",
+              "docs/10-recepcion-automatica",
+              "docs/11-configuracion",
+              "docs/12-integraciones",
+              "docs/13-multipropiedad",
+              "docs/14-actividad-e-historial",
+              "docs/15-academia-y-ayuda",
+              "docs/16-aplicacion-movil",
+              "docs/17-administracion-super-admin"
+            ]
+          }
         ]
       },
       {
-        "group": "API Reference",
-        "pages": [
+        "tab": "API reference",
+        "groups": [
           { "group": "Public API", "openapi": "public-api.swagger.json" },
           { "group": "Booking Engine API", "openapi": "booking-engine-api.swagger.json" }
         ]
       }
-    ]
+    ],
+    "global": {
+      "anchors": [
+        { "anchor": "Aplicación", "href": "https://app.hotelgest.com", "icon": "house" },
+        { "anchor": "Soporte", "href": "https://help.hotelgest.com", "icon": "headset" }
+      ]
+    }
   },
   "redirects": [
-    { "source": "/", "destination": "/readme" },
-    { "source": "/README", "destination": "/readme" },
-    { "source": "/guia/readme", "destination": "/readme" },
-    { "source": "/guia/README", "destination": "/readme" }
+    { "source": "/", "destination": "/docs/readme" },
+    { "source": "/README", "destination": "/docs/readme" },
+    { "source": "/readme", "destination": "/docs/readme" },
+    { "source": "/guia/readme", "destination": "/docs/readme" },
+    { "source": "/guia/README", "destination": "/docs/readme" }
   ],
-  "footerSocials": {
-    "twitter": "https://twitter.com/hotelgest",
-    "linkedin": "https://www.linkedin.com/company/hotelgest"
+  "footer": {
+    "socials": {
+      "twitter": "https://twitter.com/hotelgest",
+      "linkedin": "https://www.linkedin.com/company/hotelgest"
+    }
   },
-  "styling": {
-    "eyebrows": "breadcrumbs"
-  },
-  "icons": {
-    "library": "lucide"
-  }
+  "styling": { "eyebrows": "breadcrumbs" },
+  "icons": { "library": "lucide" }
 }
