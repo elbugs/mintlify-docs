@@ -28,13 +28,11 @@
     { "name": "Soporte", "icon": "headset", "url": "https://help.hotelgest.com" }
   ],
   "tabs": [
-    { "name": "Guía de usuario", "url": "guia" },
     { "name": "API Reference", "url": "api" }
   ],
-  "navigation": {
-    "groups": [
-      {
-        "group": "Guía de usuario",
+  "navigation": [
+    {
+      "group": "Guía de usuario",
         "pages": [
           "README",
           "01-inicio-y-autenticacion",
@@ -63,12 +61,11 @@
           { "group": "Booking Engine API", "openapi": "booking-engine-api.swagger.json" }
         ]
       }
-    ]
-  },
+  ],
   "redirects": [
-    { "source": "/README", "destination": "/guia/readme" },
-    { "source": "/readme", "destination": "/guia/readme" },
-    { "source": "/", "destination": "/guia/readme" }
+    { "source": "/", "destination": "/README" },
+    { "source": "/guia/readme", "destination": "/README" },
+    { "source": "/guia/README", "destination": "/README" }
   ],
   "footerSocials": {
     "twitter": "https://twitter.com/hotelgest",
