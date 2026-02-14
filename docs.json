@@ -65,6 +65,11 @@
       }
     ]
   },
+  "redirects": [
+    { "source": "/README", "destination": "/guia/readme" },
+    { "source": "/readme", "destination": "/guia/readme" },
+    { "source": "/", "destination": "/guia/readme" }
+  ],
   "footerSocials": {
     "twitter": "https://twitter.com/hotelgest",
     "linkedin": "https://www.linkedin.com/company/hotelgest"
