@@ -178,14 +178,13 @@ En cada evento, Hotelgest envía a Yuvod:
 
 #### Cómo activar Yuvod
 
-1. Ve a **Marketplace** en el menú lateral.
-2. Busca **Yuvod** en la lista de integraciones.
-3. Pulsa **Activar**.
-4. Introduce el **hotelId** que te ha proporcionado Yuvod.
-5. Mapea cada habitación de Hotelgest con el identificador correspondiente en Yuvod (roomId).
-6. Guarda los cambios.
+Actualmente, Yuvod aparece en el Marketplace con el botón **"Configuración próximamente"**. Esto significa que la configuración desde la interfaz de usuario aún no está disponible. Para activar Yuvod, contacta con el equipo de soporte de Hotelgest, que se encargará de:
 
-A partir de ese momento, cada check-in, check-out o cambio de habitación enviará los datos automáticamente.
+1. Activar la integración en tu propiedad.
+2. Configurar el **hotelId** que te ha proporcionado Yuvod.
+3. Mapear cada habitación de Hotelgest con el identificador correspondiente en Yuvod (roomId).
+
+Una vez configurado, cada check-in, check-out o cambio de habitación enviará los datos automáticamente.
 
 #### Qué pasa si algo falla
 
