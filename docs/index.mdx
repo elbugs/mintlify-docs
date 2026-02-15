@@ -7,110 +7,74 @@ description: Todo lo que necesitas para usar Hotelgest Unified: guías, API y so
 
 La documentación de Hotelgest Unified. Todo en un solo lugar: guías de usuario, API y soporte. Pensada para equipos que gestionan hoteles, apartamentos turísticos y alojamientos.
 
-<CardGroup cols={2}>
-  <Card
-    title="Guía rápida"
-    icon="zap"
-    href="/docs/00-guia-rapida"
-  >
-    Primeros pasos en Hotelgest en 5 minutos
-  </Card>
-  <Card
-    title="Inicio de sesión"
-    icon="log-in"
-    href="/docs/01-inicio-y-autenticacion"
-  >
-    Login, 2FA, recuperación de contraseña y sesiones
-  </Card>
-  <Card
-    title="Acceder a la aplicación"
-    icon="house"
-    href="https://app.hotelgest.com"
-  >
-    Abre Hotelgest en la web
-  </Card>
-  <Card
-    title="API reference"
-    icon="code"
-    href="/api-reference"
-  >
-    Public API y Booking Engine para integraciones
-  </Card>
-</CardGroup>
+<Columns size="2">
+  <Column>
+    <Card title="Guía rápida" icon="zap" href="/docs/00-guia-rapida">
+      Primeros pasos en Hotelgest en 5 minutos
+    </Card>
+  </Column>
+  <Column>
+    <Card title="Inicio de sesión" icon="log-in" href="/docs/01-inicio-y-autenticacion">
+      Login, 2FA, recuperación de contraseña y sesiones
+    </Card>
+  </Column>
+  <Column>
+    <Card title="Acceder a la aplicación" icon="house" href="https://app.hotelgest.com">
+      Abre Hotelgest en la web
+    </Card>
+  </Column>
+  <Column>
+    <Card title="API reference" icon="code" href="/api-reference">
+      Public API y Booking Engine para integraciones
+    </Card>
+  </Column>
+</Columns>
 
 ---
 
 ## Guías por tema
 
-<CardGroup cols={2}>
-  <Card title="Panel de control" icon="layout-dashboard" href="/docs/02-dashboard">
-    Widgets, métricas y vista general del día
-  </Card>
-  <Card title="Planificación y calendario" icon="calendar" href="/docs/03-planificacion">
-    Calendario visual, disponibilidad y drag & drop
-  </Card>
-  <Card title="Reservas" icon="book-open" href="/docs/04-reservas">
-    Crear, editar, check-in/out y estados
-  </Card>
-  <Card title="Facturación y pagos" icon="credit-card" href="/docs/05-facturacion-y-pagos">
-    Facturas, proformas, pagos y depósitos
-  </Card>
-  <Card title="Housekeeping" icon="sparkles" href="/docs/06-housekeeping">
-    Rack de limpieza y estados de habitación
-  </Card>
-  <Card title="Informes y reportes" icon="bar-chart-3" href="/docs/07-informes">
-    Informes disponibles y filtros
-  </Card>
-  <Card title="Motor de reservas" icon="globe" href="/docs/08-motor-de-reservas">
-    Reservas directas, políticas y códigos promocionales
-  </Card>
-  <Card title="Comunicaciones" icon="message-circle" href="/docs/09-comunicaciones">
-    WhatsApp, email y notificaciones push
-  </Card>
-  <Card title="Recepción automática" icon="smartphone" href="/docs/10-recepcion-automatica">
-    Self check-in y web app para huéspedes
-  </Card>
-  <Card title="Configuración y ajustes" icon="settings" href="/docs/11-configuracion">
-    Perfil, usuarios, roles e impuestos
-  </Card>
-  <Card title="Integraciones y webhooks" icon="plug" href="/docs/12-integraciones">
-    Autoridades, channel manager y cerraduras
-  </Card>
-  <Card title="Gestión multipropiedad" icon="building-2" href="/docs/13-multipropiedad">
-    Múltiples propiedades y permisos
-  </Card>
-  <Card title="Actividad e historial" icon="history" href="/docs/14-actividad-e-historial">
-    Registro de actividad y auditoría
-  </Card>
-  <Card title="Academia y ayuda" icon="graduation-cap" href="/docs/15-academia-y-ayuda">
-    Formación, soporte y roadmap
-  </Card>
-  <Card title="Aplicación móvil" icon="smartphone" href="/docs/16-aplicacion-movil">
-    App iOS y Android
-  </Card>
-  <Card title="Administración (Super Admin)" icon="shield" href="/docs/17-administracion-super-admin">
-    Planes, pre-cuentas e IA de voz
-  </Card>
-</CardGroup>
+<Tiles>
+  <Tile title="Panel de control" href="/docs/02-dashboard" description="Widgets, métricas y vista general del día" />
+  <Tile title="Planificación y calendario" href="/docs/03-planificacion" description="Calendario visual, disponibilidad y drag and drop" />
+  <Tile title="Reservas" href="/docs/04-reservas" description="Crear, editar, check-in/out y estados" />
+  <Tile title="Facturación y pagos" href="/docs/05-facturacion-y-pagos" description="Facturas, proformas, pagos y depósitos" />
+  <Tile title="Housekeeping" href="/docs/06-housekeeping" description="Rack de limpieza y estados de habitación" />
+  <Tile title="Informes y reportes" href="/docs/07-informes" description="Informes disponibles y filtros" />
+  <Tile title="Motor de reservas" href="/docs/08-motor-de-reservas" description="Reservas directas, políticas y códigos promocionales" />
+  <Tile title="Comunicaciones" href="/docs/09-comunicaciones" description="WhatsApp, email y notificaciones push" />
+  <Tile title="Recepción automática" href="/docs/10-recepcion-automatica" description="Self check-in y web app para huéspedes" />
+  <Tile title="Configuración y ajustes" href="/docs/11-configuracion" description="Perfil, usuarios, roles e impuestos" />
+  <Tile title="Integraciones y webhooks" href="/docs/12-integraciones" description="Autoridades, channel manager y cerraduras" />
+  <Tile title="Gestión multipropiedad" href="/docs/13-multipropiedad" description="Múltiples propiedades y permisos" />
+  <Tile title="Actividad e historial" href="/docs/14-actividad-e-historial" description="Registro de actividad y auditoría" />
+  <Tile title="Academia y ayuda" href="/docs/15-academia-y-ayuda" description="Formación, soporte y roadmap" />
+  <Tile title="Aplicación móvil" href="/docs/16-aplicacion-movil" description="App iOS y Android" />
+  <Tile title="Administración Super Admin" href="/docs/17-administracion-super-admin" description="Planes, pre-cuentas e IA de voz" />
+</Tiles>
 
----
-
-## Recursos
-
-<CardGroup cols={2}>
-  <Card title="Resolución de problemas" icon="wrench" href="/docs/18-resolucion-problemas">
-    Soluciones a incidencias frecuentes
-  </Card>
-  <Card title="Glosario" icon="book-open" href="/docs/19-glosario">
-    Términos y definiciones
-  </Card>
-  <Card title="Hoja de referencia" icon="file-text" href="/docs/20-hoja-referencia">
-    Resumen rápido de funciones
-  </Card>
-  <Card title="Soporte" icon="headset" href="https://help.hotelgest.com">
-    Centro de ayuda y contacto
-  </Card>
-</CardGroup>
+<Columns size="2">
+  <Column>
+    <Card title="Resolución de problemas" icon="wrench" href="/docs/18-resolucion-problemas">
+      Soluciones a incidencias frecuentes
+    </Card>
+  </Column>
+  <Column>
+    <Card title="Glosario" icon="book-open" href="/docs/19-glosario">
+      Términos y definiciones
+    </Card>
+  </Column>
+  <Column>
+    <Card title="Hoja de referencia" icon="file-text" href="/docs/20-hoja-referencia">
+      Resumen rápido de funciones
+    </Card>
+  </Column>
+  <Column>
+    <Card title="Soporte" icon="headset" href="https://help.hotelgest.com">
+      Centro de ayuda y contacto
+    </Card>
+  </Column>
+</Columns>
 
 ---
 
@@ -120,8 +84,8 @@ La documentación de Hotelgest Unified. Todo en un solo lugar: guías de usuario
 |--------|--------|
 | Iniciar sesión | [app.hotelgest.com/login](https://app.hotelgest.com/login) |
 | Panel de control | [app.hotelgest.com/dashboard](https://app.hotelgest.com/dashboard) |
-| Planificación · Reservas | [planning/bookings](https://app.hotelgest.com/planning/bookings) |
-| Planificación · Disponibilidad | [planning/availability](https://app.hotelgest.com/planning/availability) |
+| Planificación Reservas | [planning/bookings](https://app.hotelgest.com/planning/bookings) |
+| Planificación Disponibilidad | [planning/availability](https://app.hotelgest.com/planning/availability) |
 | Housekeeping | [housekeeping](https://app.hotelgest.com/housekeeping) |
 | Mensajes | [messages](https://app.hotelgest.com/messages) |
 | Actividad | [activity](https://app.hotelgest.com/activity) |
