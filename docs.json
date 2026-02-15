@@ -28,7 +28,7 @@
           {
             "group": "Guía de usuario",
             "pages": [
-              "docs/README",
+              "docs/index",
               "docs/01-inicio-y-autenticacion",
               "docs/02-dashboard",
               "docs/03-planificacion",
@@ -66,11 +66,12 @@
     }
   },
   "redirects": [
-    { "source": "/", "destination": "/docs/readme" },
-    { "source": "/README", "destination": "/docs/readme" },
-    { "source": "/readme", "destination": "/docs/readme" },
-    { "source": "/guia/readme", "destination": "/docs/readme" },
-    { "source": "/guia/README", "destination": "/docs/readme" }
+    { "source": "/", "destination": "/docs/index" },
+    { "source": "/docs/readme", "destination": "/docs/index" },
+    { "source": "/README", "destination": "/docs/index" },
+    { "source": "/readme", "destination": "/docs/index" },
+    { "source": "/guia/readme", "destination": "/docs/index" },
+    { "source": "/guia/README", "destination": "/docs/index" }
   ],
   "footer": {
     "socials": {
