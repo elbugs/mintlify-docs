@@ -1,4 +1,4 @@
-# 14 - Actividad e Historial
+# Actividad e historial
 
 **URL:** [https://app.hotelgest.com/activity](https://app.hotelgest.com/activity)
 

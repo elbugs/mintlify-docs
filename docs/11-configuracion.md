@@ -1,4 +1,4 @@
-# 11 - Configuración y Ajustes
+# Configuración y ajustes
 
 **URL base:** [https://app.hotelgest.com/settings](https://app.hotelgest.com/settings)
 

@@ -1,4 +1,4 @@
-# 09 - Comunicaciones
+# Comunicaciones
 
 **URL mensajes:** [https://app.hotelgest.com/messages](https://app.hotelgest.com/messages)  
 **URL notificaciones:** [https://app.hotelgest.com/notifications](https://app.hotelgest.com/notifications)

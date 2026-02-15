@@ -1,4 +1,4 @@
-# 15 - Academia y Ayuda
+# Academia y ayuda
 
 **URL Academia:** [https://app.hotelgest.com/academy](https://app.hotelgest.com/academy)  
 **URL Roadmap:** [https://app.hotelgest.com/roadmap](https://app.hotelgest.com/roadmap)

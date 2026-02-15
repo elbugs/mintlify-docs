@@ -1,4 +1,4 @@
-# 13 - Gestión Multi-Propiedad
+# Gestión multipropiedad
 
 **URL:** El selector de propiedades está en la cabecera del menú lateral una vez dentro de la aplicación ([https://app.hotelgest.com/dashboard](https://app.hotelgest.com/dashboard)).
 

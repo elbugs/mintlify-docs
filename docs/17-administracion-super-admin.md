@@ -1,4 +1,4 @@
-# 17 - Administración (Super Admin)
+# Administración (Super Admin)
 
 **URLs (solo Super Admin):**
 - [Planes](https://app.hotelgest.com/manage/plans) · [Pre-cuenta](https://app.hotelgest.com/manage/pre-account) · [Mapa](https://app.hotelgest.com/manage/map) · [AI Voice](https://app.hotelgest.com/manage/ai-voice) · [Consentimientos](https://app.hotelgest.com/manage/consents)

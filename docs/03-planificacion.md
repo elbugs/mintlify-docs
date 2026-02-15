@@ -1,4 +1,4 @@
-# 03 - Planificación y Calendario
+# Planificación y calendario
 
 **URLs:**
 - Calendario de reservas: [https://app.hotelgest.com/planning/bookings](https://app.hotelgest.com/planning/bookings)

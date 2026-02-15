@@ -1,9 +1,14 @@
-# 12 - Integraciones
+---
+title: Integraciones y webhooks
+description: Configuración de webhooks (salientes y entrantes), autoridades, channel manager, cerraduras, firma digital y otras integraciones en Hotelgest Unified.
+---
+
+# Integraciones y webhooks
 
 **URL Marketplace (catálogo de integraciones):** [https://app.hotelgest.com/marketplace](https://app.hotelgest.com/marketplace)  
 **Configuración de integraciones:** desde [Configuración](https://app.hotelgest.com/settings) y las secciones específicas de cada integración.
 
-Hotelgest Unified se integra con múltiples servicios externos para automatizar procesos, cumplir con la legislación y ampliar las funcionalidades del PMS.
+Hotelgest Unified se integra con múltiples servicios externos para automatizar procesos, cumplir con la legislación y ampliar las funcionalidades del PMS. En esta página se explican las **integraciones** disponibles, incluidos los **webhooks** para enviar y recibir datos con sistemas externos.
 
 ---
 

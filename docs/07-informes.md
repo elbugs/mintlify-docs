@@ -1,4 +1,4 @@
-# 07 - Informes y Reportes
+# Informes y reportes
 
 **URLs de informes:**
 - [Reservas](https://app.hotelgest.com/report/bookings) · [Facturas](https://app.hotelgest.com/report/invoices) · [Llegadas](https://app.hotelgest.com/report/arrivals) · [Salidas](https://app.hotelgest.com/report/departures) · [Pagos](https://app.hotelgest.com/report/payments) · [Orígenes](https://app.hotelgest.com/report/origins) · [Morosos](https://app.hotelgest.com/report/overdues) · [In-house](https://app.hotelgest.com/report/in-house) · [Huéspedes](https://app.hotelgest.com/report/hosts) · [Nacionalidades](https://app.hotelgest.com/report/nationalities) · [Artículos](https://app.hotelgest.com/report/articles) · [Autoridades](https://app.hotelgest.com/report/authorities) · [Empresas](https://app.hotelgest.com/report/companies)

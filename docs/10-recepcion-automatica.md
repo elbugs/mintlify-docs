@@ -1,4 +1,4 @@
-# 10 - Recepción Automática
+# Recepción automática
 
 **URL recepción automática (pantalla de gestión):** [https://app.hotelgest.com/automatic-reception](https://app.hotelgest.com/automatic-reception)  
 **Configuración:** [https://app.hotelgest.com/settings/autonomousReception](https://app.hotelgest.com/settings/autonomousReception)
