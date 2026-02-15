@@ -1,3 +1,8 @@
+---
+title: Facturación y pagos
+description: Facturas, proformas, pagos y depósitos en Hotelgest Unified.
+---
+
 # Cómo gestionar la facturación y los pagos
 
 **Para qué sirve.** La facturación y los pagos se gestionan desde la ficha de cada reserva. Ahí puede emitir facturas y proformas, registrar los pagos que recibe del huésped (efectivo, tarjeta, transferencia) y ver depósitos. Todo queda ligado a la reserva, así no se pierde el rastro de lo cobrado.

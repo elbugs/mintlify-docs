@@ -1,3 +1,8 @@
+---
+title: Panel de control
+description: Cómo usar el panel de control (dashboard) de Hotelgest Unified.
+---
+
 # Cómo usar el Panel de Control (Dashboard)
 
 **Para qué sirve.** El Panel de Control es la primera pantalla que ve después de entrar en el programa. Sirve para tener un resumen del día: qué reservas llegan hoy, cuáles se van, cuántas habitaciones están ocupadas y qué tareas hay pendientes. No tiene que memorizar nada: es una vista de conjunto para empezar a trabajar.

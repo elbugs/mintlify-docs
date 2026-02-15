@@ -1,3 +1,8 @@
+---
+title: Gestión multipropiedad
+description: Múltiples propiedades, selector y permisos en Hotelgest Unified.
+---
+
 # Gestión multipropiedad
 
 **URL:** El selector de propiedades está en la cabecera del menú lateral una vez dentro de la aplicación ([https://app.hotelgest.com/dashboard](https://app.hotelgest.com/dashboard)).

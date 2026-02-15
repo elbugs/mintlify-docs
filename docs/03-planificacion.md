@@ -1,3 +1,8 @@
+---
+title: Planificación y calendario
+description: Calendario visual de reservas, disponibilidad y planificación en Hotelgest Unified.
+---
+
 # Planificación y calendario
 
 **URLs:**

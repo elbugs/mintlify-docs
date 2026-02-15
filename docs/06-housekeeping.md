@@ -1,3 +1,8 @@
+---
+title: Housekeeping
+description: Rack de limpieza, estados de habitación y tareas de housekeeping en Hotelgest Unified.
+---
+
 # Housekeeping (limpieza)
 
 **URL:** [https://app.hotelgest.com/housekeeping](https://app.hotelgest.com/housekeeping)

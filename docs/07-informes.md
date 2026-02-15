@@ -1,3 +1,8 @@
+---
+title: Informes y reportes
+description: Todos los informes disponibles y sus filtros en Hotelgest Unified.
+---
+
 # Informes y reportes
 
 **URLs de informes:**

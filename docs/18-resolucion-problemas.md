@@ -1,3 +1,8 @@
+---
+title: Resolución de problemas
+description: Soluciones a incidencias frecuentes en Hotelgest Unified.
+---
+
 # Resolución de problemas
 
 **Qué encontrará aquí.** Respuestas a las dudas y problemas más frecuentes al usar Hotelgest Unified. Si algo no sale como esperaba, puede volver a intentarlo; sus datos no se pierden por equivocarse.

@@ -1,3 +1,8 @@
+---
+title: Comunicaciones
+description: WhatsApp, email y notificaciones push en Hotelgest Unified.
+---
+
 # Comunicaciones
 
 **URL mensajes:** [https://app.hotelgest.com/messages](https://app.hotelgest.com/messages)  

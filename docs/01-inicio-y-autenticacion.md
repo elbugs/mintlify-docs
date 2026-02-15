@@ -1,3 +1,8 @@
+---
+title: Inicio de sesión
+description: Cómo iniciar sesión, recuperar contraseña y usar 2FA en Hotelgest Unified.
+---
+
 # Cómo iniciar sesión en Hotelgest Unified
 
 **Para qué sirve.** Este artículo explica cómo entrar en el programa con tu usuario y contraseña. Sin entrar no puedes ver reservas ni facturación. El proceso es corto y siempre igual: primero tu nombre de usuario, después tu contraseña. Si algo falla, puedes volver a intentarlo; no se bloquea la cuenta por equivocarte.

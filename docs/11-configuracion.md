@@ -1,3 +1,8 @@
+---
+title: Configuración y ajustes
+description: Perfil, usuarios, roles, impuestos y habitaciones en Hotelgest Unified.
+---
+
 # Configuración y ajustes
 
 **URL base:** [https://app.hotelgest.com/settings](https://app.hotelgest.com/settings)

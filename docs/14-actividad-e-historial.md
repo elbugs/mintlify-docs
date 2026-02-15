@@ -1,3 +1,8 @@
+---
+title: Actividad e historial
+description: Registro de actividad y auditoría de cambios en Hotelgest Unified.
+---
+
 # Actividad e historial
 
 **URL:** [https://app.hotelgest.com/activity](https://app.hotelgest.com/activity)

@@ -1,3 +1,8 @@
+---
+title: Glosario
+description: Términos y definiciones de Hotelgest Unified.
+---
+
 # Glosario
 
 **Qué encontrará aquí.** Palabras y expresiones que aparecen en Hotelgest Unified, explicadas en lenguaje muy simple. Si en una guía ve un término que no conoce, puede buscarlo aquí.

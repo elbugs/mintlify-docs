@@ -1,3 +1,8 @@
+---
+title: Aplicación móvil
+description: App iOS y Android de Hotelgest Unified.
+---
+
 # Aplicación móvil
 
 **Web (responsive):** [https://app.hotelgest.com](https://app.hotelgest.com) — La misma URL en el navegador del móvil ofrece la experiencia adaptada. Las apps nativas (App Store / Google Play) usan la misma aplicación.

@@ -1,3 +1,8 @@
+---
+title: Recepción automática
+description: Self check-in y web app para huéspedes en Hotelgest Unified.
+---
+
 # Recepción automática
 
 **URL recepción automática (pantalla de gestión):** [https://app.hotelgest.com/automatic-reception](https://app.hotelgest.com/automatic-reception)  

@@ -1,3 +1,8 @@
+---
+title: Administración (Super Admin)
+description: Planes, pre-cuentas, mapa e IA de voz en Hotelgest Unified.
+---
+
 # Administración (Super Admin)
 
 **URLs (solo Super Admin):**

@@ -1,3 +1,8 @@
+---
+title: Academia y ayuda
+description: Recursos formativos, soporte y roadmap de Hotelgest Unified.
+---
+
 # Academia y ayuda
 
 **URL Academia:** [https://app.hotelgest.com/academy](https://app.hotelgest.com/academy)  

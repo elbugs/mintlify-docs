@@ -1,3 +1,8 @@
+---
+title: Hoja de referencia
+description: Resumen rápido de funciones de Hotelgest Unified.
+---
+
 # Hoja de referencia rápida
 
 **Para qué sirve.** Esta página resume accesos directos y dónde está cada cosa en Hotelgest. Puede imprimirla o guardarla en PDF para tenerla a mano.

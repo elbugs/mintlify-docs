@@ -1,3 +1,8 @@
+---
+title: Guía rápida
+description: Cómo empezar en Hotelgest en 5 minutos.
+---
+
 # Cómo empezar en Hotelgest en 5 minutos
 
 **Qué es esto.** Hotelgest Unified es el programa con el que gestionas las reservas, los huéspedes y la facturación de tu alojamiento. Puedes usarlo desde el ordenador o desde el móvil.

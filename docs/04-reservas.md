@@ -1,3 +1,8 @@
+---
+title: Reservas
+description: Cómo crear, editar y gestionar reservas en Hotelgest Unified.
+---
+
 # Cómo gestionar las reservas
 
 **Para qué sirve.** Las reservas son el núcleo del programa: cada reserva es un huésped (o grupo) que viene en unas fechas concretas. Desde aquí puede crear reservas nuevas, ver y editar las que ya tiene, hacer check-in y check-out y pasar a la facturación. Todo lo que hace con un huésped pasa por la ficha de su reserva.
