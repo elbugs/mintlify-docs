@@ -1,8 +1,22 @@
-# 02 - Panel de Control (Dashboard)
+# Cómo usar el Panel de Control (Dashboard)
 
-**URL:** [https://app.hotelgest.com/dashboard](https://app.hotelgest.com/dashboard)
+**Para qué sirve.** El Panel de Control es la primera pantalla que ve después de entrar en el programa. Sirve para tener un resumen del día: qué reservas llegan hoy, cuáles se van, cuántas habitaciones están ocupadas y qué tareas hay pendientes. No tiene que memorizar nada: es una vista de conjunto para empezar a trabajar.
 
-El Dashboard es la pantalla principal al iniciar sesión. Ofrece una vista general del estado actual de tu propiedad con widgets personalizables.
+**Dónde está.** [app.hotelgest.com/dashboard](https://app.hotelgest.com/dashboard). También puede pulsar en "Panel" o "Dashboard" en el menú, o volver aquí desde cualquier pantalla usando el icono de inicio.
+
+---
+
+## Qué verá al abrir el Panel
+
+Al iniciar sesión verá varias **cajas** (widgets) en la pantalla. Cada caja muestra un tipo de información:
+
+- **Reservas del día:** llegadas, huéspedes que ya están y salidas de hoy.
+- **Ocupación:** qué porcentaje de habitaciones está ocupado (mes y año).
+- **Tareas pendientes:** cosas por hacer, con fecha o vinculadas a reservas.
+- **Limpieza (housekeeping):** cuántas habitaciones están limpias, sucias o inspeccionadas.
+- **Gráficos:** evolución de ingresos, noches u ocupación si su cuenta los tiene activos.
+
+Puede desplazarse hacia abajo para ver todas las cajas. En el ordenador puede **arrastrar** las cajas para cambiar el orden; el programa guarda su preferencia.
 
 ---
 
@@ -75,10 +89,35 @@ Cada estado se muestra con un código de color distintivo.
 
 ## Acciones Rápidas
 
-Desde el Dashboard puedes acceder directamente a:
-- **Crear reserva**: Abre el formulario de nueva reserva
-- **Escanear documento**: Escanea el documento de identidad de un huésped
-- **Rack de limpieza**: Accede a la vista de housekeeping
-- **Disponibilidad**: Consulta la disponibilidad de habitaciones
-- **Última actividad**: Revisa las acciones recientes
-- **Puertas/Llaves**: Gestión de cerraduras electrónicas (si está integrado)
+Desde el Panel puede ir directamente a:
+
+- **Crear reserva:** abre el formulario para dar de alta una nueva reserva.
+- **Escanear documento:** escanear el DNI o pasaporte de un huésped.
+- **Rack de limpieza:** ver y gestionar el estado de limpieza de las habitaciones.
+- **Disponibilidad:** consultar qué habitaciones están libres en unas fechas.
+- **Última actividad:** ver los cambios recientes en el programa.
+- **Puertas o llaves:** gestión de cerraduras electrónicas (si su alojamiento lo tiene).
+
+Pulse el botón que necesite; se abrirá la pantalla correspondiente.
+
+---
+
+## Qué puede ir mal y cómo solucionarlo
+
+**El panel tarda en cargar o se queda en blanco.** Espere unos segundos. Si sigue igual, actualice la página (F5 o el botón de actualizar del navegador). Sus datos no se pierden. Si el problema continúa, pruebe con otro navegador (Chrome o Edge) o contacte con soporte.
+
+**No veo alguna caja o widget.** Dependiendo de su perfil (rol), puede que no tenga activos todos los widgets. También puede que se hayan reorganizado: desplácese hacia abajo. En móvil, deslice hacia los lados para ver más bloques.
+
+**He movido las cajas y quiero volver al orden por defecto.** En la configuración del panel (si está disponible) puede restablecer la disposición. Si no encuentra la opción, el administrador puede indicarle cómo hacerlo.
+
+**Recuerde.** El Panel solo muestra información; no borra ni modifica reservas por abrirlo. Si algo no se ve bien, puede actualizar la página o ir al menú de Planificación o Reservas para trabajar desde ahí.
+
+---
+
+## Consejos
+
+- Use el Panel cada mañana para ver de un vistazo las llegadas y salidas del día.
+- Si trabaja en ordenador, ordene las cajas arrastrándolas para dejar arriba las que más use.
+- Desde "Crear reserva" en el Panel puede abrir el formulario sin ir antes al calendario.
+
+**Ver también:** [Planificación y calendario](/docs/03-planificacion), [Reservas](/docs/04-reservas), [Housekeeping](/docs/06-housekeeping).

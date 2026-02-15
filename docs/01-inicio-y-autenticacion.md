@@ -1,5 +1,7 @@
 # Cómo iniciar sesión en Hotelgest Unified
 
+**Para qué sirve.** Este artículo explica cómo entrar en el programa con tu usuario y contraseña. Sin entrar no puedes ver reservas ni facturación. El proceso es corto y siempre igual: primero tu nombre de usuario, después tu contraseña. Si algo falla, puedes volver a intentarlo; no se bloquea la cuenta por equivocarte.
+
 **Resumen.** Para entrar en Hotelgest Unified necesitas tu nombre de usuario y contraseña. El login se hace en dos pasos: primero el usuario, luego la contraseña. Desde la app móvil puedes usar además Face ID o huella. Si no recuerdas la contraseña, puedes restablecerla desde la versión web.
 
 **En este artículo:** inicio de sesión paso a paso, acceso biométrico en móvil, recuperar contraseña, autenticación en dos pasos (2FA), verificación de email, gestión de sesiones y requisitos de usuario y contraseña.
@@ -35,6 +37,18 @@ En ese momento verás la segunda pantalla, la de la contraseña. Si te has equiv
 **En la app móvil** no se muestra el reCAPTCHA; solo verás el campo de contraseña y el botón de iniciar sesión. El resto del proceso es igual.
 
 Si el usuario o la contraseña no son correctos, verás un mensaje de error. Comprueba que no tengas las mayúsculas activadas y que el usuario sea el que te asignaron.
+
+---
+
+## Qué puede ir mal y cómo solucionarlo
+
+**Mensaje de "usuario o contraseña incorrectos".** Suele significar que el nombre de usuario o la contraseña no coinciden. Compruebe que escribe bien ambos, que no tiene las mayúsculas activadas (tecla Bloq Mayús) y que no hay espacios al inicio o al final. Puede intentarlo de nuevo las veces que haga falta; no se bloquea la cuenta.
+
+**No me llega el correo para restablecer la contraseña.** Revise la carpeta de correo no deseado (spam). Compruebe que el correo que ha puesto es el asociado a su cuenta. Puede volver a solicitar el enlace.
+
+**El código de 6 dígitos (2FA) no vale.** Las aplicaciones de códigos dependen de la hora del dispositivo. Compruebe que la hora y la fecha del móvil sean correctas. Si sigue fallando, pida a su administrador que revise la configuración de 2FA.
+
+**Recuerde.** No puede romper nada por equivocarse de contraseña o de usuario. Sus datos siguen en el programa. Si algo no funciona, puede volver a intentarlo o contactar con su administrador.
 
 ---
 
@@ -141,4 +155,6 @@ Si tu contraseña o usuario no cumple estas reglas, el sistema te lo indicará a
 
 Si después de seguir estos pasos no consigues iniciar sesión, comprueba usuario y contraseña (y la hora del dispositivo si usas 2FA). Si el problema continúa, contacta con el administrador de tu propiedad o con el equipo de soporte de Hotelgest.
 
-**Ver también:** [Configuración y perfil](11-configuracion.md) (cambiar contraseña, 2FA y sesiones desde dentro de la app).
+**Consejos.** Guarde la dirección de login (app.hotelgest.com/login) en favoritos del navegador para no tener que escribirla cada vez. Si usa la app en el móvil, active el acceso biométrico (huella o Face ID) para no escribir la contraseña en cada apertura. Si tiene dudas sobre su usuario o contraseña, su administrador puede comprobarlos sin ver la contraseña.
+
+**Ver también:** [Configuración y perfil](/docs/11-configuracion) (cambiar contraseña, 2FA y sesiones desde dentro de la app).

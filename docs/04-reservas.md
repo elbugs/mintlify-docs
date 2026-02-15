@@ -1,9 +1,8 @@
-# 04 - Gestión de Reservas
+# Cómo gestionar las reservas
 
-**URL del detalle de reserva:** `https://app.hotelgest.com/details/{pcode}/{bookingId}`  
-*(Sustituye `{pcode}` por el código de la propiedad y `{bookingId}` por el ID de la reserva. También puedes abrir una reserva desde el calendario o el dashboard.)*
+**Para qué sirve.** Las reservas son el núcleo del programa: cada reserva es un huésped (o grupo) que viene en unas fechas concretas. Desde aquí puede crear reservas nuevas, ver y editar las que ya tiene, hacer check-in y check-out y pasar a la facturación. Todo lo que hace con un huésped pasa por la ficha de su reserva.
 
-Las reservas son el elemento central del PMS. Desde aquí puedes gestionar todo el ciclo de vida de una estancia: desde la creación hasta el check-out.
+**Dónde está.** Puede abrir el calendario de reservas desde el menú (Planificación o Reservas) o desde el Panel de Control. Al pulsar sobre una reserva en el calendario se abre su ficha con todos los datos. No se preocupe: al abrir una reserva solo la está consultando; no la modifica hasta que pulse Guardar o un botón de acción (por ejemplo Check-in).
 
 ---
 
@@ -174,3 +173,25 @@ El sistema permite almacenar de forma segura la información de tarjetas de cré
 - Garantizar la reserva
 - Cobros posteriores
 - Gestión de no-shows
+
+---
+
+## Qué puede ir mal y cómo solucionarlo
+
+**No encuentro una reserva.** Compruebe las fechas que está viendo en el calendario (cambie de semana o mes). Revise si tiene filtros activos (por origen, estado o tipo de habitación) y quite los que no necesite. Si gestiona varias propiedades, compruebe que ha elegido la correcta en el selector.
+
+**He guardado la reserva con un dato equivocado.** Abra de nuevo la reserva y pulse Editar. Corrija el dato y guarde. Si el error es en una factura o un pago ya emitido, puede que necesite anular o ajustar desde Facturación; en caso de duda, consulte con su administrador.
+
+**El sistema no me deja crear la reserva (fechas, habitación).** Puede que esas fechas o esa habitación no estén disponibles, o que falte un dato obligatorio. Lea el mensaje que aparece en pantalla: suele indicar qué campo revisar. Corrija y vuelva a intentar. Sus datos no se pierden si cierra el formulario sin guardar.
+
+**Recuerde.** Puede abrir y cerrar reservas para consultar sin miedo: no cambia nada hasta que pulse Guardar o un botón de acción (Check-in, Check-out, etc.). Si tiene dudas, no guarde y consulte con un compañero o con soporte.
+
+---
+
+## Consejos
+
+- Use el calendario cada día para ver llegadas y salidas; desde ahí puede abrir cualquier reserva con un clic.
+- Antes de hacer check-out, compruebe en la pestaña Facturación que los pagos estén registrados.
+- Las notas internas son solo para el personal; el huésped no las ve. Use las "notas del cliente" para peticiones que deba ver el huésped.
+
+**Ver también:** [Facturación y pagos](/docs/05-facturacion-y-pagos), [Planificación](/docs/03-planificacion), [Housekeeping](/docs/06-housekeeping).

@@ -29,6 +29,7 @@
             "group": "Guía de usuario",
             "pages": [
               "docs/index",
+              "docs/00-guia-rapida",
               "docs/01-inicio-y-autenticacion",
               "docs/02-dashboard",
               "docs/03-planificacion",
@@ -45,7 +46,10 @@
               "docs/14-actividad-e-historial",
               "docs/15-academia-y-ayuda",
               "docs/16-aplicacion-movil",
-              "docs/17-administracion-super-admin"
+              "docs/17-administracion-super-admin",
+              "docs/18-resolucion-problemas",
+              "docs/19-glosario",
+              "docs/20-hoja-referencia"
             ]
           }
         ]

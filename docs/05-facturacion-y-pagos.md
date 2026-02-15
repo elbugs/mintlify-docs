@@ -1,8 +1,8 @@
-# 05 - Facturación y Pagos
+# Cómo gestionar la facturación y los pagos
 
-**URL:** La facturación se gestiona desde el detalle de cada reserva: [https://app.hotelgest.com/dashboard](https://app.hotelgest.com/dashboard) → abre una reserva para ver Facturas, Proformas, Pagos y Depósitos.
+**Para qué sirve.** La facturación y los pagos se gestionan desde la ficha de cada reserva. Ahí puede emitir facturas y proformas, registrar los pagos que recibe del huésped (efectivo, tarjeta, transferencia) y ver depósitos. Todo queda ligado a la reserva, así no se pierde el rastro de lo cobrado.
 
-Hotelgest Unified ofrece un sistema completo de gestión financiera vinculado a las reservas: facturas, proformas, pagos y depósitos.
+**Dónde está.** Abra una reserva desde el Panel de Control o desde el calendario de Planificación. Dentro de la reserva verá varias **pestañas** (solapas); una de ellas es Facturación (o Facturas / Pagos). Al pulsar en esa pestaña verá la lista de facturas, proformas y pagos de esa reserva. No puede romper nada por abrir la pestaña: solo al pulsar "Añadir factura" o "Añadir pago" y luego "Guardar" se registran cambios.
 
 ---
 
@@ -154,3 +154,27 @@ La configuración de facturación se gestiona desde **Configuración > Contabili
 - **Campos obligatorios**: Qué datos son requeridos
 - **Hora de cierre**: Hora de cierre contable diario
 - **Pie de factura**: Texto que aparece en la parte inferior de las facturas
+
+---
+
+## Qué puede ir mal y cómo solucionarlo
+
+**No veo el botón de añadir factura o añadir pago.** Compruebe que está dentro de la ficha de una reserva y en la pestaña de Facturación o Pagos. Si no ve esa pestaña, su perfil (rol) puede no tener permiso para facturar; pregunte a su administrador.
+
+**He registrado un pago con un importe equivocado.** Si acaba de guardar, en algunas pantallas puede haber una opción para editar o anular el pago. Si no la ve o el pago ya está cerrado, contacte con su administrador o con soporte; suelen poder corregirlo.
+
+**La factura no se puede emitir (mensaje de error).** Suele faltar un dato obligatorio: por ejemplo el NIF del cliente o la dirección fiscal. Lea el mensaje que aparece en pantalla; indicará qué campo completar. Complete el dato y vuelva a intentar. Mientras no pulse Emitir o Guardar, la factura no se registra.
+
+**No me llega el email con la factura al huésped.** Revise que el correo del huésped esté bien escrito en la reserva. Pida al huésped que mire la carpeta de spam. Puede volver a enviar la factura desde la misma pantalla (botón Enviar por email).
+
+**Recuerde.** Sus datos de facturación y pagos quedan guardados. Si se equivoca al introducir un pago o una factura, no se pierde nada por pedir ayuda para corregirlo. Para dudas sobre impuestos o numeración, el administrador o la configuración de Contabilidad son la referencia.
+
+---
+
+## Consejos
+
+- Antes de emitir la factura definitiva, puede enviar una **proforma** al huésped para que confirme el desglose.
+- Registre los pagos en cuanto los reciba; así la reserva mostrará siempre el saldo actualizado.
+- Si descarga facturas en PDF, guárdelas en una carpeta de su ordenador o envíelas por email al cliente para tener copia.
+
+**Ver también:** [Reservas](/docs/04-reservas), [Configuración](/docs/11-configuracion), [Resolución de problemas](/docs/18-resolucion-problemas).
