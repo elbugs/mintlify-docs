@@ -1,129 +1,183 @@
 ---
 title: Aplicación móvil
-description: App iOS y Android de Hotelgest Unified.
+description: App nativa de Hotelgest Unified para iOS y Android con escaneo de documentos, biometría y notificaciones push.
 ---
 
 # Aplicación móvil
 
-**Web (responsive):** [https://app.hotelgest.com](https://app.hotelgest.com) — La misma URL en el navegador del móvil ofrece la experiencia adaptada. Las apps nativas (App Store / Google Play) usan la misma aplicación.
+Hotelgest tiene una aplicación nativa para iOS y Android construida con Ionic y Capacitor. La app incluye todas las funcionalidades de la versión web más algunas exclusivas del móvil: escaneo de documentos con la cámara, acceso con Face ID / huella dactilar y notificaciones push nativas.
 
-Hotelgest Unified está disponible como aplicación móvil nativa para iOS y Android, ofreciendo acceso a las funcionalidades principales del PMS desde cualquier lugar.
-
----
-
-## Descarga
-
-- **iOS**: Disponible en la App Store
-- **Android**: Disponible en Google Play Store
+**Nombre en las tiendas:** unified by hg
+**ID:** com.hotelgest.hotelgestscan
 
 ---
 
-## Navegación
+## Cómo descargar
 
-### Barra inferior (Bottom Tabs)
-La navegación principal en móvil se realiza a través de 5 pestañas en la parte inferior:
+| Plataforma | Dónde |
+|------------|-------|
+| **iPhone / iPad** | App Store |
+| **Android** | Google Play Store |
+| **Web (sin instalar)** | [app.hotelgest.com](https://app.hotelgest.com) |
 
-| Pestaña | Funcionalidad |
-|---------|---------------|
-| **Dashboard** | Panel de control con widgets y resumen del día |
+---
+
+## Navegación en el móvil
+
+### Barra inferior (5 pestañas)
+
+| Pestaña | Qué muestra |
+|---------|-------------|
+| **Dashboard** | Panel con widgets y resumen del día |
 | **Planificación** | Calendario de reservas |
-| **Housekeeping** | Rack de limpieza y tareas |
+| **Housekeeping** | Rack de limpieza y tareas pendientes |
 | **Actividad** | Registro de actividad reciente |
 | **Notificaciones** | Centro de notificaciones |
 
 ### Menú lateral
-Además de las pestañas, el menú lateral (hamburguesa) da acceso a:
-- Todas las secciones disponibles según tus permisos
-- Acciones rápidas
-- Selector de propiedad
 
-### Menú inferior adicional
-En la parte inferior del menú lateral se encuentran:
-- **Marketplace**: Catálogo de integraciones
-- **Configuración**: Acceso rápido a ajustes
-- **Academia**: Recursos formativos
-- **Ayuda**: Chat de soporte (Intercom)
-- **Cerrar sesión**: Salir de la aplicación
+Desliza desde la izquierda o toca el icono de menú para acceder a:
+- Todas las secciones según tus permisos
+- Selector de propiedad (si gestionas varias)
+- Marketplace
+- Configuración
+- Academia
+- Ayuda (Intercom)
+- Cerrar sesión
 
----
+### Vista adaptativa
 
-## Funciones Exclusivas del Móvil
-
-### Acceso biométrico
-- **Face ID** (iOS) o **Huella dactilar** (Android)
-- Activa esta opción durante el login marcando "Acceso biométrico"
-- En futuros accesos, basta con la biometría para iniciar sesión
-
-### Escaneo de documentos
-- Usa la cámara del dispositivo para escanear documentos de identidad
-- El sistema reconoce automáticamente los datos (tecnología Regula):
-  - Nombre y apellidos
-  - Número de documento
-  - Nacionalidad
-  - Fecha de nacimiento
-  - Fecha de caducidad
-
-### Escaneo QR
-- Escanea códigos QR con la cámara
-- Útil para acceder rápidamente a reservas o configuraciones
-
-### Notificaciones Push
-- Recibe notificaciones en tiempo real directamente en tu dispositivo:
-  - Nuevas reservas
-  - Cancelaciones
-  - Check-ins
-  - Pagos recibidos
-  - Tareas asignadas
-  - Mensajes nuevos
+- **Teléfono vertical**: navegación por pestañas, contenido en una columna.
+- **Teléfono horizontal**: pestañas ocultas para maximizar el espacio.
+- **Tablet**: vista similar a la web con menú lateral desplegable.
 
 ---
 
-## Diferencias con la Versión Web
+## Funciones exclusivas del móvil
 
-### Funciones completas en ambas plataformas
-- Dashboard y widgets
-- Calendario de planificación
-- Detalle de reservas
-- Housekeeping
-- Informes
-- Comunicaciones
-- Configuración básica
+### 1. Acceso biométrico (Face ID / Huella dactilar)
 
-### Solo en versión web
-- Resetear contraseña
-- Verificar email
-- Arrastrar y reorganizar widgets del dashboard
-- Algunas configuraciones avanzadas
-- Informes del backoffice
+Puedes acceder a la aplicación con tu cara (Face ID en iPhone) o con tu huella dactilar (Touch ID en iPhone, sensor de huella en Android) en lugar de escribir tu usuario y contraseña cada vez.
 
-### Solo en aplicación móvil
-- Acceso biométrico (Face ID / huella dactilar)
-- Escaneo de documentos con cámara nativa
-- Notificaciones push nativas
-- Escaneo QR
+**Cómo activarlo:**
+1. En la pantalla de inicio de sesión, marca la casilla **Acceso biométrico**.
+2. Inicia sesión con tu usuario y contraseña como siempre.
+3. Las credenciales se guardan de forma segura en tu dispositivo.
+4. La próxima vez que abras la app, solo necesitarás tu cara o huella.
+
+**Si falla la biometría:**
+- Puedes reintentar.
+- Siempre puedes volver a escribir tu usuario y contraseña manualmente.
 
 ---
 
-## Vista Adaptativa
+### 2. Escaneo de documentos de identidad
 
-La aplicación se adapta al tamaño de pantalla:
-- **Teléfono (vertical)**: Navegación por pestañas inferiores, contenido en una columna
-- **Teléfono (horizontal)**: Las pestañas se ocultan para maximizar el espacio
-- **Tablet**: Vista similar a escritorio con menú lateral desplegable
+La app usa la cámara del móvil para escanear documentos de identidad (DNI, pasaporte, etc.) y extraer los datos automáticamente con OCR.
+
+**Cómo escanear:**
+1. Abre el detalle de una reserva.
+2. Toca **Escanear documento**.
+3. Apunta la cámara al documento.
+4. La app lee automáticamente los datos de la zona legible por máquina (MRZ).
+5. Los datos se rellenan en el formulario del huésped.
+
+**Datos que se extraen:**
+- Nombre y apellidos
+- Número de documento
+- Nacionalidad y país
+- Fecha de nacimiento
+- Fecha de emisión y caducidad
+- Sexo
+- Tipo de documento
+- Imágenes: retrato, frente y reverso del documento
+
+**Nota:** El escáner funciona incluso sin conexión a internet, ya que tiene una base de datos local de documentos.
 
 ---
 
-## Modo Offline
+### 3. Notificaciones push nativas
 
-Algunos datos se almacenan en caché local para:
-- Acceder a información básica sin conexión
-- Mantener la sesión activa entre usos
-- Sincronizar datos al recuperar la conexión
+La app envía notificaciones nativas a tu dispositivo cuando ocurren eventos importantes.
+
+**Tipos de notificaciones:**
+- Nueva reserva recibida
+- Reserva cancelada
+- Check-in realizado
+- Pago recibido
+- Tarea asignada
+- Mensaje nuevo
+- Errores del sistema
+
+**Cómo funcionan:**
+- Las notificaciones llegan aunque la app esté cerrada.
+- Al tocar una notificación, se abre directamente la reserva o sección relacionada.
+- Los iconos de badge muestran el número de notificaciones sin leer.
+
+**Permisos:**
+- En iOS: te pedirá permiso la primera vez que abras la app.
+- En Android: se activan automáticamente.
 
 ---
 
-## Requisitos
+### 4. Escaneo QR
 
-- **iOS**: Versión mínima según la versión de Capacitor (generalmente iOS 13+)
-- **Android**: Versión mínima Android 5.0+
-- **Conexión a Internet**: Requerida para la mayoría de operaciones
+La app puede escanear códigos QR con la cámara para acceder rápidamente a reservas o verificar facturas.
+
+---
+
+## Qué puedes hacer en la app (igual que en la web)
+
+Todo lo que puedes hacer en la versión web lo puedes hacer también en la app:
+
+- Ver el dashboard con widgets y métricas
+- Gestionar el calendario de reservas (ver, crear, mover)
+- Ver y gestionar detalles de reservas
+- Hacer check-in y check-out
+- Gestionar housekeeping (cambiar estados, ver tareas)
+- Ver informes y exportar a Excel
+- Enviar WhatsApp y emails a huéspedes
+- Gestionar la facturación
+- Registrar pagos
+- Configurar la propiedad
+- Cambiar de propiedad (si gestionas varias)
+
+---
+
+## Qué es diferente en la app
+
+| Funcionalidad | Web | App móvil |
+|---------------|-----|-----------|
+| Acceso biométrico | No | Sí (Face ID, huella) |
+| Escaneo de documentos con cámara | No | Sí (OCR automático) |
+| Notificaciones push nativas | Solo navegador | Nativas del sistema |
+| Escaneo QR | No | Sí |
+| Resetear contraseña | Sí | No (se hace desde la web) |
+| Verificar email | Sí | No (se hace desde la web) |
+| Drag & drop de widgets | Sí | No |
+| Informes del backoffice | Sí | No |
+
+---
+
+## Requisitos del dispositivo
+
+| Plataforma | Versión mínima |
+|------------|---------------|
+| **iOS** | iOS 13 o superior |
+| **Android** | Android 5.0 (API 21) o superior |
+
+**Permisos necesarios:**
+- Cámara (para escaneo de documentos y QR)
+- Notificaciones (para push)
+- Biometría (para Face ID / huella)
+- Almacenamiento (Android, para documentos)
+
+---
+
+## Versión de la app
+
+Puedes ver la versión de la app en:
+- La parte inferior de la pantalla de inicio de sesión.
+- Configuración de la aplicación.
+
+Si contactas con soporte, indica siempre la versión de la app que estás usando.

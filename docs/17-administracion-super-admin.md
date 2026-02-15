@@ -1,110 +1,143 @@
 ---
 title: Administración (Super Admin)
-description: Planes, pre-cuentas, mapa e IA de voz en Hotelgest Unified.
+description: Panel de Super Administrador de Hotelgest Unified con gestión de planes, propiedades, usuarios globales, IA de voz y consentimientos.
 ---
 
 # Administración (Super Admin)
 
-**URLs (solo Super Admin):**
-- [Planes](https://app.hotelgest.com/manage/plans) · [Pre-cuenta](https://app.hotelgest.com/manage/pre-account) · [Mapa](https://app.hotelgest.com/manage/map) · [AI Voice](https://app.hotelgest.com/manage/ai-voice) · [Consentimientos](https://app.hotelgest.com/manage/consents)
-
-La sección de Super Administración está reservada para los administradores del sistema Hotelgest. Estas funcionalidades no están disponibles para usuarios regulares.
+El panel de Super Admin es exclusivo para el equipo de Hotelgest. Desde aquí se gestionan los planes de suscripción, las cuentas de nuevas propiedades, el mapa de alojamientos, la IA de voz y los consentimientos de datos. Los usuarios normales no ven esta sección.
 
 ---
 
 ## Acceso
 
-Solo los usuarios con rol de **Super Admin** pueden acceder a estas funcionalidades. Aparecen en el menú lateral bajo la sección **Gestionar**.
+Solo los usuarios marcados como Super Admin pueden acceder. El Super Admin tiene acceso completo a todas las propiedades del sistema sin restricciones de permisos.
+
+**Autenticación especial:**
+- Login: `/api/super-admin/auth/login`
+- Verificación: `/api/super-admin/auth/verify-login`
+- Login como otro usuario: permite entrar como si fueras otro usuario para depurar problemas.
+- Gestión de sesiones: ver y cerrar sesiones de cualquier usuario.
 
 ---
 
-## Gestión de Planes
+## Secciones
 
-### Acceso
-**Gestionar > Planes**
+### 1. Planes
 
-### Funcionalidades
-- Ver y gestionar los **planes de suscripción** disponibles
-- Configurar los módulos incluidos en cada plan
-- Asignar planes a las propiedades
-- Gestionar upgrades y downgrades
+**URL:** [app.hotelgest.com/manage/plans](https://app.hotelgest.com/manage/plans)
 
-### Planes del sistema
-Cada plan define:
-- Módulos a los que tiene acceso la propiedad
-- Límites de uso (habitaciones, usuarios, etc.)
-- Precio y periodicidad de facturación
+Gestión de los planes de suscripción disponibles en Hotelgest.
+
+**Qué se puede hacer:**
+- Ver todos los planes con sus características y precios.
+- Configurar qué módulos incluye cada plan.
+- Definir límites de uso (número de habitaciones, usuarios, etc.).
+- Asignar planes a propiedades.
+- Gestionar upgrades y downgrades.
 
 ---
 
-## Pre-Cuentas
+### 2. Pre-cuentas
 
-### Acceso
-**Gestionar > Pre-Cuenta**
+**URL:** [app.hotelgest.com/manage/pre-account](https://app.hotelgest.com/manage/pre-account)
 
-### Funcionalidades
-- Gestión de cuentas en proceso de creación
-- Seguimiento del estado de onboarding de nuevas propiedades
-- Estados del flujo de pre-cuenta:
-  - Solicitud recibida
-  - En revisión
-  - Datos completados
-  - Cuenta activada
+Gestión de nuevas cuentas en proceso de creación.
+
+**Qué se puede hacer:**
+- Ver todas las solicitudes de nuevas cuentas.
+- Seguir el estado del onboarding (solicitud recibida → en revisión → datos completados → cuenta activada).
+- Crear pre-cuentas manualmente.
+- Aprobar o rechazar solicitudes.
 
 ---
 
-## Mapa de Propiedades
+### 3. Mapa
 
-### Acceso
-**Gestionar > Mapa**
+**URL:** [app.hotelgest.com/manage/map](https://app.hotelgest.com/manage/map)
 
-### Funcionalidades
-- Vista geográfica de todas las propiedades del sistema
-- Localización de propiedades en el mapa
-- Información resumida de cada propiedad al hacer clic
-- Útil para supervisar la red de establecimientos
+Vista geográfica de todas las propiedades del sistema.
 
----
-
-## AI Voice (Voz IA)
-
-### Acceso
-**Gestionar > AI Voice**
-
-### Funcionalidades
-- Gestión del sistema de **inteligencia artificial de voz**
-- Configuración del asistente de voz para recepción
-- Pruebas de conversación con el asistente
-- Estados del sistema:
-  - Configuración inicial
-  - En pruebas
-  - Activo
-  - Desactivado
-
-### Integración
-La funcionalidad de AI Voice utiliza **Retell AI** para:
-- Atender llamadas telefónicas automáticamente
-- Responder preguntas frecuentes
-- Transferir llamadas complejas a recepción
-- Registrar resúmenes de las conversaciones
+**Qué se puede hacer:**
+- Ver la ubicación de todas las propiedades en un mapa.
+- Hacer clic en un marcador para ver información básica (nombre, logo, tipo).
+- Supervisar la distribución geográfica de la red de alojamientos.
 
 ---
 
-## Consentimientos
+### 4. IA de voz (AI Voice)
 
-### Acceso
-**Gestionar > Consentimientos**
+**URL:** [app.hotelgest.com/manage/ai-voice](https://app.hotelgest.com/manage/ai-voice)
 
-### Funcionalidades
-- Gestión centralizada de los **consentimientos** de tratamiento de datos
-- Configuración de los textos de consentimiento
-- Seguimiento de consentimientos aceptados/rechazados
-- Cumplimiento con el RGPD y normativas de protección de datos
+Gestión del asistente de voz con inteligencia artificial para recepción telefónica.
+
+**Qué se puede hacer:**
+- Configurar el asistente de voz (basado en Retell AI).
+- Definir qué puede hacer el asistente:
+  - Atender llamadas telefónicas automáticamente.
+  - Responder preguntas frecuentes de los huéspedes.
+  - Transferir llamadas complejas a recepción.
+  - Registrar resúmenes de las conversaciones.
+- Probar conversaciones con el asistente.
+- Activar o desactivar por propiedad.
 
 ---
 
-## Notas Importantes
+### 5. Consentimientos
 
-- Estas funcionalidades son **exclusivas para Super Admins** y no aparecen en el menú de usuarios regulares
-- Los cambios realizados en esta sección pueden afectar a **todas las propiedades** del sistema
-- Se recomienda precaución al modificar planes y configuraciones globales
+**URL:** [app.hotelgest.com/manage/consents](https://app.hotelgest.com/manage/consents)
+
+Gestión centralizada de los consentimientos de tratamiento de datos (RGPD).
+
+**Qué se puede hacer:**
+- Crear nuevos documentos de consentimiento (título y contenido).
+- Editar borradores (los consentimientos publicados no se pueden editar).
+- Publicar un consentimiento para que sea visible a los usuarios.
+- Eliminar borradores.
+- Ver qué usuarios han aceptado el consentimiento publicado.
+
+**Reglas:**
+- Un consentimiento publicado no se puede modificar ni eliminar.
+- Solo puede haber un consentimiento publicado activo a la vez.
+- Al publicar uno nuevo, sustituye al anterior.
+- Los usuarios ven una pantalla de aceptación al iniciar sesión si hay un nuevo consentimiento.
+
+---
+
+## Gestión global de usuarios
+
+El Super Admin puede gestionar usuarios de cualquier propiedad:
+
+| Acción | Qué hace |
+|--------|----------|
+| Crear usuario | Crear un usuario en cualquier propiedad |
+| Cambiar rol | Cambiar el rol de cualquier usuario |
+| Bloquear / Desbloquear | Impedir o restaurar el acceso |
+| Eliminar permanentemente | Borrar todos los datos del usuario (irreversible) |
+| Restaurar | Recuperar un usuario eliminado |
+| Añadir tester | Marcar un usuario como tester (acceso a funcionalidades beta) |
+| Eliminar tester | Quitar el estado de tester |
+
+---
+
+## Gestión global de API Keys
+
+El Super Admin puede ver y gestionar las API Keys de todas las propiedades:
+
+- Ver todas las API Keys del sistema.
+- Crear API Keys para cualquier propiedad.
+- Habilitar o deshabilitar API Keys.
+- Revocar API Keys.
+
+---
+
+## Configuración del sistema
+
+| Acción | Qué hace |
+|--------|----------|
+| Nueva versión | Registrar una nueva versión de la aplicación |
+| Mantenimiento | Poner la aplicación en modo mantenimiento |
+| Producción | Enviar una versión a producción |
+| Limpiar caché | Limpiar la caché del sistema |
+| Contacto de soporte | Actualizar los datos de contacto del soporte |
+| Configuración admin | Ver y modificar la configuración general |

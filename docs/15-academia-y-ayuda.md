@@ -1,75 +1,92 @@
 ---
 title: Academia y ayuda
-description: Recursos formativos, soporte y roadmap de Hotelgest Unified.
+description: Centro de formación, chat de soporte, roadmap del producto y recursos de ayuda en Hotelgest Unified.
 ---
 
 # Academia y ayuda
 
-**URL Academia:** [https://app.hotelgest.com/academy](https://app.hotelgest.com/academy)  
-**URL Roadmap:** [https://app.hotelgest.com/roadmap](https://app.hotelgest.com/roadmap)
-
-Hotelgest Unified incluye recursos formativos y de soporte para ayudarte a sacar el máximo partido del sistema.
+Hotelgest incluye una academia con tutoriales y artículos de ayuda, un chat de soporte en tiempo real y un roadmap público donde puedes votar por las funcionalidades que te gustaría ver.
 
 ---
 
 ## Academia
 
-### Acceso
-Desde el menú lateral (escritorio) o el menú inferior (móvil), haz clic en **Academia**.
+**URL:** [app.hotelgest.com/academy](https://app.hotelgest.com/academy)
 
-### Contenido
-La Academia contiene temas organizados con artículos y tutoriales sobre:
-- **Primeros pasos**: Configuración inicial del sistema
-- **Gestión de reservas**: Cómo crear, editar y gestionar reservas
-- **Facturación**: Cómo emitir facturas, proformas y gestionar pagos
-- **Housekeeping**: Cómo usar el módulo de limpieza
-- **Informes**: Cómo generar y interpretar informes
-- **Integraciones**: Cómo configurar las distintas integraciones
-- **Motor de reservas**: Cómo configurar y personalizar tu booking engine
-- **Configuración avanzada**: Personalización del sistema
+La Academia es el centro de formación de Hotelgest. Contiene artículos y tutoriales organizados por temas para aprender a usar cada funcionalidad.
 
-### Estructura
-- **Temas**: Categorías principales de ayuda
-- **Artículos**: Contenido detallado dentro de cada tema
-- Cada artículo puede incluir texto explicativo, capturas de pantalla y vídeos
+### Cómo acceder
 
----
+1. En el menú lateral, haz clic en **Academia**.
+2. Se abre la página con los temas disponibles.
+3. Haz clic en un tema para ver los artículos.
+4. Haz clic en un artículo para abrirlo.
 
-## Soporte (Intercom)
+### Organización
 
-### Chat de soporte
-- Haz clic en el botón de **Ayuda** en el menú inferior
-- Se abre el chat de **Intercom** integrado en la aplicación
-- Puedes:
-  - Enviar mensajes al equipo de soporte
-  - Consultar artículos de ayuda
-  - Ver el estado de tus consultas anteriores
+Los contenidos se organizan por temas:
+- Primeros pasos
+- Gestión de reservas
+- Facturación
+- Housekeeping
+- Informes
+- Integraciones
+- Motor de reservas
+- Configuración avanzada
 
-### Disponibilidad
-- El soporte está disponible durante el horario de atención
-- Los mensajes fuera de horario se responden en el siguiente período de atención
+Cada artículo tiene un título, una imagen y un enlace al contenido completo. En móvil, los artículos se abren en el navegador del dispositivo. En la web, se abren en una ventana integrada.
 
 ---
 
-## Roadmap
+## Chat de soporte (Intercom)
 
-### Acceso
-Desde el menú lateral, haz clic en **Roadmap**.
+Hotelgest usa **Intercom** como plataforma de soporte. Puedes chatear en tiempo real con el equipo de soporte desde dentro de la aplicación.
 
-### Contenido
-El Roadmap muestra el plan de desarrollo del producto:
-- **Funcionalidades en desarrollo**: Lo que se está trabajando actualmente
-- **Próximas funcionalidades**: Lo que vendrá en las siguientes versiones
-- **Funcionalidades solicitadas**: Peticiones de usuarios en evaluación
-- **Completadas**: Funcionalidades ya implementadas
+### Cómo iniciar un chat
 
-### Participación
-- Puedes votar por las funcionalidades que más te interesen
-- Puedes sugerir nuevas funcionalidades
-- El equipo de producto prioriza según los votos y las necesidades
+**En la web:**
+1. Haz clic en el botón de ayuda (burbuja) que aparece en la aplicación.
+2. Se abre el widget de Intercom.
+3. Escribe tu pregunta y envía.
+
+**En el móvil:**
+1. Abre el menú lateral.
+2. Toca **Ayuda** en la parte inferior.
+3. Se abre el chat de Intercom.
+
+### Qué puedes hacer
+
+- **Chatear con soporte**: escribe tu pregunta y recibirás respuesta del equipo.
+- **Buscar artículos de ayuda**: el widget incluye un buscador de artículos.
+- **Ver historial**: tus conversaciones anteriores están guardadas.
+
+El chat te identifica automáticamente con tu nombre, email y propiedad, así el equipo de soporte sabe quién eres y a qué propiedad te refieres sin tener que explicarlo.
+
+### Centro de ayuda
+
+También puedes acceder al centro de ayuda directamente desde el navegador:
+
+**URL:** [help.hotelgest.com](https://help.hotelgest.com)
 
 ---
 
-## Versión de la Aplicación
+## Roadmap del producto
 
-En la parte inferior de la pantalla de login y en la configuración puedes ver la **versión actual** de la aplicación. Esta información es útil cuando contactas con soporte técnico.
+**URL:** [app.hotelgest.com/roadmap](https://app.hotelgest.com/roadmap)
+
+El Roadmap muestra el plan de desarrollo de Hotelgest: qué funcionalidades están en desarrollo, cuáles están planificadas y cuáles ya se han completado.
+
+### Cómo acceder
+
+1. En el menú lateral, haz clic en **Roadmap**.
+2. Se abre la página con las categorías de funcionalidades.
+
+### Qué puedes hacer
+
+- **Ver funcionalidades en desarrollo**: qué se está construyendo ahora.
+- **Ver funcionalidades planificadas**: qué viene a continuación.
+- **Ver funcionalidades completadas**: qué se ha lanzado recientemente.
+- **Votar**: vota por las funcionalidades que más te interesan para ayudar a priorizar.
+- **Sugerir**: propón nuevas funcionalidades que te gustaría ver.
+
+El Roadmap está integrado con FeatureBase. Tu sesión se vincula automáticamente para que tus votos queden registrados.

@@ -1,116 +1,148 @@
 ---
 title: Comunicaciones
-description: WhatsApp, email y notificaciones push en Hotelgest Unified.
+description: WhatsApp, email, notificaciones push y bandeja de entrada en Hotelgest Unified.
 ---
 
 # Comunicaciones
 
-**URL mensajes:** [https://app.hotelgest.com/messages](https://app.hotelgest.com/messages)  
-**URL notificaciones:** [https://app.hotelgest.com/notifications](https://app.hotelgest.com/notifications)
+Hotelgest Unified permite comunicarte con los huéspedes por WhatsApp y email, y envía notificaciones automáticas al equipo cuando ocurren eventos importantes (nueva reserva, cancelación, errores).
 
-Hotelgest Unified integra múltiples canales de comunicación para contactar con los huéspedes antes, durante y después de su estancia.
-
----
-
-## Mensajes / Bandeja de Entrada
-
-La sección **Mensajes** funciona como una bandeja de entrada centralizada donde puedes:
-- Ver todas las comunicaciones con los huéspedes
-- Gestionar mensajes entrantes y salientes
-- Mantener un historial de conversaciones por reserva
-
-### Acceso
-Desde el menú lateral, haz clic en **Mensajes**.
+**URLs:**
+- Notificaciones: [app.hotelgest.com/notifications](https://app.hotelgest.com/notifications)
+- Configuración: [app.hotelgest.com/settings/communication](https://app.hotelgest.com/settings/communication)
 
 ---
 
-## WhatsApp
+## Canales de comunicación
 
-La integración con WhatsApp permite enviar mensajes a los huéspedes directamente desde la plataforma.
+### 1. WhatsApp
 
-### Enviar un mensaje de WhatsApp
-1. Abre el detalle de una reserva
-2. Haz clic en el icono de **WhatsApp** en la cabecera
-3. Selecciona una **plantilla** o escribe un mensaje personalizado
-4. El sistema abre WhatsApp con el mensaje preparado
+Puedes enviar mensajes de WhatsApp a los huéspedes directamente desde el detalle de la reserva.
 
-### Plantillas de WhatsApp
-Las plantillas permiten enviar mensajes predefinidos y personalizados:
-- **Confirmación de reserva**: Datos de la reserva y detalles de la estancia
-- **Recordatorio de llegada**: Información de check-in y cómo llegar
-- **Solicitud de pago**: Enlace para realizar un pago pendiente
-- **Agradecimiento**: Mensaje post-estancia
-- **Personalizada**: Cualquier plantilla creada por el usuario
+**Cómo enviar un WhatsApp:**
+1. Abre el detalle de una reserva.
+2. Haz clic en el botón **WhatsApp** (aparece si la reserva tiene teléfono).
+3. Se muestra un menú con estas opciones:
+   - **Abrir chat**: abre WhatsApp con el número del huésped (sin mensaje).
+   - **Enviar Web App**: envía al huésped el enlace de la web app (check-in online).
+   - **Usar plantilla**: envía un mensaje usando una de tus plantillas configuradas.
+   - **Gestionar plantillas**: va a Configuración > Comunicación para crear o editar plantillas.
+4. Al seleccionar una opción, se abre la app de WhatsApp del dispositivo con el mensaje preparado.
 
-### Gestionar plantillas
-Desde **Configuración > Comunicación** puedes:
-- **Crear** nuevas plantillas
-- **Editar** plantillas existentes
-- **Activar/Desactivar** plantillas
-- Configurar plantillas en **múltiples idiomas**
+**Importante:** Hotelgest no usa la API de WhatsApp Business. El sistema prepara el mensaje y abre la app nativa de WhatsApp en tu dispositivo (web o móvil).
 
----
+#### Plantillas de WhatsApp
 
-## Email
+Puedes crear plantillas de mensajes con variables dinámicas que se rellenan automáticamente con los datos de la reserva.
 
-### Emails automáticos
-El sistema puede enviar emails automáticos en distintos momentos:
-- **Confirmación de reserva**: Al crear o confirmar una reserva
-- **Recordatorio**: Antes de la llegada del huésped
-- **Check-in online**: Enlace para completar el registro antes de llegar
-- **Solicitud de pago**: Con enlace de pago seguro
-- **Factura**: Envío automático de la factura tras el check-out
-- **Proforma**: Envío de presupuesto o estimación
+**Variables disponibles:**
 
-### Enviar emails manualmente
-Desde el detalle de la reserva puedes:
-1. Hacer clic en **Enviar recordatorio** o **Enviar email**
-2. Seleccionar el tipo de email
-3. Personalizar el contenido si es necesario
-4. Enviar al huésped
+| Variable | Qué se sustituye |
+|----------|-----------------|
+| `clientName` | Nombre del huésped |
+| `url` | Enlace a la web app |
+| `start` | Fecha de llegada |
+| `end` | Fecha de salida |
+| `nights` | Número de noches |
+| `roomName` | Nombre del tipo de habitación |
+| `doorNum` | Número de puerta |
+| `price` | Precio total |
+| `currency` | Moneda (EUR, USD, etc.) |
+| `bookingId` | Número de reserva |
+| `channelId` | Código del canal |
 
-### Configuración de email
-En **Configuración > Reservas** puedes:
-- Activar/desactivar emails automáticos
-- Configurar **servidor SMTP** propio (para enviar desde tu dominio)
-- Personalizar los textos de las plantillas
+**Crear una plantilla:**
+1. Ve a **Configuración > Comunicación**.
+2. Haz clic en **Añadir modelo de WhatsApp**.
+3. Escribe un nombre para la plantilla.
+4. Redacta el mensaje en los idiomas que necesites, usando las variables entre llaves.
+5. Guarda.
+
+Las plantillas se pueden activar o desactivar individualmente.
 
 ---
 
-## Notificaciones Push
+### 2. Email
 
-Las notificaciones push se envían a la aplicación móvil para informar al equipo en tiempo real.
+Hotelgest envía emails automáticos y también permite enviar emails manuales desde el detalle de la reserva.
 
-### Tipos de notificaciones
-- **Nueva reserva**: Cuando se recibe una nueva reserva
-- **Cancelación**: Cuando se cancela una reserva
-- **Modificación**: Cuando se modifica una reserva existente
-- **Check-in**: Cuando un huésped hace check-in
-- **Pago recibido**: Cuando se registra un pago
-- **Tarea asignada**: Cuando se asigna una tarea
-- **Mensaje recibido**: Cuando llega un mensaje
+#### Emails automáticos
 
-### Gestión de notificaciones
-Desde la sección **Notificaciones** puedes:
-- Ver el historial de notificaciones recibidas
-- Marcar como leídas o no leídas
-- Filtrar por tipo de notificación
+| Email | Cuándo se envía |
+|-------|----------------|
+| **Confirmación de reserva** | Al crear una nueva reserva (si está activado) |
+| **Pre-estancia** | X días antes del check-in (configurable) |
+| **Post-estancia** | X días después del check-out (configurable) |
+| **Check-in online** | Cuando se envía el enlace de la web app al huésped |
+| **Confirmación de cancelación** | Al cancelar una reserva |
+| **Confirmación de tentativa** | Al confirmar una reserva tentativa |
+
+#### Configurar emails automáticos
+
+Desde **Configuración > Reservas > Comunicación** puedes ajustar:
+- **Días de recordatorio pre-estancia**: cuántos días antes del check-in se envía el email.
+- **Días de recordatorio post-estancia**: cuántos días después del check-out se envía el email.
+- **Enviar confirmación al crear reserva**: activar o desactivar.
+- **Enviar copia al administrador**: que el admin reciba una copia de la confirmación.
+
+#### Servidor SMTP personalizado
+
+Puedes configurar tu propio servidor de correo saliente (SMTP) en **Configuración > Reservas > Emails** con estos campos:
+- Protocolo, host, puerto
+- Email remitente y nombre visible
+- Usuario y contraseña
+- Seguridad (SSL, STARTTLS, ninguna, auto)
+- Email BCC (copia oculta, opcional)
 
 ---
 
-## Notificaciones en la Bandeja (Inbox)
+### 3. Notificaciones push
 
-Además de las push, el sistema muestra notificaciones dentro de la aplicación:
-- Icono con contador de notificaciones no leídas
-- Lista de notificaciones con descripción y hora
-- Acceso directo a la reserva o evento relacionado
+El sistema envía notificaciones push automáticas a los dispositivos de tu equipo a través de Firebase Cloud Messaging.
+
+**Plataformas:** Android, iOS y Web (navegador).
+
+**Cuándo se envían:**
+
+| Evento | Notificación |
+|--------|-------------|
+| Nueva reserva recibida | Push + bandeja de entrada |
+| Reserva cancelada | Push + bandeja de entrada |
+| Reserva movida (éxito) | Push + bandeja de entrada |
+| Reserva movida (error) | Push + bandeja de entrada |
+| Reserva redimensionada (éxito) | Push + bandeja de entrada |
+| Reserva redimensionada (error) | Push + bandeja de entrada |
+| Errores del sistema | Push + bandeja de entrada |
+
+Las push se envían automáticamente; no necesitas configurar nada.
 
 ---
 
-## Comunicación desde la Reserva
+### 4. Bandeja de entrada (Inbox)
 
-Desde el detalle de cualquier reserva tienes acceso directo a:
-- **WhatsApp**: Enviar mensaje al huésped
-- **Email**: Enviar recordatorio o factura
-- **Web App**: Enviar enlace de la web app del huésped (check-in online)
-- **Autoridades**: Enviar partes de viajeros a las autoridades competentes
+La bandeja de entrada muestra todas las notificaciones internas de la aplicación.
+
+**URL:** [app.hotelgest.com/notifications](https://app.hotelgest.com/notifications)
+
+**Qué muestra:**
+- Notificaciones de nuevas reservas, cancelaciones, movimientos.
+- Procesos en curso (mover o redimensionar reservas).
+- Errores del sistema e integraciones.
+- Notificaciones de otros usuarios.
+
+**Acciones:**
+- Marcar como leída / no leída (individual o todas).
+- Eliminar notificación (individual o todas).
+- Filtrar por categoría: Información, Advertencia, Error.
+- Hacer clic en una notificación para ir a la reserva relacionada.
+
+**Caducidad:** Las notificaciones se eliminan automáticamente después de 7 días.
+
+---
+
+## Permisos necesarios
+
+| Permiso | Qué permite |
+|---------|-------------|
+| **Enviar WhatsApp** | Usar el botón de WhatsApp en el detalle de la reserva |
+| **Configuración de comunicación** | Gestionar plantillas de WhatsApp y ajustes de email |

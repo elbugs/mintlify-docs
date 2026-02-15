@@ -1,259 +1,287 @@
 ---
 title: Informes y reportes
-description: Todos los informes disponibles y sus filtros en Hotelgest Unified.
+description: Todos los informes disponibles en Hotelgest Unified, con sus datos, filtros y opciones de exportación.
 ---
 
 # Informes y reportes
 
-**URLs de informes:**
-- [Reservas](https://app.hotelgest.com/report/bookings) · [Facturas](https://app.hotelgest.com/report/invoices) · [Llegadas](https://app.hotelgest.com/report/arrivals) · [Salidas](https://app.hotelgest.com/report/departures) · [Pagos](https://app.hotelgest.com/report/payments) · [Orígenes](https://app.hotelgest.com/report/origins) · [Morosos](https://app.hotelgest.com/report/overdues) · [In-house](https://app.hotelgest.com/report/in-house) · [Huéspedes](https://app.hotelgest.com/report/hosts) · [Nacionalidades](https://app.hotelgest.com/report/nationalities) · [Artículos](https://app.hotelgest.com/report/articles) · [Autoridades](https://app.hotelgest.com/report/authorities) · [Empresas](https://app.hotelgest.com/report/companies)
+Hotelgest Unified incluye 13 informes principales accesibles desde el menú lateral. Cada informe muestra una tabla interactiva con filtros, ordenación y exportación a Excel.
 
-Hotelgest Unified ofrece un amplio conjunto de informes para analizar la operativa y el rendimiento de tu propiedad. Todos los informes comparten funcionalidades comunes y además están disponibles informes adicionales a través del backoffice.
-
----
-
-## Funcionalidades Comunes
-
-Todos los informes comparten las siguientes características:
-
-- **Tabla interactiva**: Basada en AG Grid con columnas redimensionables y reordenables
-- **Filtros flotantes**: Filtros visibles en la cabecera de cada columna
-- **Visibilidad de columnas**: Mostrar/ocultar columnas según necesidad
-- **Agrupación por filas**: Agrupar datos por cualquier columna
-- **Fijación de columnas (Pinning)**: Fijar columnas a la izquierda o derecha
-- **Exportar a Excel**: Descargar los datos en formato Excel
-- **Guardar filtros**: Guardar combinaciones de filtros para uso futuro
-- **Pie de totales**: Mostrar/ocultar fila de totales en la parte inferior
-- **Paginación**: 100, 500 o 1000 filas por página (paginación del servidor)
+**URL base:** [app.hotelgest.com/report/bookings](https://app.hotelgest.com/report/bookings)
 
 ---
 
-## Informe de Reservas
+## Funcionalidades comunes a todos los informes
 
-Vista completa de todas las reservas con información detallada.
+Todos los informes comparten estas funcionalidades:
 
-**Columnas principales:**
-- ID, Código de reserva del canal
-- Nombre y apellidos del huésped
-- Tipología, Habitación, Número de puerta
-- Teléfono, Email, Nacionalidad
-- Fecha de creación, Llegada, Salida, Noches
-- Ocupación, Régimen, Pack, Código promocional
-- Adultos, Niños
-- Precio de alojamiento, Comisión
-- Política, Facturado (sí/no)
-- Notas, Notas planas, Motivo de estado
-- Empresa, Nombre de empresa
-- Fecha de expiración, Estado, Fecha de cancelación
-- Origen, Total, Total pagado, Total pendiente, Total artículos
-- Consentimiento de marketing, Usuario que creó
+- **Tabla interactiva**: columnas redimensionables, reordenables y que puedes ocultar o mostrar.
+- **Filtros por columna**: texto, número, fecha o rango. Los filtros se guardan en el navegador.
+- **Ordenación**: haz clic en la cabecera para ordenar. Puedes ordenar por varias columnas a la vez.
+- **Agrupación**: arrastra una cabecera de columna para agrupar los datos.
+- **Exportar a Excel**: botón para descargar todas las filas en formato XLSX. Si hay muchos datos, verás una barra de progreso.
+- **Totales**: algunos informes muestran totales por propiedad en la parte inferior.
+- **Paginación**: los datos se cargan de 100 en 100 (puedes cambiar a 500 o 1000 filas por página).
 
-**Filtros especiales:**
+---
+
+## Lista de informes
+
+### 1. Reservas
+
+**URL:** [report/bookings](https://app.hotelgest.com/report/bookings)
+
+Listado completo de todas las reservas con datos del cliente, fechas, precios y estados.
+
+**Datos principales:**
+- ID de reserva, código del canal
+- Nombre, apellidos, teléfono, email, nacionalidad del cliente
+- Tipo de habitación, habitación asignada, número de puerta
+- Fechas: creación, llegada, salida, caducidad, cancelación
+- Ocupación: adultos, niños, noches
+- Régimen, política de cancelación, código promocional
+- Precio alojamiento, comisión, total, total artículos
+- Total pagado, total pendiente
 - Estado: Confirmada, Tentativa, Cancelada, No-show
-- Política: Flexible, No reembolsable
-- Régimen: SA, AD, MP, PC, TI
-- Facturado: Sí/No
-- Empresa: Sí/No
-- Consentimiento marketing: Sí/No
-- Motivo de estado
+- Facturado (sí/no), empresa, notas, usuario creador
 
-**Indicadores visuales:** Las reservas canceladas y tentativas se muestran con estilos diferenciados.
+**Totales:** precio alojamiento, comisión, noches, ocupación, total, total pagado, total pendiente.
 
 ---
 
-## Informe de Facturas
+### 2. Facturación
 
-**Columnas principales:**
-- Prefijo, Referencia
-- Tipo: Factura, Proforma o Nota de crédito
-- Código RS
-- Fecha de emisión
-- Total, Total pagado, Total pendiente
-- Base imponible, Impuestos, IRPF
-- Observaciones
-- Llegada, Salida
-- Tipo de habitación, Número de puerta
+**URL:** [report/invoices](https://app.hotelgest.com/report/invoices)
 
-**Filtros:** Por tipo de documento, fechas, importes.
+Listado de todas las facturas, proformas y notas de crédito.
 
----
+**Datos principales:**
+- Número/referencia, prefijo
+- Tipo: Factura, Proforma, Nota de crédito
+- Fecha emisión, llegada, salida
+- Base imponible, impuestos, IRPF, total
+- Total pagado, total pendiente
+- NIF, nombre, teléfono, dirección, ciudad, provincia
+- Tipo de habitación, número de puerta
+- Firmada (sí/no)
 
-## Informe de Llegadas
-
-Reservas con llegada en el período seleccionado.
-
-**Columnas principales:**
-- ID, Nombre, Apellidos
-- Pago pendiente, Estado de check-in
-- Habitación, Número de puerta
-- Adultos, Niños
-- Número de reserva del canal
-- Fecha y hora de llegada, Fecha de salida
-- Noches, Régimen
-- Notas del cliente, Notas internas, Origen
-
-**Filtro por defecto:** Fecha de llegada = hoy.
+**Totales:** base, impuestos, total, total pagado, total pendiente.
 
 ---
 
-## Informe de Salidas
+### 3. Llegadas
 
-Reservas con salida en el período seleccionado.
+**URL:** [report/arrivals](https://app.hotelgest.com/report/arrivals)
 
-**Columnas principales:**
-- ID, Nombre, Apellidos, Teléfono
-- Habitación, Número de puerta
-- Adultos, Niños
-- Número de reserva del canal
-- Fecha de llegada, Fecha y hora de salida
-- Noches, Régimen
+Reservas que llegan en una fecha concreta (por defecto, hoy).
+
+**Datos principales:**
+- Nombre, apellidos, habitación, puerta
+- Adultos, niños, noches, régimen
+- Fecha y hora de llegada, fecha de salida
+- Código del canal, origen
+- Pendiente de pago, estado de check-in
+- Notas del cliente, notas internas
+
+**Totales:** adultos, niños.
+
+---
+
+### 4. Salidas
+
+**URL:** [report/departures](https://app.hotelgest.com/report/departures)
+
+Reservas que se van en una fecha concreta.
+
+**Datos principales:**
+- Nombre, apellidos, teléfono, habitación, puerta
+- Adultos, niños, noches, régimen
+- Fecha llegada, fecha y hora de salida
+- Código del canal, origen
 - Estado de check-out
-- Notas del cliente, Notas internas, Origen
+
+**Totales:** adultos, niños.
 
 ---
 
-## Informe de Pagos
+### 5. Pagos
 
-Todos los pagos registrados en el período.
+**URL:** [report/payments](https://app.hotelgest.com/report/payments)
 
-**Columnas principales:**
-- Código RS, Nombre, Apellidos
-- Fecha de pago, Código de operación
-- Factura asociada, Facturado (sí/no)
-- Fecha de emisión de factura
-- Llegada, Salida
-- Total, Método de pago
-- Notas, Origen, Prepago (sí/no)
+Listado de todos los pagos registrados.
 
----
+**Datos principales:**
+- Nombre, apellidos, código de reserva
+- Fecha de pago, código de operación
+- Factura asociada, facturado (sí/no), fecha emisión factura
+- Fechas llegada y salida
+- Total, método de pago
+- Notas, origen, prepago (sí/no)
 
-## Informe de In-House (Huéspedes Actuales)
-
-Huéspedes actualmente alojados en la propiedad.
-
-**Columnas principales:**
-- Nombre, Apellidos
-- Nacionalidad, Número de documento
-- Habitación, Número de puerta
-- Régimen, Email, Edad
-- Llegada, Salida, Noches
-- Notas, Fuente/Origen
+**Totales:** total.
 
 ---
 
-## Informe de Huéspedes (Hosts)
+### 6. Orígenes
 
-Listado detallado de todos los huéspedes registrados.
+**URL:** [report/origins](https://app.hotelgest.com/report/origins)
 
-**Columnas principales:**
-- ID, ID de reserva, Propiedad
-- Nombre, Apellidos, Email, Teléfono
-- Nacionalidad, Idioma, País
-- Código postal, Origen
-- Fecha de creación, Llegada, Salida
-- Estado, Tipología
-- Adultos, Niños
-- Nombre y apellidos del titular de la reserva
-- Consentimiento de marketing, Edad, Fecha de nacimiento
-- NIF/CIF, Ciudad, Provincia, Dirección, Notas
+Resumen de reservas agrupadas por canal de origen (OTA).
 
----
+**Datos principales:**
+- Agencia/Canal (Booking.com, Expedia, Directa, etc.)
+- Total reservas (confirmadas y canceladas)
+- Importe total
+- Noches confirmadas
+- Fechas de llegada y salida
 
-## Informe de Orígenes
-
-Análisis de reservas agrupadas por canal de origen.
-
-**Columnas principales:**
-- Agencia/Canal
-- Total de reservas (confirmadas y canceladas)
-- Importe total (confirmadas y canceladas)
-- Total de noches confirmadas
-- Fecha de llegada, Fecha de salida
+**Totales:** reservas totales, confirmadas, canceladas, importes, noches.
 
 ---
 
-## Informe de Nacionalidades
+### 7. Morosos (Atrasado)
 
-Análisis de reservas agrupadas por nacionalidad.
+**URL:** [report/overdues](https://app.hotelgest.com/report/overdues)
 
-**Columnas principales:**
-- Nacionalidad
-- Total de reservas, Confirmadas, Canceladas
-- Fecha de llegada
-- Importe total de estancia, Importe de extras
-- Noches confirmadas, Noches canceladas
-- ALOS (Estancia media)
-- Lead Time (Antelación de reserva)
-- Adultos, Niños, Bebés
-- ADR (Tarifa media diaria)
+Reservas con pagos pendientes.
 
----
-
-## Informe de Morosos (Overdues)
-
-Reservas con pagos pendientes o facturas vencidas.
-
-**Columnas principales:**
-- Nombre, Apellidos
-- Número de reserva
-- Llegada, Salida
-- Fecha de factura, Fecha de recepción
-- Referencia de factura
-- Total, Pagado, Pendiente
+**Datos principales:**
+- Nombre, apellidos, número de reserva
+- Fechas llegada y salida
+- Fecha factura, fecha recepción, referencia factura
+- Total, pagado, pendiente
 - Origen
 
----
-
-## Informe de Empresas
-
-Listado de empresas y agencias registradas.
-
-**Columnas principales:**
-- Nombre de empresa, Nombre comercial
-- Email, Teléfono
-- Dirección, Código postal, Ciudad, País
-- NIF/CIF, Contabilidad
+**Totales:** total pagado, total pendiente, total.
 
 ---
 
-## Informe de Artículos
+### 8. Alojados (In-House)
 
-Detalle de todos los productos y servicios vendidos.
+**URL:** [report/in-house](https://app.hotelgest.com/report/in-house)
 
-**Columnas principales:**
-- Reserva, Fecha de creación
-- Inicio y fin del servicio
-- Fecha de factura, Categoría, Artículo
-- Estado de reembolso, Tipo de artículo
-- Cantidad de impuestos, Base, Impuestos, Total
-- Usuario, Pedido externo, Unidades vendidas
+Huéspedes que están alojados ahora mismo.
 
----
-
-## Informe de Autoridades
-
-Estado de los envíos a autoridades (partes de viajeros).
-
-**Columnas principales:**
-- Propiedad, Reserva
-- Fecha de creación, ID de transacción
-- Tipo de evento, Tipo de autoridad
-- Estado, Error, Fecha de reintento
+**Datos principales:**
+- Nombre, apellidos, nacionalidad, número de documento
+- Habitación, número de puerta, régimen
+- Email, edad
+- Fechas llegada y salida, noches
+- Notas, origen/canal
 
 ---
 
-## Informes Adicionales (Backoffice)
+### 9. Huéspedes
 
-Los siguientes informes están disponibles a través del backoffice de Hotelgest:
-- Contabilidad
-- Limpiezas
-- Producción
-- Ocupación
-- Régimen (Boards)
-- Cartera
-- Cierre del día
-- Impuestos
-- INE (Instituto Nacional de Estadística)
-- Policía
-- Tasa turística
-- Caja diaria
+**URL:** [report/hosts](https://app.hotelgest.com/report/hosts)
+
+Listado de todos los huéspedes registrados.
+
+**Datos principales:**
+- Nombre, apellidos, email, teléfono
+- Nacionalidad, idioma, país
+- Código postal, ciudad, provincia, dirección
+- Fecha nacimiento, edad, NIF/CIF
+- Notas, consentimiento marketing
+- Nombre y apellidos del titular de la reserva
+
+---
+
+### 10. Nacionalidades
+
+**URL:** [report/nationalities](https://app.hotelgest.com/report/nationalities)
+
+Resumen de reservas agrupadas por nacionalidad del huésped.
+
+**Datos principales:**
+- Nacionalidad
+- Total reservas (totales, confirmadas, canceladas)
+- Importe de estancia, importe de extras
+- Noches confirmadas, noches canceladas
+- ALOS (estancia media en noches)
+- Lead Time (antelación media en días)
+- Adultos, niños, bebés
+- ADR (tarifa media diaria)
+
+**Totales:** reservas totales, confirmadas, canceladas.
+
+---
+
+### 11. Artículos
+
+**URL:** [report/articles](https://app.hotelgest.com/report/articles)
+
+Listado de artículos y extras vendidos.
+
+**Datos principales:**
+- Reserva, propiedad
+- Fecha creación, inicio y fin de servicio, fecha facturación
+- Categoría, artículo
+- Estado reembolso, tipo artículo
+- Cantidad, base, impuestos, total
+- Usuario, unidades vendidas
+
+---
+
+### 12. Empresas
+
+**URL:** [report/companies](https://app.hotelgest.com/report/companies)
+
+Listado de empresas registradas.
+
+**Datos principales:**
+- Nombre empresa, nombre comercial
+- Email, teléfono
+- Dirección, código postal, ciudad, país
+- NIF/CIF, cuenta contable
+
+---
+
+### 13. Autoridades
+
+**URL:** [report/authorities](https://app.hotelgest.com/report/authorities)
+
+Estado de los envíos de partes de viajeros a las autoridades.
+
+**Datos principales:**
+- Reserva, propiedad
+- Fecha creación, ID transacción
+- Tipo evento, tipo autoridad
+- Estado: Enviado, Error, Pendiente de reintento
+- Detalle del error, fecha de reintento
+
+---
+
+## Informes adicionales (Backoffice)
+
+Estos informes están disponibles según los permisos del usuario, pero se acceden desde el backoffice (no desde la interfaz principal):
+
+| Informe | Descripción |
+|---------|-------------|
+| Contabilidad | Datos contables |
+| Limpiezas | Historial de limpiezas |
+| Producción | Producción por habitación |
+| Ocupación | Porcentajes de ocupación |
+| Régimenes | Desglose por régimen (solo alojamiento, media pensión, etc.) |
+| Cartera | Cartera de reservas futuras |
+| Cierre de turno | Resumen de operaciones del turno |
+| Impuestos | Desglose de impuestos |
+| INE | Informe para el Instituto Nacional de Estadística |
+| Tasa turística | Tasa turística por huésped |
+| Caja diaria | Movimientos de caja del día |
+
+---
+
+## Exportar un informe a Excel
+
+1. Abre el informe que quieras exportar.
+2. Aplica los filtros que necesites (fechas, estados, etc.).
+3. Haz clic en el botón **Exportar a Excel**.
+4. Si hay muchos datos, verás una barra de progreso mientras se descargan todas las páginas.
+5. El archivo se descarga en formato XLSX con las columnas visibles y en el orden actual.
+
+---
+
+## Permisos
+
+Cada informe requiere un permiso específico. Si no ves un informe en el menú, pide a tu administrador que te conceda el permiso correspondiente.

@@ -1,114 +1,84 @@
 ---
 title: Gestión multipropiedad
-description: Múltiples propiedades, selector y permisos en Hotelgest Unified.
+description: Gestionar múltiples propiedades, cambiar de propiedad y permisos por propiedad en Hotelgest Unified.
 ---
 
 # Gestión multipropiedad
 
-**URL:** El selector de propiedades está en la cabecera del menú lateral una vez dentro de la aplicación ([https://app.hotelgest.com/dashboard](https://app.hotelgest.com/dashboard)).
-
-Hotelgest Unified permite gestionar múltiples propiedades (hoteles, apartamentos, hostales, etc.) desde una única cuenta de usuario.
+Si gestionas más de un alojamiento (hotel, apartamentos, etc.), Hotelgest te permite acceder a todos desde la misma cuenta. Cada propiedad tiene su propia configuración, habitaciones, reservas e integraciones, pero los usuarios pueden ser compartidos.
 
 ---
 
-## Descripción General
+## Cómo cambiar de propiedad
 
-Cada propiedad se identifica con un **código de propiedad (pcode)** único. Un usuario puede tener acceso a una o varias propiedades, cada una con su propia configuración, habitaciones, reservas e informes.
+1. En el menú lateral, mira la parte superior: verás el nombre de la propiedad activa.
+2. Haz clic en el nombre de la propiedad.
+3. Se abre un desplegable con todas las propiedades a las que tienes acceso.
+4. Selecciona la propiedad a la que quieras cambiar.
+5. La interfaz se actualiza automáticamente con los datos de la nueva propiedad: reservas, habitaciones, informes, configuración, etc.
 
----
-
-## Selector de Propiedades
-
-### En escritorio
-- En la parte superior del menú lateral se muestra el **nombre de la propiedad activa**
-- Haz clic en el nombre para ver la lista de propiedades disponibles
-- Selecciona otra propiedad para cambiar de contexto
-
-### En móvil
-- El selector de propiedad está disponible en el menú lateral
-- Al cambiar de propiedad, toda la interfaz se actualiza con los datos de la nueva propiedad
+En móvil, el selector está disponible en el menú lateral.
 
 ---
 
-## Tipos de Propiedad
+## Qué es compartido y qué es independiente
 
-El sistema soporta diferentes tipos de alojamiento:
-- **Hotel**: Establecimiento hotelero tradicional
-- **Apartamento turístico**: Apartamentos para uso vacacional
-- **Hostal**: Alojamiento más económico
-- **Casa rural**: Alojamiento en entorno rural
-- **Camping**: Área de acampada
-- **Otros**: Cualquier tipo de alojamiento configurable
+### Compartido entre propiedades
 
-El tipo de propiedad se configura en **Configuración > Cuenta**.
+| Elemento | Detalle |
+|----------|---------|
+| **Usuarios** | Un mismo usuario puede tener acceso a varias propiedades con roles diferentes en cada una |
+| **Base de datos de clientes** | Los datos de los huéspedes se pueden compartir entre propiedades |
+| **Notas compartidas** | Si está activado, las notas de reserva son visibles entre propiedades |
 
----
+### Independiente por propiedad
 
-## Permisos por Propiedad
-
-### Roles y acceso
-- Cada usuario tiene un **rol asignado por propiedad**
-- Un mismo usuario puede tener roles diferentes en distintas propiedades
-- Los permisos se evalúan en función de la propiedad activa
-
-### Ejemplo
-| Usuario | Propiedad A | Propiedad B |
-|---------|-------------|-------------|
-| María | Administradora | Recepcionista |
-| Juan | Recepcionista | Sin acceso |
-| Ana | Administradora | Administradora |
+| Elemento | Detalle |
+|----------|---------|
+| **Habitaciones y tipos** | Cada propiedad tiene sus propios tipos de habitación y habitaciones |
+| **Tarifas y precios** | Cada propiedad define sus propias tarifas |
+| **Impuestos** | Útil si las propiedades están en regiones con impuestos diferentes |
+| **Facturación** | Numeración, prefijos y datos fiscales independientes |
+| **Motor de reservas** | Cada propiedad tiene su propia URL y personalización |
+| **Integraciones** | Cada propiedad puede tener diferentes integraciones activas |
+| **Channel Manager** | Canales de distribución independientes |
+| **Autoridades** | Configuración según la comunidad autónoma de la propiedad |
+| **Moneda** | Cada propiedad puede usar EUR, USD, GBP, etc. |
+| **Zona horaria** | Cada propiedad puede estar en una zona horaria diferente |
+| **Logo y descripción** | Branding independiente |
 
 ---
 
-## Configuración Independiente
+## Permisos por propiedad
 
-Cada propiedad tiene su propia configuración independiente:
-- **Habitaciones y tipologías**: Distintas para cada propiedad
-- **Tarifas**: Precios y restricciones propias
-- **Impuestos**: Configuración fiscal específica (útil si las propiedades están en distintas regiones)
-- **Facturación**: Numeración, prefijos y datos fiscales propios
-- **Motor de reservas**: Configuración independiente por propiedad
-- **Integraciones**: Cada propiedad puede tener sus propias integraciones activas
-- **Channel Manager**: Canales de distribución específicos
-- **Autoridades**: Configuración según la comunidad autónoma correspondiente
+Un usuario puede tener roles diferentes en cada propiedad. Por ejemplo:
+- **Admin** en el Hotel Principal.
+- **Recepción** en los Apartamentos.
+- Sin acceso a otras propiedades.
 
----
+Al cambiar de propiedad, el menú y las opciones disponibles se ajustan automáticamente según el rol del usuario en esa propiedad.
 
-## Monedas
+### Compartir un usuario entre propiedades
 
-Cada propiedad puede operar en su propia moneda:
-- **EUR** (Euro)
-- **USD** (Dólar estadounidense)
-- **GBP** (Libra esterlina)
-- Y otras monedas configurables
+1. Ve a **Configuración > Usuarios**.
+2. Selecciona el usuario.
+3. Haz clic en **Compartir entre propiedades**.
+4. Selecciona las propiedades a las que quieras darle acceso.
+5. Asigna un rol para cada propiedad.
+6. Guarda.
 
-La moneda se configura en **Configuración > Cuenta** y afecta a todos los precios, facturas e informes de esa propiedad.
+### Compartir un rol entre propiedades
+
+Si has creado un rol personalizado, puedes compartirlo con otras propiedades para no tener que crearlo de nuevo (requiere plan Unified).
 
 ---
 
-## Zonas Horarias
+## Informes multi-propiedad
 
-Cada propiedad puede tener su propia zona horaria, lo cual es especialmente útil para cadenas con propiedades en distintos países. La zona horaria afecta a:
-- Horas de check-in y check-out
-- Programación de tareas automáticas
-- Envío de notificaciones
-- Generación de informes
+Algunos informes permiten seleccionar varias propiedades a la vez para ver datos consolidados. Los totales se muestran desglosados por propiedad.
 
 ---
 
-## Datos Compartidos entre Propiedades
+## Identificación de propiedades
 
-Algunos datos pueden compartirse entre propiedades:
-- **Usuarios**: Un mismo usuario puede acceder a múltiples propiedades
-- **Notas compartidas**: Si está activado, las notas de reserva son visibles entre propiedades
-- **Clientes**: La base de datos de clientes puede ser compartida
-
----
-
-## Cambio Rápido de Propiedad
-
-Al cambiar de propiedad:
-1. El sistema actualiza toda la interfaz con los datos de la nueva propiedad
-2. Se cargan las reservas, habitaciones e informes de la propiedad seleccionada
-3. Los permisos del usuario se recalculan según su rol en la nueva propiedad
-4. La configuración (moneda, zona horaria, impuestos) se ajusta automáticamente
+Cada propiedad tiene un código único llamado **pcode** (property code). Este código se usa internamente en todas las operaciones y es visible en la URL cuando navegas por la aplicación.

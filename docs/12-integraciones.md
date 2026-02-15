@@ -1,183 +1,262 @@
 ---
-title: Integraciones y webhooks
-description: Configuración de webhooks (salientes y entrantes), autoridades, channel manager, cerraduras, firma digital y otras integraciones en Hotelgest Unified.
+title: Integraciones y Marketplace
+description: Todas las integraciones disponibles en el Marketplace de Hotelgest Unified, autoridades, pasarelas de pago, firma digital, TV y CRM.
 ---
 
-# Integraciones y webhooks
+# Integraciones y Marketplace
 
-**URL Marketplace (catálogo de integraciones):** [https://app.hotelgest.com/marketplace](https://app.hotelgest.com/marketplace)  
-**Configuración de integraciones:** desde [Configuración](https://app.hotelgest.com/settings) y las secciones específicas de cada integración.
+El Marketplace es donde activas y configuras las integraciones de Hotelgest con otros sistemas: autoridades para partes de viajeros, pasarelas de pago, firma digital de facturas, TV interactiva, CRM y más.
 
-Hotelgest Unified se integra con múltiples servicios externos para automatizar procesos, cumplir con la legislación y ampliar las funcionalidades del PMS. En esta página se explican las **integraciones** disponibles, incluidos los **webhooks** para enviar y recibir datos con sistemas externos.
+**URL:** [app.hotelgest.com/marketplace](https://app.hotelgest.com/marketplace)
 
 ---
 
-## Autoridades Españolas
+## Cómo activar una integración
 
-El sistema permite el envío automático y manual de los partes de viajeros a las autoridades competentes según la comunidad autónoma.
+1. Ve al **Marketplace** en el menú lateral.
+2. Busca la integración que quieras activar.
+3. Haz clic en **Activar**.
+4. Rellena los datos de configuración (si los tiene).
+5. Guarda.
+
+---
+
+## Autoridades (Partes de viajeros)
+
+### SES (Servicio de Seguridad del Estado)
+
+Envía automáticamente los datos de los huéspedes al SES cuando se hace check-in. Obligatorio en la mayoría de comunidades autónomas de España.
+
+**Cuándo se envían datos:**
+- Al crear una reserva confirmada: se registra la reserva.
+- Al hacer check-in: se envían los datos de los huéspedes.
+- Al cancelar: se anula el registro previo.
+
+**Configuración necesaria:**
+| Campo | Descripción |
+|-------|-------------|
+| **Usuario** | Tu usuario del SES |
+| **Contraseña** | Tu contraseña del SES |
+| **Código de establecimiento** | El código que te asigna el SES |
+| **Credenciales adicionales** | Opcional: credenciales diferentes por tipo de habitación |
+
+---
 
 ### Ertzaintza (País Vasco)
-- Envío de partes de viajeros a la Ertzaintza
-- Registro de huéspedes conforme a la normativa vasca
-- Envío automático al hacer check-in o manual desde la reserva
 
-### SES (Servicio Español de Seguridad)
-- Envío de partes al sistema SES
-- Cumplimiento de la normativa estatal de registro de viajeros
+Envía automáticamente los datos de los huéspedes a la Ertzaintza. Específico para alojamientos en el País Vasco.
+
+**Cuándo se envían datos:**
+- Al crear una reserva confirmada.
+- Al hacer check-in: se envían los datos de los huéspedes firmados digitalmente con certificado.
+
+**Configuración necesaria:**
+| Campo | Descripción |
+|-------|-------------|
+| **Certificado digital** | Ruta al certificado digital (.pfx) |
+| **Contraseña del certificado** | Contraseña para usar el certificado |
+| **ID del arrendador** | Tu identificador como arrendador |
+| **Código de establecimiento** | Código del establecimiento |
+| **Credenciales adicionales** | Opcional: por tipo de habitación |
+
+---
 
 ### Mossos d'Esquadra (Cataluña)
-- Envío de partes de viajeros a los Mossos d'Esquadra
-- Cumplimiento de la normativa catalana
 
-### Flujo de envío
-1. Al hacer **check-in** de un huésped, los datos se preparan automáticamente
-2. El sistema envía el parte a la autoridad correspondiente
-3. Puedes ver el **estado del envío** en el informe de Autoridades:
-   - **Enviado**: Parte enviado correctamente
-   - **Error**: Fallo en el envío (con detalle del error)
-   - **Pendiente de reintento**: Se reintentará automáticamente
+Integración para el envío de partes de viajeros a los Mossos d'Esquadra. Específica para alojamientos en Cataluña.
 
-### Envío manual
-Desde el detalle de la reserva, haz clic en **Autoridades** para enviar o reenviar el parte manualmente.
+**Estado:** Definida en el sistema. La configuración se gestiona desde el backoffice.
 
 ---
 
-## Firma Digital
+## Firma digital de facturas
 
 ### Verifactu
-- Sistema de **facturación electrónica** conforme a la normativa española
-- Firma digital de facturas para garantizar su integridad
-- Generación de código QR de verificación en las facturas
+
+Firma digitalmente las facturas según la normativa española. Al crear una factura, Hotelgest la firma y envía automáticamente.
+
+**Tipos de facturas que firma:**
+- Facturas normales
+- Facturas de reembolso (notas de crédito)
+
+**Flujo de activación:**
+1. Activa Verifactu en el Marketplace.
+2. Añade una descripción y selecciona si es producción o pruebas.
+3. Solicita la activación (se envía al equipo de Hotelgest).
+4. Un Super Admin revisa y aprueba la solicitud.
+5. Una vez aprobada, las facturas se firman automáticamente.
+
+**Estados de la integración:**
+| Estado | Qué significa |
+|--------|---------------|
+| **Pendiente** | Acabas de activar, puedes configurar |
+| **Solicitada** | Has solicitado la activación, esperando aprobación |
+| **Lista** | Aprobada y funcionando |
+
+**Configuración:**
+| Campo | Descripción |
+|-------|-------------|
+| **Descripción** | Texto descriptivo de la integración |
+| **Producción** | Sí/No. Indica si envía a la AEAT real o al entorno de pruebas |
+
+---
 
 ### TicketBai (País Vasco)
-- Sistema de facturación obligatorio en el País Vasco
-- Firma y envío de facturas a la Hacienda Foral
-- Cadena de facturación inalterable
+
+Sistema de firma digital de facturas específico del País Vasco. Funciona de forma similar a Verifactu.
+
+**Tipos de facturas que firma:**
+- Facturas normales
+- Facturas de reembolso
+
+**Estado:** Implementado en el backend. La configuración se gestiona desde el backoffice.
 
 ---
 
-## Channel Manager (Channex)
+## Pasarelas de pago
 
-Integración con Channex para la distribución de habitaciones y tarifas en múltiples OTAs.
+Hotelgest se integra con 4 pasarelas de pago para cobrar a los huéspedes desde el motor de reservas y desde la recepción.
 
-### Funcionalidades
-- **Sincronización de disponibilidad**: Actualización en tiempo real del inventario en todas las OTAs
-- **Sincronización de tarifas**: Precios actualizados automáticamente
-- **Recepción de reservas**: Las reservas de OTAs se importan automáticamente
-- **Prevención de overbooking**: Al recibir una reserva, la disponibilidad se actualiza en todos los canales
+### Redsys
 
-### OTAs soportadas
-- Booking.com
-- Expedia
-- Airbnb
-- Y otros canales conectados a Channex
+Pasarela de pago española ampliamente utilizada. Al pagar, el huésped es redirigido a la página segura de Redsys.
 
-### Configuración
-Ver **Configuración > Channel Manager** para los pasos de configuración.
+### Monei
 
----
+Pasarela de pago alternativa. El huésped es redirigido a la URL de Monei para completar el pago.
 
-## Cerraduras Electrónicas (Doors)
+### Paycomet
 
-Integración con sistemas de cerraduras electrónicas para acceso sin llave.
+Pasarela de pago con soporte para tokenización y pagos recurrentes.
 
-### Funcionalidades
-- **Códigos de acceso**: Generación automática de códigos PIN para los huéspedes
-- **Llaves digitales**: Envío de llaves electrónicas al móvil del huésped
-- **Control de acceso**: Gestión de permisos de acceso por habitación y período
-- **Registro de accesos**: Historial de entradas y salidas
+### Stripe
 
-### Acceso desde la reserva
-Desde el detalle de la reserva, haz clic en **Llaves** para:
-- Ver los códigos de acceso activos
-- Generar nuevos códigos
-- Desactivar códigos anteriores
+Pasarela de pago internacional con soporte para múltiples monedas y métodos de pago.
+
+**Estado:** Las 4 pasarelas están definidas en el sistema. La configuración se realiza desde el backoffice o desde la configuración de la propiedad.
 
 ---
 
-## TV (Yuvod)
+## TV interactiva
 
-Integración con el sistema de TV interactiva Yuvod.
+### Yuvod
 
-### Funcionalidades
-- Personalización de la pantalla de bienvenida del televisor
-- Información del huésped en la TV de la habitación
-- Servicios del hotel accesibles desde la TV
+Integración con el sistema de TV interactiva **Yuvod**. Cuando un huésped hace check-in, Hotelgest envía automáticamente sus datos a Yuvod para que la TV de la habitación muestre una pantalla de bienvenida personalizada con el nombre del huésped, su idioma y los servicios del hotel.
+
+#### Para qué sirve
+
+- **Pantalla de bienvenida personalizada**: la TV saluda al huésped por su nombre en su idioma.
+- **Información del huésped en la TV**: nombre, apellido, país e idioma.
+- **Actualización automática**: al hacer check-in, check-out o al cambiar de habitación, la TV se actualiza sola.
+
+#### Eventos que se envían a Yuvod
+
+Hotelgest envía datos a Yuvod en tres momentos:
+
+1. **Check-in**: cuando el huésped entra en la habitación. La TV muestra la bienvenida.
+2. **Check-out**: cuando el huésped se va. La TV vuelve al estado por defecto.
+3. **Cambio de habitación**: si se mueve al huésped a otra habitación, la TV de la nueva habitación recibe los datos.
+
+#### Datos que se envían
+
+En cada evento, Hotelgest envía a Yuvod:
+
+| Dato | Descripción |
+|------|-------------|
+| **hotelId** | Identificador del hotel en Yuvod |
+| **eventCode** | Tipo de evento: `CHECKIN`, `CHECKOUT` o `ROOMMOVE` |
+| **roomId** | Identificador de la habitación en Yuvod (mapeado desde Hotelgest) |
+| **reservation** | Número de reserva |
+| **guests** | Lista de huéspedes: nombre, apellido, país (ISO) e idioma (ISO) |
+
+#### Requisitos para que funcione
+
+1. La integración Yuvod debe estar **activada** en el Marketplace.
+2. Debe existir un **hotelId** configurado (el que te da Yuvod).
+3. Cada habitación de Hotelgest debe estar **mapeada** a su roomId de Yuvod.
+4. La reserva debe tener una **habitación asignada**. Si la reserva no tiene habitación, no se envía nada.
+
+#### Cómo activar Yuvod
+
+1. Ve a **Marketplace** en el menú lateral.
+2. Busca **Yuvod** en la lista de integraciones.
+3. Pulsa **Activar**.
+4. Introduce el **hotelId** que te ha proporcionado Yuvod.
+5. Mapea cada habitación de Hotelgest con el identificador correspondiente en Yuvod (roomId).
+6. Guarda los cambios.
+
+A partir de ese momento, cada check-in, check-out o cambio de habitación enviará los datos automáticamente.
+
+#### Qué pasa si algo falla
+
+- Si Yuvod no recibe los datos (por ejemplo, si su servidor no responde), el error queda registrado en los logs del sistema.
+- No hay reintentos automáticos. Si un envío falla, puedes hacer un check-out y check-in de nuevo para que se reenvíen los datos.
+- La integración no bloquea el check-in: si Yuvod falla, el check-in se completa igualmente en Hotelgest.
 
 ---
 
 ## CRM
 
 ### Clientify
-- Sincronización de datos de huéspedes con Clientify
-- Seguimiento de clientes y campañas
 
-### Pipedrive
-- Integración con Pipedrive CRM
-- Sincronización de contactos, negocios y organizaciones
-- Webhooks para eventos de reserva
+Integración con Clientify, un CRM para gestionar la relación con los clientes.
+
+**Estado:** Definida en el sistema. La implementación y configuración está en desarrollo.
 
 ---
 
-## Marketplace
+## Motor de reservas (Booking Engine)
 
-El **Marketplace** es el catálogo de todas las integraciones disponibles en Hotelgest Unified.
+El motor de reservas también aparece como integración en el Marketplace. Para más detalles, consulta la sección [Motor de reservas](/docs/08-motor-de-reservas).
 
-### Acceso
-Desde el menú lateral o inferior, haz clic en **Marketplace**.
+**Configuración rápida desde el Marketplace:**
+| Campo | Descripción |
+|-------|-------------|
+| **Color primario** | Color principal (hexadecimal) |
+| **Color secundario** | Color de acentos (hexadecimal) |
+| **Forma de botones** | Cuadrado, redondeado o circular |
+| **Google Tag Manager** | ID de GTM (opcional, formato GTM-XXXXXXX) |
 
-### Funcionalidades
-- **Explorar integraciones**: Ver todas las integraciones disponibles organizadas por categoría
-- **Activar/Desactivar**: Conectar o desconectar integraciones
-- **Configurar**: Ajustar los parámetros de cada integración
-- **Estado**: Ver el estado de cada integración (activa, inactiva, error)
+---
 
-### Categorías de integraciones
-- Autoridades y cumplimiento legal
-- Firma digital y facturación
-- Channel Manager y distribución
-- Cerraduras y acceso
-- TV y entretenimiento
-- CRM y marketing
-- Comunicación
-- Pasarelas de pago
+## Channel Managers
+
+Hotelgest se integra con varios channel managers para sincronizar disponibilidad y precios con las OTAs (Booking.com, Expedia, Airbnb, etc.).
+
+Los channel managers disponibles se configuran desde **Configuración > Channel Manager**.
+
+---
+
+## Cerraduras electrónicas
+
+Las integraciones de cerraduras (HubBuildings y otras) permiten:
+- Abrir puertas desde la app al hacer check-in.
+- Generar códigos PIN para los huéspedes.
+- Registrar accesos.
+
+Estas integraciones aparecen en el historial de actividad cuando se usa check-in/check-out con cerraduras.
 
 ---
 
 ## Webhooks
 
-Los webhooks permiten enviar datos automáticamente a sistemas externos cuando ocurren eventos en Hotelgest.
-
-### Webhooks salientes
-Envían información a URLs configuradas cuando:
-- Se crea, modifica o cancela una reserva
-- Se hace check-in o check-out
-- Se registra un pago
-- Otros eventos configurables
-
-### Webhooks entrantes
-Reciben información de sistemas externos:
-- Reservas de OTAs
-- Actualizaciones de disponibilidad
-- Otros datos de integraciones
-
-### Configuración
-Ver **Configuración > Webhooks** para gestionar los webhooks.
+Además de las integraciones del Marketplace, puedes configurar webhooks personalizados desde **Configuración > Webhooks** para enviar datos a cualquier sistema externo cuando ocurran eventos en Hotelgest. Consulta la sección [Configuración > Webhooks](/docs/11-configuracion#webhooks) para más detalles.
 
 ---
 
-## API Pública
+## Resumen de integraciones
 
-Hotelgest Unified ofrece una API REST pública para integraciones personalizadas.
-
-### Acceso
-- Se requiere una **API Key** (ver Configuración > API Keys)
-- La API Key se envía en la cabecera `x-api-key`
-
-### Documentación
-La documentación de la API está disponible en formato Swagger/OpenAPI.
-
-### Casos de uso
-- Integrar con software de contabilidad propio
-- Sincronizar con otros sistemas del hotel
-- Construir aplicaciones personalizadas sobre el PMS
+| Integración | Categoría | Configuración | Estado |
+|-------------|-----------|---------------|--------|
+| SES | Autoridades | Desde Marketplace | Activa |
+| Ertzaintza | Autoridades | Desde Marketplace | Activa |
+| Mossos | Autoridades | Backoffice | Definida |
+| Verifactu | Firma digital | Desde Marketplace | Activa |
+| TicketBai | Firma digital | Backoffice | Activa |
+| Redsys | Pagos | Backoffice | Activa |
+| Monei | Pagos | Backoffice | Activa |
+| Paycomet | Pagos | Backoffice | Activa |
+| Stripe | Pagos | Backoffice | Activa |
+| Yuvod | TV | Desde Marketplace | Activa |
+| Clientify | CRM | En desarrollo | Definida |
+| Motor de reservas | Reservas | Desde Marketplace | Activa |

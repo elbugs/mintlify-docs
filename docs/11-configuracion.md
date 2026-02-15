@@ -1,343 +1,277 @@
 ---
 title: Configuración y ajustes
-description: Perfil, usuarios, roles, impuestos y habitaciones en Hotelgest Unified.
+description: Usuarios, roles, permisos, propiedad, habitaciones, impuestos, facturación y todos los ajustes de Hotelgest Unified.
 ---
 
 # Configuración y ajustes
 
-**URL base:** [https://app.hotelgest.com/settings](https://app.hotelgest.com/settings)
+Desde Configuración puedes gestionar usuarios, roles, propiedad, habitaciones, tarifas, impuestos, facturación, integraciones y más. Solo los administradores tienen acceso completo a esta sección.
 
-**Subsecciones:** Perfil (`/settings/profile`), Usuarios (`/settings/users`), Roles (`/settings/roles`), Suscripción (`/settings/subscription`), API Keys (`/settings/api-keys`), Webhooks (`/settings/webhooks`), Comunicación (`/settings/communication`), Auto-asignación de tareas (`/settings/auto-assign-todos`), Políticas (`/settings/policies`), Cuenta (`/settings/account`), Reservas (`/settings/bookings`), Contabilidad (`/settings/accounting`), Habitaciones (`/settings/rooms`), Recepción autónoma (`/settings/autonomousReception`), Privacidad de datos (`/settings/dataPrivacy`), Impuestos (`/settings/taxes`), Channel Manager (`/settings/channel`).
-
-El módulo de Configuración permite personalizar todos los aspectos de Hotelgest Unified. Se accede desde el menú **Configuración** (icono de engranaje).
+**URL:** [app.hotelgest.com/settings](https://app.hotelgest.com/settings)
 
 ---
 
-## Perfil
+## Secciones de configuración
 
-Gestión de tu cuenta de usuario personal.
-
-### Datos personales
-- **Nombre** y **apellidos**
-- **Nombre de usuario** (solo lectura o editable según permisos)
-- **Correo electrónico**
-
-### Seguridad
-- **Cambiar contraseña**: Introduce la contraseña actual y la nueva
-- **Autenticación de dos factores (2FA)**: Activar o desactivar la verificación con aplicación de autenticación (Google Authenticator, Authy, etc.)
-
-### Sesiones
-- Lista de **sesiones activas** en distintos dispositivos
-- **Cerrar sesiones** en dispositivos remotos
-
-### Consentimiento
-- Gestión del consentimiento de tratamiento de datos
-
----
-
-## Usuarios
-
-Gestión de los usuarios que acceden al sistema.
-
-### Lista de usuarios
-Tabla con las columnas:
-- Nombre de usuario
-- Nombre completo
-- Email
-- Rol asignado
-- Habitaciones asignadas
-
-### Acciones
-- **Añadir usuario**: Crear un nuevo usuario con nombre, apellidos, email, contraseña, rol y permisos de habitación
-- **Editar**: Modificar los datos de un usuario existente
-- **Bloquear/Desbloquear**: Suspender el acceso de un usuario sin eliminarlo
-- **Compartir**: Compartir credenciales con el usuario
-- **Eliminar**: Eliminar un usuario permanentemente
-- **Activar/Desactivar 2FA**: Gestionar la autenticación de dos factores por usuario
-- **Enviar email de verificación**: Reenviar el email de verificación
+| Sección | URL | Qué configura |
+|---------|-----|---------------|
+| Perfil | `/settings/profile` | Tu cuenta personal, contraseña, 2FA |
+| Usuarios | `/settings/users` | Crear, editar y gestionar usuarios |
+| Roles | `/settings/roles` | Roles y permisos personalizados |
+| Suscripción | `/settings/subscription` | Plan actual y facturación del servicio |
+| API Keys | `/settings/apikeys` | Claves de API para integraciones |
+| Webhooks | `/settings/webhooks` | Webhooks para enviar datos a otros sistemas |
+| Comunicación | `/settings/communication` | Plantillas de WhatsApp y ajustes de email |
+| Auto-asignación de tareas | `/settings/auto-assign-todos` | Reglas automáticas para asignar tareas |
+| Políticas de cancelación | `/settings/policies` | Políticas estándar y personalizadas |
+| Alojamiento | `/settings/account` | Datos de la propiedad (nombre, dirección, logo) |
+| Impuestos y tasas | `/settings/taxes` | Impuestos, tasa turística, recargo municipal |
+| Facturación y contabilidad | `/settings/accounting` | Datos fiscales, numeración de facturas |
+| Habitaciones | `/settings/rooms` | Tipos de habitación y habitaciones físicas |
+| LOPD / RGPD | `/settings/data-privacy` | Protección de datos y períodos de conservación |
+| Reservas | `/settings/bookings` | Campos obligatorios, colores, horarios |
+| Recepción autónoma | `/settings/autonomous-reception` | Check-in online y web app |
+| Channel Manager | `/settings/channel` | Configuración de canales de distribución |
 
 ---
 
-## Roles
+## Gestión de usuarios
 
-Gestión de roles y permisos de acceso.
+**URL:** [settings/users](https://app.hotelgest.com/settings/users)
 
-### Crear un rol
-1. Haz clic en **Añadir rol**
-2. Asigna un **nombre** al rol
-3. Configura los **permisos** por módulo:
+### Crear un usuario
+
+1. Haz clic en **Añadir usuario**.
+2. Rellena los campos:
+   - **Nombre de usuario** (único, sin espacios, en minúsculas)
+   - **Contraseña**
+   - **Nombre y apellidos**
+   - **Email** (opcional)
+   - **Rol** (selecciona uno de los roles disponibles)
+3. Guarda.
+
+### Acciones sobre un usuario
+
+| Acción | Qué hace |
+|--------|----------|
+| Editar | Cambiar nombre, email, contraseña, rol |
+| Bloquear | Impide que el usuario acceda al sistema |
+| Desbloquear | Devuelve el acceso |
+| Deshabilitar 2FA | Desactiva la autenticación en dos pasos del usuario |
+| Reenviar email de verificación | Envía otro email para verificar la cuenta |
+| Compartir entre propiedades | Permite que el usuario acceda a otras propiedades |
+| Eliminar | Desactiva el usuario (se puede restaurar) |
+| Restaurar | Reactiva un usuario eliminado |
+
+---
+
+## Gestión de roles y permisos
+
+**URL:** [settings/roles](https://app.hotelgest.com/settings/roles)
+
+### Roles predefinidos
+
+| Rol | Descripción |
+|-----|-------------|
+| **Admin** | Acceso completo a todo |
+| **Dirección** | Acceso amplio, similar a Admin |
+| **Recepción** | Gestión de reservas, check-in/out, facturación |
+| **Limpieza (Cleaner)** | Solo housekeeping |
+| **Informes (Reports)** | Solo informes y reportes |
+| **DPO** | Delegado de Protección de Datos |
+| **VRO** | Rol VRO |
+
+### Crear un rol personalizado
+
+Solo disponible en el plan Unified.
+
+1. Ve a **Configuración > Roles**.
+2. Haz clic en **Crear rol**.
+3. Escribe un nombre.
+4. Selecciona los permisos que quieras asignar (mínimo 1).
+5. Guarda.
 
 ### Módulos de permisos
 
-| Módulo | Permisos disponibles |
-|--------|---------------------|
-| **Dashboard** | Ver dashboard, ver widgets específicos |
-| **Calendario** | Ver planificación, crear/editar/mover reservas |
-| **Reservas** | Ver, crear, editar, eliminar, check-in, check-out, escanear |
-| **Housekeeping** | Ver rack, cambiar estados, gestionar limpieza |
-| **Menú** | Acceso a secciones del menú lateral |
-| **Configuración** | Acceso a las distintas secciones de configuración |
+Los permisos se organizan por módulos:
 
-### Acciones sobre roles
-- **Editar**: Modificar nombre y permisos
-- **Eliminar**: Eliminar el rol (no puede estar asignado a usuarios)
-- **Compartir**: Exportar la configuración del rol
-- **Crear desde plantilla**: Usar un rol existente como base
+**Dashboard:** ver widgets, autoPricing, lista de reservas, orígenes, ocupación, housekeeping, ingresos, estado, tareas.
+
+**Calendario:** añadir bloqueos, eliminar bloqueos.
+
+**Reservas:** crear, editar, mover, check-in, check-out, ver precios, ver nombres, gestionar artículos, facturas, proformas, pagos, enviar email, enviar WhatsApp, abrir web app, escanear documentos, gestionar notas, gestionar tareas, gestionar limpieza, agrupar reservas, ver autoridades.
+
+**Housekeeping:** ver datos.
+
+**Configuración:** cuenta, comunicación, channel manager, planning, motor de reservas, facturación, contabilidad, pagos, notificaciones, logs, gestores, recepción autónoma, marketplace, teléfono, programa de referidos, LOPD, API, propietarios, chat, portabilidad.
+
+**Menú:** controla qué secciones del menú lateral puede ver el usuario (dashboard, planning, tarifas, cada informe, motor de reservas, bandeja, mensajes, marketing, configuración, actividad, housekeeping, facturación).
 
 ---
 
-## Suscripción
+## Configuración de la propiedad
 
-Gestión del plan de suscripción y facturación.
+**URL:** [settings/account](https://app.hotelgest.com/settings/account)
 
-- Ver el **plan actual** contratado
-- **Cambiar de plan**: Upgrade o downgrade
-- **Gestionar facturación**: Datos de pago, historial de facturas
-- Integración con **Chargebee** para la gestión de suscripciones
+### Datos básicos
+- Nombre de la propiedad
+- Teléfono, email, web
+- Tipo de propiedad
+- Moneda (EUR, USD, GBP, etc.)
+- Zona horaria
+
+### Ubicación
+- País, provincia, ciudad
+- Dirección, número, código postal
+- Coordenadas (latitud, longitud)
+- Al guardar la ubicación, se genera automáticamente el widget del tiempo.
+
+### Contenido
+- Descripción (multilingüe)
+- Información adicional (multilingüe): horarios, condiciones, indicaciones.
+- Nota legal (multilingüe)
+- Aviso de tasa turística (multilingüe)
+
+### Logo
+- Imagen del logo (máx. 1 MB, 220x220 px)
+- Opción de usar el logo en los emails enviados
+
+### Galería de imágenes
+- Subir imágenes de la propiedad (máx. 2 MB, 1500x1500 px por imagen)
+- Reordenar arrastrando
+- Eliminar imágenes
+
+---
+
+## Tipos de habitación y habitaciones
+
+**URL:** [settings/rooms](https://app.hotelgest.com/settings/rooms)
+
+### Tipo de habitación (tipología)
+Cada tipo agrupa habitaciones con las mismas características:
+- Nombre y descripción (multilingüe)
+- Camas, baños, tamaño (m²)
+- Ocupación máxima
+- Servicios incluidos
+- Fotografías (con reordenación)
+- Código INE (para el Instituto Nacional de Estadística)
+- Coste extra de limpieza
+- Visible en inventario y motor de reservas
+
+### Habitación física
+Cada habitación pertenece a un tipo:
+- Número de puerta
+- Piso
+- Orden de visualización
+
+---
+
+## Impuestos y tasas
+
+**URL:** [settings/taxes](https://app.hotelgest.com/settings/taxes)
+
+| Campo | Descripción |
+|-------|-------------|
+| Impuesto local | Porcentaje del impuesto principal |
+| Impuestos adicionales | Porcentaje adicional |
+| Tasa turística | Número de noches, precio por adulto y por niño (impuestos excluidos) |
+| Recargo municipal | Número de noches, precio por adulto y por niño |
+| Programar temporadas | Tarifas específicas para períodos concretos |
+
+---
+
+## Configuración de reservas
+
+**URL:** [settings/bookings](https://app.hotelgest.com/settings/bookings)
+
+### Horarios
+- Hora máxima de check-in (motor de reservas)
+- Hora máxima de check-in (recepción)
+- Hora máxima de check-out
+
+### Asignación y presentación
+- Asignar reservas al playground por defecto
+- Ocultar tipos de habitación en planning
+- Ordenar habitaciones por nombre
+- Requerir pago para hacer check-out
+- Colores personalizados para reservas (definir colores con nombre)
+
+### Campos obligatorios al crear reserva
+Puedes marcar como obligatorios: nombre, apellidos, teléfono, dirección, ciudad, código postal, hora de llegada, email, documento de identidad, segmento.
+
+### Otras opciones
+- Número de decimales en precios
+- Notas compartidas en grupos de reservas
+- Notas compartidas en reservas canceladas
+- Días de limpieza por defecto
+- No reemplazar titular al escanear documento
+- Considerar comida como media pensión por defecto
+
+---
+
+## Facturación y contabilidad
+
+**URL:** [settings/accounting](https://app.hotelgest.com/settings/accounting)
+
+- Datos fiscales: nombre legal, NIF, dirección fiscal
+- Prefijos y numeración de facturas, proformas y notas de crédito
+- Preferencias de facturación
+- Campos obligatorios al generar facturas
+- Avisos legales y pie de factura
+
+---
+
+## Políticas de cancelación
+
+**URL:** [settings/policies](https://app.hotelgest.com/settings/policies)
+
+Tres tipos:
+- **Políticas estándar**: se aplican a todas las reservas.
+- **Plantillas de políticas**: textos reutilizables.
+- **Políticas personalizadas**: se aplican a tipos de habitación o períodos concretos.
+
+Cada política tiene una descripción multilingüe.
+
+---
+
+## Protección de datos (LOPD / RGPD)
+
+**URL:** [settings/data-privacy](https://app.hotelgest.com/settings/data-privacy)
+
+Configura los períodos de conservación de datos:
+
+| Tipo de dato | Opciones |
+|-------------|----------|
+| Datos identificativos | No eliminar, 1-10 años |
+| Documentos de identidad | No eliminar, 1-10 años |
+| Imágenes | No eliminar, 1-10 años |
+| Datos biométricos | No eliminar, 1-10 años |
+| Datos de facturación | No eliminar, 1-10 años |
+| Notas internas | No eliminar, 1-10 años |
+
+Incluye también la configuración de la nota legal.
 
 ---
 
 ## API Keys
 
-Gestión de claves de API para integraciones externas.
+**URL:** [settings/apikeys](https://app.hotelgest.com/settings/apikeys)
 
-### Lista de API Keys
-- **Descripción** de la clave
-- **Fecha de creación**
-- **Estado**: Habilitada o deshabilitada
-
-### Crear una API Key
-1. Haz clic en **Añadir API Key**
-2. Introduce una **descripción** identificativa
-3. La clave se genera automáticamente
-4. **Copia la clave** (solo se muestra una vez)
+Crea claves de API para que otros sistemas se conecten a Hotelgest:
+- Crear API key con descripción.
+- Ver la lista de claves activas.
+- Eliminar claves.
+- Acceder a la documentación de la API.
 
 ---
 
 ## Webhooks
 
-Configuración de webhooks para enviar datos a sistemas externos cuando ocurren eventos.
+**URL:** [settings/webhooks](https://app.hotelgest.com/settings/webhooks)
 
-### Eventos disponibles
-- Nueva reserva
-- Modificación de reserva
-- Cancelación de reserva
-- Check-in
-- Check-out
-- Pago recibido
-
-### Configurar un webhook
-1. Haz clic en **Añadir webhook**
-2. Introduce la **URL** de destino
-3. Selecciona los **eventos** que activarán el webhook
-4. Opcionalmente, añade **cabeceras** personalizadas
-5. Activa o desactiva el webhook
-
----
-
-## Auto-asignación de Tareas
-
-Automatiza la creación de tareas según reglas predefinidas.
-
-### Crear una regla
-1. Haz clic en **Añadir regla**
-2. Define el **nombre** de la regla
-3. Configura las **condiciones** (cuándo se activa)
-4. Define las **tareas** que se crean automáticamente
-5. Asocia **recursos** (habitaciones, usuarios) a los que aplica
-
-### Gestión de reglas
-- **Ver tareas**: Ver las tareas generadas por esta regla
-- **Ver recursos**: Ver los recursos asociados
-- **Editar**: Modificar la regla
-- **Activar/Desactivar**: Habilitar o deshabilitar la regla
-- **Eliminar**: Eliminar la regla
-
----
-
-## Comunicación
-
-Gestión de plantillas de comunicación.
-
-### Plantillas de WhatsApp
-- **Crear plantilla**: Nombre, contenido, idiomas
-- **Editar**: Modificar el contenido
-- **Activar/Desactivar**: Habilitar o deshabilitar
-- Ver **fecha de creación** e idiomas configurados
-
----
-
-## Políticas
-
-Configuración de políticas de cancelación para las reservas.
-
-### Tipos de política
-- **Flexible**: Cancelación gratuita hasta una fecha determinada
-- **No reembolsable**: Sin posibilidad de cancelación gratuita
-
-### Gestión
-- **Ver plantillas**: Políticas predefinidas del sistema
-- **Ver políticas personalizadas**: Políticas creadas por ti
-- **Añadir política**: Crear una nueva política con sus condiciones
-
----
-
-## Cuenta
-
-Información y configuración de la propiedad.
-
-### Datos de la propiedad
-| Campo | Descripción |
-|-------|-------------|
-| **Tipo de propiedad** | Hotel, apartamento turístico, hostal, etc. |
-| **Nombre** | Nombre del establecimiento |
-| **Teléfono** | Número de contacto |
-| **Email** | Correo electrónico de la propiedad |
-| **Web** | Sitio web |
-| **Moneda** | Moneda de operación (EUR, USD, GBP, etc.) |
-| **Logo** | Logo del establecimiento |
-| **Descripción** | Descripción del alojamiento |
-
-### Ubicación
-- Dirección
-- Ciudad
-- Código postal
-- Provincia
-- País
-- Zona horaria
-
-### Imágenes
-- Galería de fotos de la propiedad
-
----
-
-## Privacidad de Datos
-
-Configuración de retención y protección de datos conforme al RGPD.
-
-### Retención de datos
-- **Período**: De 1 a 10 años
-- Datos afectados:
-  - Datos de identificación
-  - Número de documento
-  - Imágenes de documentos
-  - Datos de facturación
-  - Notas internas
-
----
-
-## Impuestos
-
-Configuración de impuestos aplicables.
-
-### Impuesto local
-- Configuración del IVA u otros impuestos locales
-
-### Impuestos adicionales
-- Configuración de impuestos extra
-
-### Tasa turística
-- **Precio por adulto** por noche
-- **Precio por niño** por noche
-- **Número de noches** que aplica
-- **Recargo municipal** (si procede)
-- **Tarifas por temporada** (si varían según la época)
-
----
-
-## Contabilidad
-
-Configuración del sistema de facturación.
-
-### Datos fiscales de la empresa
-- Nombre fiscal
-- NIF/CIF
-- Dirección fiscal
-
-### Numeración de documentos
-- **Prefijo de facturas**: Ej. "F-"
-- **Prefijo de proformas**: Ej. "P-"
-- **Prefijo de notas de crédito**: Ej. "NC-"
-- **Prefijo de servicios**: Ej. "S-"
-
-### Impuestos en facturas
-- Configuración de los tipos impositivos aplicables
-
-### Opciones de facturación
-- **Campos obligatorios**: Qué datos del cliente son requeridos en la factura
-- **Hora de cierre**: Hora a la que se cierra la contabilidad del día
-- **Opciones de facturación**: Configuración avanzada
-- **Pie de factura**: Texto legal o informativo en la parte inferior
-
----
-
-## Habitaciones
-
-Gestión de habitaciones y tipologías.
-
-### Tipologías de habitación
-Cada tipología incluye:
-| Campo | Descripción |
-|-------|-------------|
-| **Nombre** | Nombre del tipo (Doble, Suite, Individual, etc.) |
-| **Camas** | Número de camas |
-| **Baños** | Número de baños |
-| **Tamaño** | Metros cuadrados |
-| **Ocupación** | Máxima y mínima |
-| **Número de puerta** | Número identificativo |
-| **Planta** | En qué planta se encuentra |
-| **Orden** | Orden de visualización |
-| **Inventario** | Unidades disponibles |
-| **Motor de reservas** | Si se muestra en el Booking Engine |
-| **Fotos** | Galería de imágenes |
-| **Ubicación** | Posición en el mapa del hotel |
-| **Coste de limpieza** | Precio por limpieza |
-| **Tipo INE** | Clasificación para el Instituto Nacional de Estadística |
-
----
-
-## Reservas (Configuración)
-
-Opciones que afectan al funcionamiento de las reservas.
-
-### Operación diaria
-- Configuración de la operativa diaria
-
-### Campos obligatorios
-Selecciona qué campos son obligatorios al crear una reserva:
-- Nombre, Apellidos, Teléfono, Dirección, etc.
-
-### Opciones
-- **Decimales**: Número de decimales en precios
-- **Notas compartidas**: Si las notas son visibles entre propiedades
-- **Días de limpieza**: Periodicidad de limpieza (0 = desactivado)
-- **Hora de check-in**: Hora estándar de entrada
-- **Hora de check-out**: Hora estándar de salida
-- **Asignación de habitación**: Automática o manual
-- **Check-out restrictivo**: Si se requiere facturación completa para hacer check-out
-- **Colores**: Personalización de colores por estado o origen
-
-### Comunicación con el huésped
-- Configuración de emails automáticos
-- Configuración de mensajes
-
-### Configuración SMTP
-- Servidor SMTP propio para envío de emails desde tu dominio
-
----
-
-## Recepción Autónoma
-
-Configuración del sistema de check-in automático. Ver la sección [Recepción Automática](10-recepcion-automatica.md) para más detalles.
-
----
-
-## Channel Manager
-
-Integración con el Channel Manager (Channex) para gestionar la distribución en OTAs.
-
-### Pasos de configuración
-1. **Inventario**: Configurar el inventario de habitaciones
-2. **Reservas**: Configurar la sincronización de reservas
-3. **Habitaciones**: Mapear las habitaciones con los canales
-4. **Canales**: Conectar y configurar cada OTA (Booking.com, Expedia, etc.)
+Configura webhooks para que Hotelgest envíe datos automáticamente a otros sistemas:
+- URL de destino.
+- Eventos que disparan el envío.
+- Autenticación básica (opcional).
+- Ver logs de envíos.
+- Probar un webhook.
