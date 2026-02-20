@@ -204,6 +204,38 @@ Integración con Clientify, un CRM para gestionar la relación con los clientes.
 
 ---
 
+## Puntos de venta (POS)
+
+Las integraciones con sistemas de punto de venta (POS) como Ágora permiten enviar cargos desde restaurantes, bares, spa y otros servicios directamente al PMS.
+
+### Cómo funcionan los cargos
+
+Los cargos enviados desde el punto de venta siempre van vinculados a una **habitación con reserva activa**. No es posible procesar cargos "sueltos" que no estén asociados a ninguna reserva.
+
+**Flujo de un cargo:**
+1. El empleado selecciona la habitación del huésped en el POS.
+2. El POS envía el cargo al PMS.
+3. Hotelgest recibe el cargo y lo asocia a la reserva de esa habitación.
+4. El cargo aparece en la cuenta del huésped.
+
+### Requisitos para que un cargo se procese
+
+| Requisito | Descripción |
+|-----------|-------------|
+| **Habitación asignada** | El cargo debe ir dirigido a una habitación específica |
+| **Reserva activa** | La habitación debe tener una reserva con check-in realizado |
+| **Integración activa** | La integración POS debe estar configurada y activa |
+
+### Qué pasa si no hay reserva
+
+Si se intenta enviar un cargo a una habitación sin reserva activa, el cargo **no se procesará**. El sistema requiere siempre el vínculo entre cargo, habitación y reserva.
+
+**Alternativas:**
+- Cobrar directamente en el punto de venta (sin enviar al PMS).
+- Crear una reserva de paso (walk-in) para asociar el cargo.
+
+---
+
 ## Motor de reservas (Booking Engine)
 
 El motor de reservas también aparece como integración en el Marketplace. Para más detalles, consulta la sección [Motor de reservas](/docs/08-motor-de-reservas).
