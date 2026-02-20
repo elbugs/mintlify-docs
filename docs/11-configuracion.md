@@ -46,9 +46,13 @@ Desde Configuración puedes gestionar usuarios, roles, propiedad, habitaciones, 
    - **Nombre de usuario** (único, sin espacios, en minúsculas)
    - **Contraseña**
    - **Nombre y apellidos**
-   - **Email** (opcional)
+   - **Email** (obligatorio para Admin, opcional para otros roles)
    - **Rol** (selecciona uno de los roles disponibles)
 3. Guarda.
+
+<Callout type="info" title="Requisito de email por rol">
+  El correo electrónico es **obligatorio únicamente para usuarios con rol Admin** debido al proceso de verificación. Para otros roles como Limpieza, Recepción o Informes, el email es opcional.
+</Callout>
 
 ### Acciones sobre un usuario
 
